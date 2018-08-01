@@ -6,5 +6,13 @@ Other repositories:
 
 [Forked Git lesson repo](https://github.com/adihipo/git-lesson-repository)
 
-And finally my syllabus:
-[My page on GitHub](https://github.com/adihipo "adihipo")
+
+My page:
+
+[adihipo on GitHub](https://github.com/adihipo "adihipo")
+
+
+My syllabus:
+
+[GF/ Teapot](https://github.com/green-fox-academy/teapot-syllabus)
+
