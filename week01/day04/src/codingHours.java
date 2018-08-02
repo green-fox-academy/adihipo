@@ -7,7 +7,7 @@ public class codingHours {
     System.out.println(daily * days);
 
     double average = 52.;
-    double percentage = (average / (daily * days)) *100;
+    double percentage = ((daily * days)/17)/ average *100;
     System.out.println(percentage + " %");
 
   }
