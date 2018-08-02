@@ -22,41 +22,26 @@ public class variableMutation {
 
     int f1 = 123;
     int f2 = 345;
-    if (f1 > f2){
-      System.out.println("f1 bigger");
-    } else {
-      System.out.println("f2 bigger");
-    };
+    boolean fb = (f1 > f2);
+    System.out.println(fb);
 
     int g1 = 350;
     int g2 = 200;
-    if (g2*2 > g1){
-      System.out.println("double of g2 wins");
-    } else {
-      System.out.println("g1 wins");
-    };
+    boolean gb = (g2*2 > g1);
+    System.out.println(gb);
 
     int h = 135798745;
-    if (h % 11 == 0){
-      System.out.println("11 divisor");
-    } else {
-      System.out.println("11 not divisor");
-    };
+    boolean hb = (h % 11 == 0);
+    System.out.println(hb);
 
     int i1 = 10;
     int i2 = 3;
-    if (i1 > i2*i2 && i1 < i2*i2*i2){
-      System.out.println("true");
-    } else {
-      System.out.println("false");
-    };
+    boolean ib = (i1 > i2*i2 && i1 < i2*i2*i2);
+    System.out.println(ib);
 
     int j = 1521;
-    if (j % 3 == 0 || j % 5 ==0){
-      System.out.println("true");
-    } else {
-      System.out.println("false");
-    };
+    boolean jb = (j % 3 == 0 || j % 5 ==0);
+    System.out.println(jb);
 
     String k = "Apple";
     k= k +" "+ k +" "+ k +" "+ k;
