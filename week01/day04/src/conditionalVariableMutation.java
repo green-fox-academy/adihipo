@@ -28,10 +28,10 @@ public class conditionalVariableMutation {
     int credits = 100;
     boolean isBonus = false;
     if(credits>49 && isBonus==false){
-      c+=2;
+      c-=2;
     }
     if(credits<50 && isBonus==false){
-      c++;
+      c--;
     }
     System.out.println(c);
 
