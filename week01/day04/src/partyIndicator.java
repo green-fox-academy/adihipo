@@ -12,7 +12,8 @@ public class partyIndicator {
 
     if(n1 ==0){
       System.out.println("Sausage party");
-    }else if (sum > 20 && n1 == n2){
+    }else
+      if (sum > 20 && n1 == n2){
         System.out.println("The party is excellent!");
       }
       if(sum > 20 && n1 != n2){
