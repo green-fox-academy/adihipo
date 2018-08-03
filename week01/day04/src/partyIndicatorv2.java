@@ -15,12 +15,12 @@ public class partyIndicatorv2 {
     }else
       if (sum > 20) {
         if (n1 == n2) {
-        System.out.println("The party is excellent!");
+          System.out.println("The party is excellent!");
         }else {
-        System.out.println("Quite cool party!");
+          System.out.println("Quite cool party!");
         }
       }else{
-      System.out.println("Average party...");
+        System.out.println("Average party...");
     }
   }
 }
