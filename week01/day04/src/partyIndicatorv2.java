@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class partyIndicator {
+public class partyIndicatorv2 {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Number of girls coming to the parteeeh: ");
@@ -12,14 +12,15 @@ public class partyIndicator {
 
     if(n1 ==0){
       System.out.println("Sausage party");
-    }else if (sum > 20 && n1 == n2){
+    }else
+      if (sum > 20) {
+        if (n1 == n2) {
         System.out.println("The party is excellent!");
-      }
-      if(sum > 20 && n1 != n2){
+        }else {
         System.out.println("Quite cool party!");
-      }
-      if(sum < 20){
-        System.out.println("Average party...");
-      }
+        }
+      }else{
+      System.out.println("Average party...");
     }
   }
+}
