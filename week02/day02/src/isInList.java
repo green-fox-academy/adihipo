@@ -7,6 +7,6 @@ public class isInList {
   }
 
   public static boolean checkNums(ArrayList list) {
-    return list.containsAll(4, 8, 12, 16);
+    return list.containsAll(Arrays.asList(4, 8, 12, 16));
   }
 }
