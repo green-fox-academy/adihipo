@@ -6,12 +6,22 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class ToTheCenter {
   public static void mainDraw(Graphics graphics) {
-    int x = 0;
-    int y = 0;
-    for (int i = 0; i < 3; i++) {
-      graphics.setColor(new Color(50 + i * 80, i * 10, 50 + i * 80, 255));
-      graphics.drawLine(x + i * 100, y, WIDTH / 2, HEIGHT / 2);
-    }
+    int x = 30;
+    int y = 80;
+    center(x, y, graphics);
+
+    x = 50;
+    y = 0;
+    center(x, y, graphics);
+
+    x = 130;
+    y = 200;
+    center(x, y, graphics);
+  }
+
+  public static void center(int x, int y, Graphics graphics) {
+    graphics.setColor(new Color(80, 10, 250, 255));
+    graphics.drawLine(x, y, WIDTH / 2, HEIGHT / 2);
   }
 
   // Don't touch the code below

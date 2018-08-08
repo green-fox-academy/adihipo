@@ -4,14 +4,22 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class FillWithRectangle {
+public class CenteredBoxing {
 
   public static void mainDraw(Graphics graphics) {
+    int size = 60;
+    square(size, graphics);
 
-    for (int i = 0; i < 4; i++) {
-      graphics.setColor(new Color(80, 255 - i * 80, 200, 255));
-      graphics.fillRect(0 + i * 20, 0 + i * 20, 10 + i*20, 10+ i*20);
-    }
+    size = 100;
+    square(size, graphics);
+
+    size = 20;
+    square(size, graphics);
+  }
+
+  public static void square(int size, Graphics graphics) {
+    graphics.setColor(new Color(80, 255, 200, 255));
+    graphics.fillRect(WIDTH / 2 - size / 2, HEIGHT / 2 - size / 2, size, size);
   }
 
   //    Don't touch the code below

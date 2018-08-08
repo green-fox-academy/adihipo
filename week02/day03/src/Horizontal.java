@@ -6,12 +6,23 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Horizontal {
   public static void mainDraw(Graphics graphics) {
-    int x = 0;
-    int y = 0;
-    for (int i = 0; i < 3; i++) {
-      graphics.setColor(new Color(i * 110, i * 10, i * 40, 255));
-      graphics.drawLine(x, y + i * 50, x + 50, y + i * 50);
-    }
+    int x = 80;
+    int y = 50;
+    horizontal(x, y, graphics);
+
+    x = 20;
+    y = 40;
+    horizontal(x, y, graphics);
+
+    x = 200;
+    y = 50;
+    horizontal(x, y, graphics);
+  }
+
+
+  public static void horizontal(int x, int y, Graphics graphics) {
+    graphics.setColor(new Color(80, 10, 250, 255));
+    graphics.drawLine(x, y, x + 50, y);
   }
 
   // Don't touch the code below
