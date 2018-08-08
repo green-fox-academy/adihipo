@@ -1,23 +1,24 @@
 import javax.swing.*;
 
 import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class ConnectTheDots {
   public static void mainDraw(Graphics graphics) {
+    int[] dots = {10, 10, 290, 10, 290, 290, 10, 290, 10, 10};
+//    int[] dots = {50, 100, 70, 70, 80, 90, 90, 90, 100, 70, 120, 100, 85, 130, 50, 100};  //Another "riddle" (foxFace)
 
-
-    // Create a function that takes 1 parameter:
-    // An array of {x, y} points
-    // and connects them with green lines.
-    // Connect these to get a box: {{10, 10}, {290,  10}, {290, 290}, {10, 290}}
-    // Connect these: {{50, 100}, {70, 70}, {80, 90}, {90, 90}, {100, 70},
-    // {120, 100}, {85, 130}, {50, 100}}
+    connect(dots, graphics);
   }
 
-  public static List connect() {
-    
+  public static void connect(int[] dots, Graphics graphics) {
+    graphics.setColor(Color.GREEN);
+    for (int i = 0; i <= dots.length - 3; i += 2) {
+      graphics.drawLine(dots[i], dots[i + 1], dots[i + 2], dots[i + 3]);
+    }
   }
 
   // Don't touch the code below
