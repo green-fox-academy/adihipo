@@ -4,19 +4,14 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class ColoredBox {
+public class Horizontal {
   public static void mainDraw(Graphics graphics) {
-    graphics.setColor(new Color(200, 20, 80, 255));
-    graphics.drawLine(WIDTH / 4, HEIGHT / 4, WIDTH / 4, HEIGHT - HEIGHT / 4);
-
-    graphics.setColor(new Color(255, 0, 255, 255));
-    graphics.drawLine(WIDTH / 4, HEIGHT - HEIGHT / 4, WIDTH - WIDTH / 4, HEIGHT - HEIGHT / 4);
-
-    graphics.setColor(new Color(80, 0, 80, 255));
-    graphics.drawLine(WIDTH - WIDTH / 4, HEIGHT - HEIGHT / 4, WIDTH - WIDTH / 4, HEIGHT / 4);
-
-    graphics.setColor(new Color(160, 0, 160, 255));
-    graphics.drawLine(WIDTH - WIDTH / 4, HEIGHT / 4, WIDTH / 4, HEIGHT / 4);
+    int x = 0;
+    int y = 0;
+    for (int i = 0; i < 3; i++) {
+      graphics.setColor(new Color(i * 110, i * 10, i * 40, 255));
+      graphics.drawLine(x, y + i * 50, x + 50, y + i * 50);
+    }
   }
 
   // Don't touch the code below
