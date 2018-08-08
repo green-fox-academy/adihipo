@@ -6,15 +6,11 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class MiddleLine {
   public static void mainDraw(Graphics graphics) {
-    graphics.setColor(new Color(255, 255, 10, 10));
-    graphics.drawLine(10, 10, 100, 100);
+    graphics.setColor(new Color(0, 255, 0, 100));
+    graphics.drawLine(WIDTH/2, 0, WIDTH/2, HEIGHT);
 
-    graphics.setColor(new Color(255, 10, 0, 10));
-    graphics.drawLine(0, 0, 200, 50);
-    // draw a red horizontal line to the canvas' middle.
-    // draw a green vertical line to the canvas' middle.
-
-
+    graphics.setColor(new Color(255, 0, 0, 100));
+    graphics.drawLine(0, HEIGHT/2, WIDTH, HEIGHT/2);
   }
 
   // Don't touch the code below
