@@ -23,7 +23,7 @@ public class FunctionToCenter {
   }
 
   public static void center(int x, int y, Graphics graphics) {
-    graphics.setColor(new Color(250, 5, 150, 255));
+    graphics.setColor(new Color(200, 0, 250, 255));
     graphics.drawLine(x, y, WIDTH / 2, HEIGHT / 2);
   }
 
