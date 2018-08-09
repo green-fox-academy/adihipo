@@ -19,8 +19,8 @@ public class LinePlay {
         color2 = 255;
         color3 = 200;
       }
-      for (int x = 0; x <= WIDTH; x += 5) {
-        for (int y = 0; y <= HEIGHT; y += 5) {
+      for (int x = 0; x <= WIDTH; x += 10) {
+        for (int y = 0; y <= HEIGHT; y += 10) {
           if (x == y) {
             draw(sides, x, y, color1, color2, color3, graphics);
           }

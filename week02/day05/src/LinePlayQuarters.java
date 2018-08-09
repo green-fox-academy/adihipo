@@ -6,12 +6,12 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class LinePlayQuarters {
   public static void mainDraw(Graphics graphics) {
-    int color1 = 0;
-    int color2 = 0;
-    int color3 = 0;
-    int divider = 4;
-    for (int i = 0; i < divider / 2; i++) {
-      for (int j = 0; j < divider / 2; j++) {
+    int color1;
+    int color2;
+    int color3;
+    int divider = 2;
+    for (int i = 0; i < WIDTH; i += WIDTH / divider) {
+      for (int j = 0; j < WIDTH; j += WIDTH / divider) {
         for (int sides = 0; sides < 2; sides++) {
           if (sides == 0) {
             color1 = 200;
@@ -23,9 +23,9 @@ public class LinePlayQuarters {
             color3 = 200;
           }
           for (int x = 0; x <= WIDTH / divider; x += 10) {
-            for (int y = 0; y <= HEIGHT / divider; y += 10) {
+            for (int y = 0; y <= WIDTH / divider; y += 10) {
               if (x == y) {
-                draw(divider, sides, x, y, color1, color2, color3, graphics);
+                draw(i, j, sides, x, y, color1, color2, color3, graphics);
               }
             }
           }
@@ -34,12 +34,12 @@ public class LinePlayQuarters {
     }
   }
 
-  public static void draw(int divider, int sides, int x, int y, int color1, int color2, int color3, Graphics graphics) {
+  public static void draw(int i, int j, int sides, int x, int y, int color1, int color2, int color3, Graphics graphics) {
     graphics.setColor(new Color(color1, color2, color3, 255));
     if (sides == 0) {
-      graphics.drawLine(WIDTH / divider, x, y, 0);
+      graphics.drawLine(WIDTH - j - i, x + j, y + i, 0 + i + j);
     } else {
-      graphics.drawLine(x, WIDTH / divider, 0, y);
+      graphics.drawLine(x + j, WIDTH - j - i, 0 + i + j, y + i);
     }
 
   }
