@@ -26,7 +26,7 @@ public class Pairs {
 
   public static ArrayList getNames(ArrayList names) {
     boolean END = false;
-    for (int i = 0; END == false; i++) {
+    for (int i = 0; !END; i++) {
       Scanner scanner = new Scanner(System.in);
       String Name = scanner.next();
       if (Name.equals("END")) {
