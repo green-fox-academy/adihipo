@@ -9,7 +9,7 @@ public class LinePlayQuarters {
     int color1;
     int color2;
     int color3;
-    int divider = 2;
+    int divider = 16;
     for (int i = 0; i < WIDTH; i += WIDTH / divider) {
       for (int j = 0; j < WIDTH; j += WIDTH / divider) {
         for (int sides = 0; sides < 2; sides++) {
@@ -22,10 +22,10 @@ public class LinePlayQuarters {
             color2 = 255;
             color3 = 200;
           }
-          for (int x = 0; x <= WIDTH / divider; x += 10) {
-            for (int y = 0; y <= WIDTH / divider; y += 10) {
+          for (int x = 0; x <= WIDTH / divider; x += 5) {
+            for (int y = 0; y <= WIDTH / divider; y += 5) {
               if (x == y) {
-                draw(i, j, sides, x, y, color1, color2, color3, graphics);
+                draw(i, j, divider, sides, x, y, color1, color2, color3, graphics);
               }
             }
           }
@@ -34,19 +34,18 @@ public class LinePlayQuarters {
     }
   }
 
-  public static void draw(int i, int j, int sides, int x, int y, int color1, int color2, int color3, Graphics graphics) {
+  public static void draw(int i, int j, int divider, int sides, int x, int y, int color1, int color2, int color3, Graphics graphics) {
     graphics.setColor(new Color(color1, color2, color3, 255));
     if (sides == 0) {
-      graphics.drawLine(WIDTH - j - i, x + j, y + i, 0 + i + j);
+      graphics.drawLine(WIDTH - (WIDTH - (WIDTH / divider) - j), x + i, y + j, 0 + i);
     } else {
-      graphics.drawLine(x + j, WIDTH - j - i, 0 + i + j, y + i);
+      graphics.drawLine(x + i, WIDTH - (WIDTH - (WIDTH / divider) - j), 0 + i, y + j);
     }
-
   }
 
   // Don't touch the code below
-  static int WIDTH = 300;
-  static int HEIGHT = 300;
+  static int WIDTH = 900;
+  static int HEIGHT = 900;
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
