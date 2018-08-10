@@ -8,35 +8,26 @@ public class SuperHexagon {
   public static void mainDraw(Graphics graphics) {
     for (int sides = 0; sides <= 2; sides++) {
       for (int x = 0; x <= WIDTH; x += 20) {
-        for (int y = 0; y <= WIDTH; y += 20) {
-          if (x == y) {
-            draw(sides, x, y, graphics);
-          }
-        }
+        draw(sides, x, graphics);
       }
     }
   }
 
-  public static void draw(int sides, int x, int y, Graphics graphics) {
+  public static void draw(int sides, int x, Graphics graphics) {
     graphics.setColor(Color.BLACK);
     if (sides == 0) {
-      graphics.drawLine((WIDTH / 2) - 10, WIDTH - 2 * y, (WIDTH / 2) + 10, WIDTH - 2 * y);
-      graphics.drawLine((WIDTH / 2) - 20, (WIDTH - 2 * y) - 20, (WIDTH / 2) - 40, (WIDTH - 2 * y) - 20);
-      graphics.drawLine((WIDTH / 2) + 20, (WIDTH - 2 * y) - 20, (WIDTH / 2) + 40, (WIDTH - 2 * y) - 20);
-      graphics.drawLine((WIDTH / 2) - 50, (WIDTH - 2 * y) - 40, (WIDTH / 2) - 70, (WIDTH - 2 * y) - 40);
-      graphics.drawLine((WIDTH / 2) + 50, (WIDTH - 2 * y) - 40, (WIDTH / 2) + 70, (WIDTH - 2 * y) - 40);
+      graphics.drawLine((WIDTH / 2) - 10, WIDTH - 2 * x, (WIDTH / 2) + 10, WIDTH - 2 * x);
+      graphics.drawLine((WIDTH / 2) - 20, (WIDTH - 2 * x) - 20, (WIDTH / 2) - 40, (WIDTH - 2 * x) - 20);
+      graphics.drawLine((WIDTH / 2) + 20, (WIDTH - 2 * x) - 20, (WIDTH / 2) + 40, (WIDTH - 2 * x) - 20);
+      graphics.drawLine((WIDTH / 2) - 50, (WIDTH - 2 * x) - 40, (WIDTH / 2) - 70, (WIDTH - 2 * x) - 40);
+      graphics.drawLine((WIDTH / 2) + 50, (WIDTH - 2 * x) - 40, (WIDTH / 2) + 70, (WIDTH - 2 * x) - 40);
     }
     if (sides == 1) {
       graphics.drawLine(WIDTH - (2 * x) + 10, x + 20, WIDTH - 2 * x, x);
     }
     if (sides == 2) {
-      graphics.drawLine((WIDTH / 2) - 10, WIDTH - 2 * y, (WIDTH / 2) + 10, WIDTH - 2 * y);
-      graphics.drawLine((WIDTH / 2) - 20, (WIDTH - 2 * y) - 20, (WIDTH / 2) - 40, (WIDTH - 2 * y) - 20);
-      graphics.drawLine((WIDTH / 2) + 20, (WIDTH - 2 * y) - 20, (WIDTH / 2) + 40, (WIDTH - 2 * y) - 20);
-      graphics.drawLine((WIDTH / 2) - 50, (WIDTH - 2 * y) - 40, (WIDTH / 2) - 70, (WIDTH - 2 * y) - 40);
-      graphics.drawLine((WIDTH / 2) + 50, (WIDTH - 2 * y) - 40, (WIDTH / 2) + 70, (WIDTH - 2 * y) - 40);
+      graphics.drawLine(WIDTH - (2 * x) + 10, x + 20, WIDTH - 2 * x, x);
     }
-
   }
 
   // Don't touch the code below

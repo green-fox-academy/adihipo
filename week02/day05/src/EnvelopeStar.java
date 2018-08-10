@@ -8,28 +8,24 @@ public class EnvelopeStar {
   public static void mainDraw(Graphics graphics) {
     for (int sides = 0; sides < 4; sides++) {
       for (int x = 0; x <= WIDTH / 2; x += 5) {
-        for (int y = 0; y <= WIDTH / 2; y += 5) {
-          if (x == y) {
-            draw(sides, x, y, graphics);
-          }
-        }
+        draw(sides, x, graphics);
       }
     }
   }
 
-  public static void draw(int sides, int x, int y, Graphics graphics) {
+  public static void draw(int sides, int x, Graphics graphics) {
     graphics.setColor(new Color(50, 255, 50, 255));
     if (sides == 0) {
-      graphics.drawLine(x, WIDTH / 2, WIDTH / 2, (WIDTH / 2) - y);
+      graphics.drawLine(x, WIDTH / 2, WIDTH / 2, (WIDTH / 2) - x);
     }
     if (sides == 1) {
-      graphics.drawLine(WIDTH / 2, y, (WIDTH / 2) + x, WIDTH / 2);
+      graphics.drawLine(WIDTH / 2, x, (WIDTH / 2) + x, WIDTH / 2);
     }
     if (sides == 2) {
-      graphics.drawLine(x, WIDTH / 2, WIDTH / 2, (WIDTH / 2) + y);
+      graphics.drawLine(x, WIDTH / 2, WIDTH / 2, (WIDTH / 2) + x);
     }
     if (sides == 3) {
-      graphics.drawLine((WIDTH / 2) + x, (WIDTH / 2), (WIDTH / 2), WIDTH - y);
+      graphics.drawLine((WIDTH / 2) + x, (WIDTH / 2), (WIDTH / 2), WIDTH - x);
     }
   }
 

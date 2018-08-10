@@ -23,23 +23,19 @@ public class LinePlayQuarters {
             color3 = 200;
           }
           for (int x = 0; x <= WIDTH / divider; x += 5) {
-            for (int y = 0; y <= WIDTH / divider; y += 5) {
-              if (x == y) {
-                draw(i, j, divider, sides, x, y, color1, color2, color3, graphics);
-              }
-            }
+            draw(i, j, divider, sides, x, color1, color2, color3, graphics);
           }
         }
       }
     }
   }
 
-  public static void draw(int i, int j, int divider, int sides, int x, int y, int color1, int color2, int color3, Graphics graphics) {
+  public static void draw(int i, int j, int divider, int sides, int x, int color1, int color2, int color3, Graphics graphics) {
     graphics.setColor(new Color(color1, color2, color3, 255));
     if (sides == 0) {
-      graphics.drawLine(WIDTH - (WIDTH - (WIDTH / divider) - j), x + i, y + j, 0 + i);
+      graphics.drawLine(WIDTH - (WIDTH - (WIDTH / divider) - j), x + i, x + j, 0 + i);
     } else {
-      graphics.drawLine(x + i, WIDTH - (WIDTH - (WIDTH / divider) - j), 0 + i, y + j);
+      graphics.drawLine(x + i, WIDTH - (WIDTH - (WIDTH / divider) - j), 0 + i, x + j);
     }
   }
 

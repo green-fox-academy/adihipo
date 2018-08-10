@@ -8,27 +8,22 @@ public class Triangle {
   public static void mainDraw(Graphics graphics) {
     for (int sides = 0; sides <= 2; sides++) {
       for (int x = 0; x <= WIDTH; x += 20) {
-        for (int y = 0; y <= WIDTH; y += 20) {
-          if (x == y) {
-            draw(sides, x, y, graphics);
-          }
-        }
+        draw(sides, x, graphics);
       }
     }
   }
 
-  public static void draw(int sides, int x, int y, Graphics graphics) {
+  public static void draw(int sides, int x, Graphics graphics) {
     graphics.setColor(Color.BLACK);
     if (sides == 0) {
-      graphics.drawLine((x / 2), WIDTH - y, WIDTH - (x / 2), WIDTH - y);
+      graphics.drawLine((x / 2), WIDTH - x, WIDTH - (x / 2), WIDTH - x);
     }
     if (sides == 1) {
-      graphics.drawLine((WIDTH / 2) - (x / 2), y, WIDTH - x, WIDTH);
+      graphics.drawLine((WIDTH / 2) - (x / 2), x, WIDTH - x, WIDTH);
     }
     if (sides == 2) {
-      graphics.drawLine(x, WIDTH, (WIDTH / 2) + (x / 2), y);
+      graphics.drawLine(x, WIDTH, (WIDTH / 2) + (x / 2), x);
     }
-
   }
 
   // Don't touch the code below

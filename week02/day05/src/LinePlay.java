@@ -19,24 +19,19 @@ public class LinePlay {
         color2 = 255;
         color3 = 200;
       }
-      for (int x = 0; x <= WIDTH; x += 20) {
-        for (int y = 0; y <= HEIGHT; y += 20) {
-          if (x == y) {
-            draw(sides, x, y, color1, color2, color3, graphics);
-          }
-        }
+      for (int x = 0; x <= WIDTH; x += 10) {
+        draw(sides, x, color1, color2, color3, graphics);
       }
     }
   }
 
-  public static void draw(int sides, int x, int y, int color1, int color2, int color3, Graphics graphics) {
+  public static void draw(int sides, int x, int color1, int color2, int color3, Graphics graphics) {
     graphics.setColor(new Color(color1, color2, color3, 255));
     if (sides == 0) {
-      graphics.drawLine(WIDTH, x, y, 0);
+      graphics.drawLine(WIDTH, x, x, 0);
     } else {
-      graphics.drawLine(x, WIDTH, 0, y);
+      graphics.drawLine(x, WIDTH, 0, x);
     }
-
   }
 
   // Don't touch the code below
