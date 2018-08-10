@@ -7,9 +7,9 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class Triangle {
   public static void mainDraw(Graphics graphics) {
     for (int sides = 0; sides < 2; sides++) {
-      for (int x = 0; x <= WIDTH; x += 25) {
-        for (int y = 0; y <= WIDTH; y += 25) {
-          if (x == y && x <= (WIDTH / 2)) {
+      for (int x = 0; x <= WIDTH; x += 30) {
+        for (int y = 0; y <= WIDTH; y += 30) {
+          if (x == y) {
             draw(sides, x, y, graphics);
           }
         }
@@ -20,13 +20,13 @@ public class Triangle {
   public static void draw(int sides, int x, int y, Graphics graphics) {
     graphics.setColor(Color.BLACK);
     if (sides == 0) {
-      graphics.drawLine(x, WIDTH - y, WIDTH - x, WIDTH - y);
+      graphics.drawLine(x, WIDTH - (y * 2), WIDTH - x, WIDTH - (y * 2));
     }
     if (sides == 1) {
-      graphics.drawLine(x, WIDTH - y, WIDTH - x, WIDTH - y);
+      graphics.drawLine(x, WIDTH - (y * 2), WIDTH - x, WIDTH - (y * 2));
     }
     if (sides == 2) {
-      graphics.drawLine(x, WIDTH - y, WIDTH - x, WIDTH - y);
+      graphics.drawLine(x, WIDTH - (y * 2), WIDTH - x, WIDTH - (y * 2));
     }
 
   }
