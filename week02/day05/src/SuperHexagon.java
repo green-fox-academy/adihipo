@@ -25,15 +25,9 @@ public class SuperHexagon {
       graphics.drawLine((WIDTH / 2) + 20, (WIDTH - 2 * y) - 20, (WIDTH / 2) + 40, (WIDTH - 2 * y) - 20);
       graphics.drawLine((WIDTH / 2) - 50, (WIDTH - 2 * y) - 40, (WIDTH / 2) - 70, (WIDTH - 2 * y) - 40);
       graphics.drawLine((WIDTH / 2) + 50, (WIDTH - 2 * y) - 40, (WIDTH / 2) + 70, (WIDTH - 2 * y) - 40);
-      //graphics.drawLine((x / 2), WIDTH - y, WIDTH - (x / 2), WIDTH - y);
     }
     if (sides == 1) {
-      graphics.drawLine(WIDTH - x, x, WIDTH - y, y);
-//      graphics.drawLine((WIDTH / 2) - 20, (WIDTH - 2 * y) - 20, (WIDTH / 2) - 40, (WIDTH - 2 * y) - 20);
-//      graphics.drawLine((WIDTH / 2) + 20, (WIDTH - 2 * y) - 20, (WIDTH / 2) + 40, (WIDTH - 2 * y) - 20);
-//      graphics.drawLine((WIDTH / 2) - 50, (WIDTH - 2 * y) - 40, (WIDTH / 2) - 70, (WIDTH - 2 * y) - 40);
-//      graphics.drawLine((WIDTH / 2) + 50, (WIDTH - 2 * y) - 40, (WIDTH / 2) + 70, (WIDTH - 2 * y) - 40);
-      //graphics.drawLine((WIDTH / 2) - (x / 2), y, WIDTH - x, WIDTH);
+      graphics.drawLine(WIDTH - (2 * x) + 10, x + 20, WIDTH - 2 * x, x);
     }
     if (sides == 2) {
       graphics.drawLine((WIDTH / 2) - 10, WIDTH - 2 * y, (WIDTH / 2) + 10, WIDTH - 2 * y);
@@ -41,7 +35,6 @@ public class SuperHexagon {
       graphics.drawLine((WIDTH / 2) + 20, (WIDTH - 2 * y) - 20, (WIDTH / 2) + 40, (WIDTH - 2 * y) - 20);
       graphics.drawLine((WIDTH / 2) - 50, (WIDTH - 2 * y) - 40, (WIDTH / 2) - 70, (WIDTH - 2 * y) - 40);
       graphics.drawLine((WIDTH / 2) + 50, (WIDTH - 2 * y) - 40, (WIDTH / 2) + 70, (WIDTH - 2 * y) - 40);
-      //graphics.drawLine(x, WIDTH, (WIDTH / 2) + (x / 2), y);
     }
 
   }
