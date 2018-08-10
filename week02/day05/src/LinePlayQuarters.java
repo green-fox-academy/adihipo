@@ -9,7 +9,7 @@ public class LinePlayQuarters {
     int color1;
     int color2;
     int color3;
-    int divider = 16;
+    int divider = 2;
     for (int i = 0; i < WIDTH; i += WIDTH / divider) {
       for (int j = 0; j < WIDTH; j += WIDTH / divider) {
         for (int sides = 0; sides < 2; sides++) {
