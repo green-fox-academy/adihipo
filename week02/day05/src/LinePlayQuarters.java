@@ -44,8 +44,8 @@ public class LinePlayQuarters {
   }
 
   // Don't touch the code below
-  static int WIDTH = 900;
-  static int HEIGHT = 900;
+  static int WIDTH = 300;
+  static int HEIGHT = 300;
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
