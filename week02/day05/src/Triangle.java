@@ -23,10 +23,10 @@ public class Triangle {
       graphics.drawLine((x / 2), WIDTH - y, WIDTH - (x / 2), WIDTH - y);
     }
     if (sides == 1) {
-      graphics.drawLine((WIDTH / 2) - (x / 2), (int) ((y / 2) * Math.sqrt(3)), WIDTH - x, WIDTH);
+      graphics.drawLine((WIDTH / 2) - (x / 2), y, WIDTH - x, WIDTH);
     }
     if (sides == 2) {
-      graphics.drawLine(x, WIDTH, (WIDTH / 2) + (x / 2), (int) ((y / 2) * Math.sqrt(3)));
+      graphics.drawLine(x, WIDTH, (WIDTH / 2) + (x / 2), y);
     }
 
   }
