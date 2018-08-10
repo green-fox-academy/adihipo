@@ -4,7 +4,7 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class Triangle {
+public class SuperHexagon {
   public static void mainDraw(Graphics graphics) {
     for (int sides = 0; sides <= 2; sides++) {
       for (int x = 0; x <= WIDTH; x += 20) {
