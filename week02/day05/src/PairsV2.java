@@ -41,7 +41,7 @@ public class PairsV2 {
 
   public static String makingMatches(ArrayList girls, ArrayList boys) {
     String pairs = "";
-    if (girls.size() > boys.size()) {
+    if (girls.size() >= boys.size()) {
       for (int i = 0; i < boys.size(); i++) {
         girls.add(i * 2, boys.get(i));
       }
