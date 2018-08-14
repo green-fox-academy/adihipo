@@ -17,7 +17,9 @@ public class CountLines {
       for (String line : lines) {
         counter++;
       }
-    } catch (IOException ex) {}
+    } catch (IOException ex) {
+      System.out.println("File not readable");
+    }
     return counter;
   }
 }
