@@ -35,7 +35,7 @@ public class TicTacToe {
         row = "";
         col = "";
         diag += lines.get(i).charAt(i);
-        anti += lines.get(i).charAt(i);
+        anti += lines.get(i).charAt(2 - i);
       }
       if (diag.equals("XXX"))
         return "X";
