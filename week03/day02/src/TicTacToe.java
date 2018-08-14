@@ -7,24 +7,47 @@ import java.util.List;
 public class TicTacToe {
 
   public static void main(String[] args) {
-    // Write a function that takes a filename as string,
-    // open and read it. The file data represents a tic-tac-toe
-    // game result. Return 'X'/'O'/'draw' based on which player
-    // has winning situation.
-
-    String filename = "win-o.txt";
-    ticTacResult(filename);
+    String filename = "win-x.txt";
+    System.out.println(ticTacResult(filename));
   }
 
   public static String ticTacResult(String filename) {
     Path path = Paths.get(filename);
     try {
       List<String> lines = Files.readAllLines(path);
+      String row = "";
+      String col = "";
+      String diag = "";
+      String anti = "";
+      for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+          row += lines.get(i).charAt(j);
+          col += lines.get(j).charAt(i);
+        }
+        if (row.equals("XXX"))
+          return "X";
+        if (row.equals("OOO"))
+          return "O";
+        if (col.equals("XXX"))
+          return "X";
+        if (col.equals("OOO"))
+          return "O";
+        row = "";
+        col = "";
+        diag += lines.get(i).charAt(i);
+        anti += lines.get(i).charAt(i);
+      }
+      if (diag.equals("XXX"))
+        return "X";
+      if (diag.equals("OOO"))
+        return "O";
+      if (anti.equals("XXX"))
+        return "X";
+      if (anti.equals("OOO"))
+        return "O";
     } catch (IOException ex) {
       System.out.println("Unable to read file: " + filename);
     }
-    return "O";
-    return "X";
     return "DRAW";
   }
 }
