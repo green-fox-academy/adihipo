@@ -14,8 +14,8 @@ public class CopyFile {
   }
 
   public static boolean copier(String filename1, String filename2) {
-    Path getPath1 = Paths.get("my-file.txt");
-    Path getPath2 = Paths.get("my-file2.txt");
+    Path getPath1 = Paths.get(filename1);
+    Path getPath2 = Paths.get(filename2);
 
     try {
       List<String> lines = Files.readAllLines(getPath1);

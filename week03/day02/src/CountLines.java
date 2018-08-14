@@ -11,15 +11,12 @@ public class CountLines {
   }
 
   public static int lineCounter(Path getPath) {
-    int counter = 0;
     try {
       List<String> lines = Files.readAllLines(getPath);
-      for (String line : lines) {
-        counter++;
-      }
+      return lines.size();
     } catch (IOException ex) {
       System.out.println("File not readable");
+      return 0;
     }
-    return counter;
   }
 }
