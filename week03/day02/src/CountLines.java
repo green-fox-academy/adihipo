@@ -7,15 +7,17 @@ import java.util.List;
 public class CountLines {
   public static void main(String[] args) {
     Path getPath = Paths.get("my-file.txt");
+    System.out.println(lineCounter(getPath));
+  }
+
+  public static int lineCounter(Path getPath) {
     int counter = 0;
     try {
       List<String> lines = Files.readAllLines(getPath);
       for (String line : lines) {
         counter++;
       }
-      System.out.println(counter);
-    } catch (IOException ex) {
-      System.out.println(counter);
-    }
+    } catch (IOException ex) {}
+    return counter;
   }
 }

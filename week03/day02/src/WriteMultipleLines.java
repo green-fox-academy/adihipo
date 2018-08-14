@@ -12,6 +12,7 @@ public class WriteMultipleLines {
     content.add("PINEAPPLE");
     int numberOfLines = 23;
     Path getPath = Paths.get("my-file.txt");
+    writer(getPath, numberOfLines, content);
   }
 
   public static void writer(Path getPath, int numberOfLines, List content) {
