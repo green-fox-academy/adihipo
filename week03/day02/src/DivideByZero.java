@@ -9,7 +9,7 @@ public class DivideByZero {
     try {
       int result = 10 / divisor;
       System.out.println(result);
-    } catch (Exception ex) {
+    } catch (ArithmeticException ex) {
       System.out.println("fail");
     }
 
