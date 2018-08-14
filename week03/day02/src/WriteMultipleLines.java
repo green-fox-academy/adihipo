@@ -11,11 +11,12 @@ public class WriteMultipleLines {
     List<String> content = new ArrayList<>();
     content.add("PINEAPPLE");
     int numberOfLines = 23;
-    Path getPath = Paths.get("my-file.txt");
-    writer(getPath, numberOfLines, content);
+    String filename = "my-file.txt";
+    writer(filename, numberOfLines, content);
   }
 
-  public static void writer(Path getPath, int numberOfLines, List content) {
+  public static void writer(String filename, int numberOfLines, List content) {
+    Path getPath = Paths.get(filename);
     try {
       for (int i = 0; i < numberOfLines; i++) {
         Files.write(getPath, content, StandardOpenOption.APPEND);
