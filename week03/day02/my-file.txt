@@ -1,2 +1,3 @@
-Ez a szöveg nagyon fontos.
-Nehogy letöröld!
+This txt is very important.
+Please dont delete it.
+Ok.
