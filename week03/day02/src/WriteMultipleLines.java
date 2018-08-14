@@ -1,3 +1,4 @@
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -5,13 +6,19 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WriteSingleLine {
+public class WriteMultipleLines {
   public static void main(String[] args) {
-    List<String> content = new ArrayList();
-    content.add("Gyarmati Ádám");
+    List<String> content = new ArrayList<>();
+    content.add("PINEAPPLE");
+    int numberOfLines = 23;
     Path getPath = Paths.get("my-file.txt");
+  }
+
+  public static void writer(Path getPath, int numberOfLines, List content) {
     try {
-      Files.write(getPath, content);
+      for (int i = 0; i < numberOfLines; i++) {
+        Files.write(getPath, content);
+      }
       System.out.println("Ok, added content");
     } catch (IOException ex) {
       System.out.println("Unable to write file: my-file.txt");
