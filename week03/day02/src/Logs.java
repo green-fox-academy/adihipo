@@ -1,42 +1,34 @@
-//import java.io.IOException;
-//import java.nio.file.Path;
-//import java.nio.file.Paths;
-//import java.nio.file.Files;
-//import java.nio.file.StandardOpenOption;
-//import java.util.ArrayList;
-//import java.util.List;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Logs {
+  public static void main(String[] args) {
+    String file = "log.txt";
+    Path getPath = Paths.get(file);
+    try {
+      List<String> lines = Files.readAllLines(getPath);
+      for (String line : lines) {
+        System.out.println(line);
+      }
+      //System.out.println(uniqIP(lines));
+      //System.out.println(ratioGetPost(lines));
+    } catch (IOException ex) {
+      System.out.println("Unable to read file: " + file);
+    }
+  }
+
+//  public static ArrayList uniqIP(List<String> lines) {
+//    ArrayList<String> IPs = new ArrayList<>();
 //
-//public class Logs {
-//  public static void main(String[] args) {
-//    String file = "log.txt";
-//    System.out.println(uniqIP(file));
-//    System.out.println(ratioGetPost(file));
-//  }
-//
-//  public static String[] uniqIP(String file) {
-//    String[] IPs;
-//    Path getPath = Paths.get(file);
-//    List<String> Files.readAllLines()
-//    try {
-//      for (int i = 0; i < numberOfLines; i++) {
-//        Files.write(getPath, content, StandardOpenOption.APPEND);
-//      }
-//      System.out.println("Ok, added content");
-//    } catch (IOException ex) {
-//      System.out.println("Unable to read file: " + file);
-//    }
+//    return IPs;
 //  }
 //
 //  public static double ratioGetPost(String file) {
 //    double ratio;
-//    Path getPath = Paths.get(file);
-//    try {
-//      for (int i = 0; i < numberOfLines; i++) {
-//        Files.write(getPath, content, StandardOpenOption.APPEND);
-//      }
-//      System.out.println("Ok, added content");
-//    } catch (IOException ex) {
-//      System.out.println("Unable to read file: " + file);
-//    }
+//    return ratio;
 //  }
-//}
+}
