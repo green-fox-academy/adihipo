@@ -1,8 +1,8 @@
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class WriteMultipleLines {
   public static void writer(Path getPath, int numberOfLines, List content) {
     try {
       for (int i = 0; i < numberOfLines; i++) {
-        Files.write(getPath, content);
+        Files.write(getPath, content, StandardOpenOption.APPEND);
       }
       System.out.println("Ok, added content");
     } catch (IOException ex) {
