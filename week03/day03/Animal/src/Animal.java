@@ -1,6 +1,7 @@
 public class Animal {
   int hunger = 50;
   int thirst = 50;
+  String name;
 
   public void eat() {
     hunger--;
