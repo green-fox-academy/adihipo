@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Dominoes {
   private final int[] values;
 
-  public Domino(int valueA, int valueB) {
+  public Dominoes(int valueA, int valueB) {
     this.values = new int[]{valueA, valueB};
   }
 
