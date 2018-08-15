@@ -23,11 +23,13 @@ public class Main {
 
   static List<Dominoes> arrangeDominoes(List<Dominoes> dominoes, List<Dominoes> dominoesArranged) {
     dominoesArranged.add(0, dominoes.get(0));
-    for (int j = 1; j < dominoes.size(); j++) {
-      for (int i = 1; i < dominoes.size(); i++) {
+    dominoes.remove(0);
+    for (int j = 0; j < dominoesArranged.size(); j++) {
+      for (int i = 0; i < dominoes.size(); i++) {
         if (dominoes.get(i).getValues()[0] == dominoesArranged.get(dominoesArranged.size() - 1).getValues()[1]) {
           dominoesArranged.add(dominoesArranged.size(), dominoes.get(i));
-          i = dominoes.size() - 1;
+          dominoes.remove(i);
+          break;
         }
       }
     }
