@@ -4,11 +4,10 @@ import java.util.List;
 public class Main {
   public static void main(String[] args) {
     List<Dominoes> dominoes = initializeDominoes();
-    // You have the list of Dominoes
-    // Order them into one snake where the adjacent dominoes have the same numbers on their adjacent sides
-    // eg: [2, 4], [4, 3], [3, 5] ...
-
+    List<Dominoes> dominoesArranged = new ArrayList<>();
+    arrangeDominoes(dominoes, dominoesArranged);
     System.out.println(dominoes);
+    System.out.println(dominoesArranged);
   }
 
   static List<Dominoes> initializeDominoes() {
@@ -20,5 +19,18 @@ public class Main {
     dominoes.add(new Dominoes(2, 4));
     dominoes.add(new Dominoes(7, 1));
     return dominoes;
+  }
+
+  static List<Dominoes> arrangeDominoes(List<Dominoes> dominoes, List<Dominoes> dominoesArranged) {
+    dominoesArranged.add(0, dominoes.get(0));
+    for (int j = 1; j < dominoes.size(); j++) {
+      for (int i = 1; i < dominoes.size(); i++) {
+        if (dominoes.get(i).getValues()[0] == dominoesArranged.get(dominoesArranged.size() - 1).getValues()[1]) {
+          dominoesArranged.add(dominoesArranged.size(), dominoes.get(i));
+          i = dominoes.size() - 1;
+        }
+      }
+    }
+   return dominoesArranged;
   }
 }
