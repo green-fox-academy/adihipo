@@ -10,7 +10,17 @@ public class DiceSet {
     return dices;
   }
 
+  public int length() {
+    return dices.length;
+  }
+
   public int[] getCurrent() {
+    for (int i = 0; i < dices.length; i++) {
+      System.out.print(dices[i] + " ");
+      if (i == dices.length - 1) {
+        System.out.println("");
+      }
+    }
     return dices;
   }
 
@@ -26,17 +36,5 @@ public class DiceSet {
 
   public void reroll(int k) {
     dices[k] = (int) (Math.random() * 6) + 1;
-  }
-
-  public static void main(String[] args) {
-    DiceSet diceSet = new Dice();
-    diceSet.getCurrent();
-    diceSet.roll();
-    diceSet.getCurrent();
-    diceSet.getCurrent(5);
-    diceSet.reroll();
-    diceSet.getCurrent();
-    diceSet.reroll(4);
-    diceSet.getCurrent();
   }
 }
