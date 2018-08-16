@@ -3,15 +3,15 @@ public class ThisCat {
     Cat cat1 = new Cat();
     cat1.name = "Mittens";
     cat1.catPower = 5;
-    System.out.println(cat1.name + ": catPower " + cat1.catPower);
+    cat1.meow();
 
     Cat cat2 = new Cat();
     cat2.Cat("Lily");
     cat2.catPower = 3;
-    System.out.println(cat2.name + ": catPower " + cat2.catPower);
+    cat2.meow();
 
     cat1.catFight(cat2);
-    System.out.println(cat1.name + ": catPower " + cat1.catPower);
-    System.out.println(cat2.name + ": catPower " + cat2.catPower);
+    cat1.meow();
+    cat2.meow();
   }
 }
