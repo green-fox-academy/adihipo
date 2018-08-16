@@ -1,15 +1,12 @@
 public class NumberAdder {
   public static void main(String[] args) {
-    System.out.println(adder(4));
+    System.out.println(adder(7));
   }
 
   public static int adder(int n) {
     int number = 0;
-    if (n == 0) {
-
-    } else {
+    if (n > 0) {
       number += adder(n - 1) + n;
-      System.out.println(number);
     }
     return number;
   }
