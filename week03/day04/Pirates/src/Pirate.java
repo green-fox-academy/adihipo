@@ -27,12 +27,12 @@ public class Pirate {
     passedOut = true;
   }
 
-  public void brawl(Pirate pirate) {
+  public void brawl(Pirate otherPirate) {
     if (luck <= 0.33) {
       passedOut = true;
     }
-    if (pirate.luck <= 0.33) {
-      pirate.passedOut = true;
+    if (otherPirate.luck <= 0.33) {
+      otherPirate.passedOut = true;
     }
   }
 }

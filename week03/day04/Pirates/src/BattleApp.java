@@ -23,5 +23,14 @@ public class BattleApp {
     ship1.fillShip();
     ship1.soutShip();
 
+    Ship ship2 = new Ship();
+    ship2.fillShip();
+    ship2.soutShip();
+
+    ship1.battle(ship2);
+    ship1.soutShip();
+    ship2.soutShip();
+
+
   }
 }
