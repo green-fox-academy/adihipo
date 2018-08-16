@@ -6,21 +6,24 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class FractalPlay {
   public static void mainDraw(Graphics graphics) {
-    int size = 100;
+    int size = 300;
     int centerX = WIDTH / 2 - size / 2;
     int centerY = HEIGHT / 2 - size / 2;
     fractal(centerX, centerY, size, graphics);
   }
 
   public static void draw(int x, int y, int size, Graphics graphics) {
-    graphics.setColor(new Color(150, 60, 170, 255));
-    graphics.fillOval(x, y, size, size);
+    graphics.setColor(new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255), 255));
+    graphics.drawRect(x, y, size, size);
   }
 
   public static void fractal(int x, int y, int size, Graphics graphics) {
     draw(x, y, size, graphics);
-    if (size > 10) {
-      fractal(x - x / 4, y - y / 2, size / 2, graphics);
+    if (size > 20) {
+      fractal(x - size / 4, y + size / 4, size / 2, graphics);
+      fractal(x + size * 3 / 4, y + size / 4, size / 2, graphics);
+      fractal(x + size / 4, y + size * 3 / 4, size / 2, graphics);
+      fractal(x + size / 4, y - size / 4, size / 2, graphics);
     }
   }
 
