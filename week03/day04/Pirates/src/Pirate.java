@@ -1,12 +1,7 @@
 public class Pirate {
-  String name;
   int rumDrunken = 0;
   boolean passedOut = false;
   double luck = Math.random();
-
-  public Pirate(String name) {
-    this.name = name;
-  }
 
   public void drinkSomeRum(int numberOfRounds) {
     if (passedOut) {
@@ -32,9 +27,12 @@ public class Pirate {
     passedOut = true;
   }
 
-  public void brawl(String name) {
-    new Pirate(name).luck <= 1 / 3){
-      Pirate(name).passedOut = true;
+  public void brawl(Pirate pirate) {
+    if (luck <= 0.33) {
+      passedOut = true;
+    }
+    if (pirate.luck <= 0.33) {
+      pirate.passedOut = true;
     }
   }
 }
