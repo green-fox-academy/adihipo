@@ -1,22 +1,13 @@
 public class Cat {
-  int hunger = 3;
-  int thirst = 3;
   String name;
+  int catPower;
 
-  public void Cat(String name){
+  public void Cat(String name) {
     this.name = name;
   }
 
-  public void eat() {
-    hunger--;
-  }
-
-  public void drink() {
-    thirst--;
-  }
-
-  public void play() {
-    hunger++;
-    thirst++;
+  public void catFight(Cat otherCat) {
+    this.catPower -= 3;
+    otherCat.catPower -= 3;
   }
 }
