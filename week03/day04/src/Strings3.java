@@ -6,10 +6,10 @@ public class Strings3 {
 
   public static String stringXToY(String x) {
     int length = x.length();
-    if (length == 0) {
+    if (length == 1) {
       return x;
     } else {
-      return x.charAt(0) + '*' + stringXToY(x.substring(1));
+      return x.charAt(0) + "*" + stringXToY(x.substring(1));
     }
   }
 }
