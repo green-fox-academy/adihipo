@@ -16,7 +16,7 @@ public class Ship {
   }
 
   public void soutShip() {
-    System.out.println("Captain rums: " + ship.get(0).rumDrunken + "\nCaptain passed out?  " + ship.get(0).passedOut + "\nCrew size: " + (this.alive() - 1));
+    System.out.println("\nCaptain rums: " + ship.get(0).rumDrunken + "\nCaptain passed out?  " + ship.get(0).passedOut + "\nCrew size: " + (this.alive() - 1) + "\n");
   }
 
   public void battle(Ship otherShip) {
