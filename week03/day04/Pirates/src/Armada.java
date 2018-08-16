@@ -15,20 +15,22 @@ public class Armada {
     }
   }
 
-  public String battleOfArmadas(Armada otherArmada) {
+  public boolean battleOfArmadas(Armada otherArmada) {
     int i = 0;
     int j = 0;
-    while (i > armada.size() && j > otherArmada.armada.size()) {
+    while (i <= armada.size() - 1 && j <= otherArmada.armada.size() - 1) {
       if (armada.get(i).battle(otherArmada.armada.get(j))) {
         j++;
       } else {
         i++;
       }
     }
-    if (otherArmada.armada.size() - 1 == i) {
-      return "Your armada won the war! Cheeers!";
+    if (otherArmada.armada.size() == j) {
+      System.out.println("Your armada won the war! Cheeers!");
+      return true;
     } else {
-      return "The other armada won...";
+      System.out.println("The other armada won...");
+      return false;
     }
   }
 }

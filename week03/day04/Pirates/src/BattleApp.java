@@ -36,6 +36,14 @@ public class BattleApp {
 //    ship1.soutShip();
 //    ship2.soutShip();
 
+    //For Armada
 
+    Armada armada1 = new Armada();
+    armada1.fillArmada();
+
+    Armada armada2 = new Armada();
+    armada2.fillArmada();
+
+    armada1.battleOfArmadas(armada2);
   }
 }
