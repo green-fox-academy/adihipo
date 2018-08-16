@@ -6,7 +6,7 @@ public class ThisCat {
     cat1.meow();
 
     Cat cat2 = new Cat();
-    cat2.Cat("Lily");
+    cat2.naming("Lily");
     cat2.catPower = 3;
     cat2.meow();
 
