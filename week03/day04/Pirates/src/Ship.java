@@ -16,19 +16,19 @@ public class Ship {
   }
 
   public void soutShip() {
-    System.out.println("\nCaptain rums: " + ship.get(0).rumDrunken + "\nCaptain passed out?  " + ship.get(0).passedOut + "\nCrew size: " + (this.alive() - 1) + "\n");
+    System.out.println("\nCaptain rums: " + ship.get(0).rumDrunken + "\nCaptain passed out?  " + ship.get(0).passedOut + "\nCrew size: " + (alive() - 1) + "\n");
   }
 
   public boolean battle(Ship otherShip) {
     if (ship.size() - 1 - ship.get(0).rumDrunken >= otherShip.ship.size() - 1 - otherShip.ship.get(0).rumDrunken) {
       System.out.println("Ship won!");
-      this.win();
+      win();
       otherShip.lose();
       return true;
     } else {
       System.out.println("Ship lost...");
       otherShip.win();
-      this.lose();
+      lose();
       return false;
     }
   }
