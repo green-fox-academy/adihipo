@@ -10,13 +10,13 @@ public class Ship {
 
   public void fillShip() {
     for (int i = 0; i < 10 + (int) (Math.random() * 20); i++) {
-      ship.add(pirate);
+      ship.add(new Pirate());
     }
     ship.get(0).drinkSomeRum((int) (Math.random() * 3));
   }
 
   public void soutShip() {
-    System.out.println("Captain rums: " + ship.get(0).rumDrunken + "\nCaptain passed out?  " + ship.get(0).passedOut + "\nCrew size: " + (ship.size() - 1));
+    System.out.println("Captain rums: " + ship.get(0).rumDrunken + "\nCaptain passed out?  " + ship.get(0).passedOut + "\nCrew size: " + (this.alive() - 1));
   }
 
   public void battle(Ship otherShip) {
@@ -43,5 +43,15 @@ public class Ship {
     for (int i = 1; i < randomDie; i++) {
       ship.get(i).die();
     }
+  }
+
+  public int alive() {
+    int counter = 0;
+    for (int i = 0; i < ship.size(); i++) {
+      if (!ship.get(i).passedOut) {
+        counter++;
+      }
+    }
+    return counter;
   }
 }
