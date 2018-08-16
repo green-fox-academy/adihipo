@@ -15,5 +15,20 @@ public class Armada {
     }
   }
 
-public void
+  public String battleOfArmadas(Armada otherArmada) {
+    int i = 0;
+    int j = 0;
+    while (i > armada.size() && j > otherArmada.armada.size()) {
+      if (armada.get(i).battle(otherArmada.armada.get(j))) {
+        j++;
+      } else {
+        i++;
+      }
+    }
+    if (otherArmada.armada.size() - 1 == i) {
+      return "Your armada won the war! Cheeers!";
+    } else {
+      return "The other armada won...";
+    }
+  }
 }
