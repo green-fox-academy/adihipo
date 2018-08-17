@@ -20,17 +20,17 @@ public class Triangles {
 
   public static void drawTriangle(int size, int point1x, int point1y, int point2x, int point2y, int point3x, int point3y, Graphics graphics) {
     graphics.setColor(new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255), 255));
-    graphics.drawLine(point1x, point1y, point2x, point2y);
-    graphics.drawLine(point2x, point2y, point3x, point3y);
-    graphics.drawLine(point3x, point3y, point1x, point1y);
+    graphics.drawLine(point1x + (-2 + ((int) Math.random() * 4)), point1y + (-2 + ((int) Math.random() * 4)), point2x + (-2 + ((int) Math.random() * 4)), point2y + (-2 + ((int) Math.random() * 4)));
+    graphics.drawLine(point2x + (-2 + ((int) Math.random() * 4)), point2y + (-2 + ((int) Math.random() * 4)), point3x + (-2 + ((int) Math.random() * 4)), point3y + (-2 + ((int) Math.random() * 4)));
+    graphics.drawLine(point3x + (-2 + ((int) Math.random() * 4)), point3y + (-2 + ((int) Math.random() * 4)), point1x + (-2 + ((int) Math.random() * 4)), point1y + (-2 + ((int) Math.random() * 4)));
   }
 
   public static void fractal(int size, int point1x, int point1y, int point2x, int point2y, int point3x, int point3y, Graphics
           graphics) {
     drawTriangle(size, point1x, point1y, point2x, point2y, point3x, point3y, graphics);
-    if (size > 190) {
-      fractal(size * 99 / 100, point1x / 2 + size / 4, point1y / 2 + size * 66 / 100, point2x / 2 + size / 4, point2y / 2 + size * 66 / 100, point3x / 2 + size / 4, point3y / 2 + size * 66 / 100, graphics);
-      fractal(size * 99 / 100, point1x / 2 + size * 5 / 4, point1y / 2 + size * 66 / 100, point2x / 2 + size * 5 / 4, point2y / 2 + size * 66 / 100, point3x / 2 + size * 5 / 4, point3y / 2 + size * 66 / 100, graphics);
+    if (size > 185) {
+      fractal(size * 99 / 100, point1x / 2 + size / 4, point1y / 2 + size * 65 / 100, point2x / 2 + size / 4, point2y / 2 + size * 65 / 100, point3x / 2 + size / 4, point3y / 2 + size * 65 / 100, graphics);
+      fractal(size * 99 / 100, point1x / 2 + size * 5 / 4, point1y / 2 + size * 65 / 100, point2x / 2 + size * 5 / 4, point2y / 2 + size * 65 / 100, point3x / 2 + size * 5 / 4, point3y / 2 + size * 65 / 100, graphics);
       fractal(size * 99 / 100, point1x / 2 + size * 3 / 4, point1y / 2 + size * 144 / 100, point2x / 2 + size * 3 / 4, point2y / 2 + size * 144 / 100, point3x / 2 + size * 3 / 4, point3y / 2 + size * 144 / 100, graphics);
     }
   }
