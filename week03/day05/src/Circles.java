@@ -14,16 +14,15 @@ public class Circles {
 
   public static void draw(int x, int y, int size, Graphics graphics) {
     graphics.setColor(new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255), 255));
-    graphics.drawRect(x, y, size, size);
+    graphics.drawOval(x, y, size, size);
   }
 
   public static void fractal(int x, int y, int size, Graphics graphics) {
     draw(x, y, size, graphics);
     if (size > 20) {
-      fractal(x - size / 4, y + size / 4, size / 2, graphics);
-      fractal(x + size * 3 / 4, y + size / 4, size / 2, graphics);
-      fractal(x + size / 4, y + size * 3 / 4, size / 2, graphics);
-      fractal(x + size / 4, y - size / 4, size / 2, graphics);
+      fractal(x + size * 43/100, y + size* 43/100, size / 2, graphics);
+      fractal(x + size * 8/100, y + size* 43/100, size / 2, graphics);
+      fractal(x + size * 24/100, y + size* 1/1000, size / 2, graphics);
     }
   }
 
