@@ -2,8 +2,8 @@ class Cat {
   String name;
   int catPower;
 
-  void naming(String name) {
-    this.name = name;
+  void naming(String nameOfCat) {
+    name = nameOfCat;
   }
 
   void meow() {
@@ -11,7 +11,7 @@ class Cat {
   }
 
   void catFight(Cat otherCat) {
-    this.catPower -= 3;
+    catPower -= 3;
     otherCat.catPower -= 3;
   }
 }
