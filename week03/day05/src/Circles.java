@@ -22,7 +22,7 @@ public class Circles {
     if (size > 20) {
       fractal(x + size * 43/100, y + size* 43/100, size / 2, graphics);
       fractal(x + size * 8/100, y + size* 43/100, size / 2, graphics);
-      fractal(x + size * 24/100, y + size* 1/1000, size / 2, graphics);
+      fractal(x + size * 25/100, y, size / 2, graphics);
     }
   }
 
