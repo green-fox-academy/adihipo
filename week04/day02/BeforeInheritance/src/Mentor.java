@@ -1,16 +1,17 @@
-package com.company;
-
 public class Mentor {
   String name;
   int age;
   String gender;
   String level;
 
-  void Mentor(String name, int age, String gender, String level) {
-
+  public Mentor(String name, int age, String gender, String level) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+    this.level = level;
   }
 
-  void Mentor() {
+  public Mentor() {
     name = "Jane Doe";
     age = 30;
     gender = "female";

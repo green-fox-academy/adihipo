@@ -1,5 +1,3 @@
-package com.company;
-
 public class Sponsor {
   String name;
   int age;
@@ -7,11 +5,15 @@ public class Sponsor {
   String company;
   int hiredStudents;
 
-  void Sponsor(String name, int age, String gender, String company) {
+  public Sponsor(String name, int age, String gender, String company) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+    this.company = company;
     hiredStudents = 0;
   }
 
-  void Sponsor() {
+  public Sponsor() {
     name = "Jane Doe";
     age = 30;
     gender = "female";

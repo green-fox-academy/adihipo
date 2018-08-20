@@ -1,15 +1,15 @@
-package com.company;
-
 public class Person {
   String name;
   int age;
   String gender;
 
-  void Person(String name, int age, String gender) {
-
+  public Person(String name, int age, String gender) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
   }
 
-  void Person() {
+  public Person() {
     name = "Jane Doe";
     age = 30;
     gender = "female";
