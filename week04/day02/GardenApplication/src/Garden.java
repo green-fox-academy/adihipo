@@ -13,10 +13,33 @@ public class Garden {
   }
 
   void seeGarden() {
-    System.out.println(" ");
+    for (int i = 0; i < this.garden.size(); i++)
+      System.out.println("Plant type: " + this.whatPlant(i) + "\n" + "Water level: " + this.garden.get(i).waterLevel);
+  }
+
+  String whatPlant(int index) {
+    if (this.garden.get(index) instanceof Flower) {
+      return "Flower";
+    } else {
+      return "Tree";
+    }
   }
 
   void water(int amountOfWater) {
-    
+    System.out.println("You used " + amountOfWater + " amount of water. Thanks!");
+    int divisor = 0;
+    double watering;
+    for (int i = 0; i < this.garden.size(); i++) {
+      if (this.garden.get(i).waterLevel < this.garden.get(i).needsWaterTil) {
+        divisor++;
+      }
+    }
+    watering = amountOfWater / divisor;
+    for (int i = 0; i < this.garden.size(); i++) {
+      if (this.garden.get(i).waterLevel < this.garden.get(i).needsWaterTil) {
+        this.garden.get(i).waterLevel += watering;
+      }
+    }
+    this.seeGarden();
   }
 }
