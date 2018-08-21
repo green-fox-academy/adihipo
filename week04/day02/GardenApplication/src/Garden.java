@@ -14,7 +14,7 @@ public class Garden {
 
   void seeGarden() {
     for (int i = 0; i < this.garden.size(); i++)
-      System.out.println("Plant type: " + this.whatPlant(i) + "\nWater level: " + this.garden.get(i).waterLevel + "\nNeeds water? " + this.needsWater(i) + "\n");
+      System.out.println("Plant type: " + this.garden.get(i).color + " " + this.whatPlant(i) + "\nWater level: " + this.garden.get(i).waterLevel + "\nNeeds water? " + this.needsWater(i) + "\n");
     System.out.println("----------------------------");
   }
 
@@ -42,7 +42,7 @@ public class Garden {
     watering = amountOfWater / divisor;
     for (int i = 0; i < this.garden.size(); i++) {
       if (this.needsWater(i)) {
-        this.garden.get(i).waterLevel += watering;
+        this.garden.get(i).waterLevel += (watering * this.garden.get(i).absorb);
       }
     }
     this.seeGarden();
