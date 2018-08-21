@@ -14,7 +14,8 @@ public class Garden {
 
   void seeGarden() {
     for (int i = 0; i < this.garden.size(); i++)
-      System.out.println("Plant type: " + this.whatPlant(i) + "\n" + "Water level: " + this.garden.get(i).waterLevel);
+      System.out.println("Plant type: " + this.whatPlant(i) + "\nWater level: " + this.garden.get(i).waterLevel + "\nNeeds water? " + this.needsWater(i) + "\n");
+    System.out.println("----------------------------");
   }
 
   String whatPlant(int index) {
@@ -25,18 +26,22 @@ public class Garden {
     return "somethingNew";
   }
 
+  boolean needsWater(int index) {
+    return this.garden.get(index).waterLevel < this.garden.get(index).needsWaterTil;
+  }
+
   void water(int amountOfWater) {
     System.out.println("You used " + amountOfWater + " amount of water. Thanks!");
     int divisor = 0;
     double watering;
     for (int i = 0; i < this.garden.size(); i++) {
-      if (this.garden.get(i).waterLevel < this.garden.get(i).needsWaterTil) {
+      if (this.needsWater(i)) {
         divisor++;
       }
     }
     watering = amountOfWater / divisor;
     for (int i = 0; i < this.garden.size(); i++) {
-      if (this.garden.get(i).waterLevel < this.garden.get(i).needsWaterTil) {
+      if (this.needsWater(i)) {
         this.garden.get(i).waterLevel += watering;
       }
     }
