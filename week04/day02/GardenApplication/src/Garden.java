@@ -18,11 +18,11 @@ public class Garden {
   }
 
   String whatPlant(int index) {
-    if (this.garden.get(index) instanceof Flower) {
+    if (this.garden.get(index) instanceof Flower)
       return "Flower";
-    } else {
+    if (this.garden.get(index) instanceof Tree)
       return "Tree";
-    }
+    return "somethingNew";
   }
 
   void water(int amountOfWater) {
