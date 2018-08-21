@@ -7,5 +7,7 @@ public class Main {
     ac1.getStatus();
     ac2.refill(100);
     ac2.getStatus();
+    System.out.println(ac1.getType());
+    System.out.println(ac1.isPriority());
   }
 }

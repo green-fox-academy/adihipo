@@ -4,7 +4,7 @@ public class Aircraft {
   int baseDamage;
 
   public Aircraft() {
-    ammo = 0;
+    this.ammo = 0;
   }
 
   int figth() {
@@ -33,8 +33,12 @@ public class Aircraft {
     return "Something else";
   }
 
+  int allDamage() {
+    return this.baseDamage * this.ammo;
+  }
+
   void getStatus() {
-    System.out.println("Aircraft type: " + this.getType() + "\nStatus: Ammo " + this.ammo + " |  Base Damage " + this.baseDamage + " |  All Damage " + this.ammo * this.baseDamage + "\n");
+    System.out.println("Aircraft type: " + this.getType() + " | Status: Ammo " + this.ammo + " |  Base Damage " + this.baseDamage + " |  All Damage " + this.allDamage() + "\n");
   }
 
   boolean isPriority() {

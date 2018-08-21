@@ -1,7 +1,7 @@
 public class F35 extends Aircraft {
 
   public F35() {
-    maxAmmo = 12;
-    baseDamage = 50;
+    this.maxAmmo = 12;
+    this.baseDamage = 50;
   }
 }
