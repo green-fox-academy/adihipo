@@ -1,3 +1,9 @@
 public class Aircraft {
-  int ammo = 0;
+  int ammo;
+  int maxAmmo;
+  int baseDamage;
+
+  public Aircraft() {
+    ammo = 0;
+  }
 }
