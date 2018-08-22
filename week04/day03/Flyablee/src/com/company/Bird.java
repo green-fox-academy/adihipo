@@ -12,17 +12,17 @@ public class Bird extends Animal implements Flyable {
   }
 
   @Override
-  public void land() {
-
+  public String land() {
+    return "lands with feet";
   }
 
   @Override
-  public void fly() {
-
+  public String fly() {
+    return "flies with wings";
   }
 
   @Override
-  public void takeOff() {
-
+  public String takeOff() {
+    return "takes off horizontally";
   }
 }

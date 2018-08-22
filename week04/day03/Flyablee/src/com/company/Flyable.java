@@ -2,9 +2,9 @@ package com.company;
 
 public interface Flyable {
 
-  void land();
+  String land();
 
-  void fly();
+  String fly();
 
-  void takeOff();
+  String takeOff();
 }
