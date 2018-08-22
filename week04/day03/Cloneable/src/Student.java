@@ -27,6 +27,7 @@ public class Student extends Person implements Cloneable {
   }
 
   public Student clone(){
-    return this;
+    Student name = new Student(this.name, this.age, this.gender, this.previousOrganization);
+    return name;
   }
 }

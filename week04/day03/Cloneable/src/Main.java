@@ -4,5 +4,7 @@ public class Main {
     john.introduce();
     Student john2 = john.clone();
     john2.introduce();
+    System.out.println(john);
+    System.out.println(john2);
   }
 }
