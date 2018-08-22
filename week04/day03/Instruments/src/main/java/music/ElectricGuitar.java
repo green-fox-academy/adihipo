@@ -2,10 +2,8 @@ package main.java.music;
 
 public class ElectricGuitar extends StringedInstrument {
 
-
-
   @Override
-  void sound() {
-
+  String sound() {
+    return "Electric Guitar, a 6-stringed instrument that goes Twang";
   }
 }
