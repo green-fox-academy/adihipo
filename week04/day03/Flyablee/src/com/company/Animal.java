@@ -1,4 +1,12 @@
 package com.company;
 
-public class Animal {
+public abstract class Animal {
+
+  String name;
+
+  public String getName(){
+    return this.name;
+  }
+
+  public abstract String breed();
 }
