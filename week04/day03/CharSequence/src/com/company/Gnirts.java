@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.stream.IntStream;
-
 public class Gnirts implements CharSequence {
 
   String string;
@@ -12,26 +10,20 @@ public class Gnirts implements CharSequence {
 
   @Override
   public int length() {
-    return 0;
+    return this.string.length();
   }
 
   @Override
   public char charAt(int index) {
-    return 0;
+    return this.string.charAt(this.length() - index);
   }
 
   @Override
   public CharSequence subSequence(int start, int end) {
-    return null;
-  }
-
-  @Override
-  public IntStream chars() {
-    return null;
-  }
-
-  @Override
-  public IntStream codePoints() {
-    return null;
+    String subseq = "";
+    for (; end >= start; end--) {
+      subseq += this.string.charAt(end);
+    }
+    return subseq;
   }
 }
