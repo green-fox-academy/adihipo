@@ -18,11 +18,11 @@ class MainTest {
 
   @Test
   public void isAnagramShouldReturnTrue() {
-    assertTrue(isAnagram(yes1, yes2));
+    assertTrue(Main.isAnagram(yes1, yes2));
   }
 
   @Test
   public void isAnagramShouldReturnFalse() {
-    assertFalse(isAnagram(yes1, no));
+    assertFalse(Main.isAnagram(yes1, no));
   }
 }
