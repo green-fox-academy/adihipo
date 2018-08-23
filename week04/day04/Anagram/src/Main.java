@@ -13,6 +13,6 @@ public class Main {
     char[] secondArray = secondString.toCharArray();
     Arrays.sort(firstArray);
     Arrays.sort(secondArray);
-    return Arrays.equals(secondArray, secondArray);
+    return Arrays.equals(firstArray, secondArray);
   }
 }
