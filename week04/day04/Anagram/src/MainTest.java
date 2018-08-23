@@ -13,7 +13,7 @@ class MainTest {
   public void createStringsBeforeEach(){
     yes1 = "canon";
     yes2 = "nonac";
-    no = "nono";
+    no = "nonon";
   }
 
   @Test
