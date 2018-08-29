@@ -1,7 +1,7 @@
 public class TrickyAvg {
 
   public static void main(String[] args) {
-    int[] numberArray = {1, 2, 3, 5};
+    int[] numberArray = {5, 2, 8, -1};
     System.out.println(getTrickyAvg(numberArray));
   }
 
@@ -11,7 +11,7 @@ public class TrickyAvg {
 
     number1 = numberArray[0];
     for (int i = 1; i < numberArray.length; i++) {
-      if (numberArray[i] < number1 && numberArray[i] % 2 == 1) {
+      if (numberArray[i] < number1 && numberArray[i] % 2 != 0) {
         number1 = numberArray[i];
       }
     }
