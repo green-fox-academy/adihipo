@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MostProductiveYear {
   public static void main(String[] args) {
-    String filename = "src/paramount.txt";
+    String filename = "src/marvel.txt";
     getMostProductiveYear(filename);
   }
 
@@ -37,7 +37,13 @@ public class MostProductiveYear {
           valueOfTheBestYear = yearMap.get(key);
         }
       }
-      System.out.println(valueOfTheBestYear);
+      String mostValuableYear;
+      for (String key : yearMap.keySet()) {
+        if (yearMap.get(key).equals(valueOfTheBestYear)) {
+          mostValuableYear = key;
+          System.out.println("The most valuable year of the studio was " + mostValuableYear + " with " + valueOfTheBestYear + " movies.");
+        }
+      }
     } catch (IOException ex) {
       System.out.println("Unable to open file, sorry master!");
     }
