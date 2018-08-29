@@ -22,7 +22,7 @@ public class TrickyAvg {
         number2 = numberArray[i];
       }
     }
-    
+
     return (number2 + number1) / 2;
   }
 }
