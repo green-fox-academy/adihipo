@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MostProductiveYear {
@@ -16,12 +17,22 @@ public class MostProductiveYear {
     try {
       List<String> lines = Files.readAllLines(path);
       List<String> years = new ArrayList<>();
-      int counter = 0;
+      HashMap<String, Integer> yearMap = new HashMap<>();
       for (int i = 0; i < lines.size(); i++) {
         String movieDate = lines.get(i).split(",")[1];
         years.add(movieDate);
       }
-      System.out.println(years);
+      int counter = 1;
+      for (int i = 0; i < years.size(); i++) {
+        if (yearMap.containsKey(years.get(i))) {
+          counter++;
+        } else {
+          counter = 1;
+        }
+        yearMap.put(years.get(i), counter);
+      }
+
+      System.out.println(yearMap);
     } catch (IOException ex) {
       System.out.println("Unable to open file, sorry master!");
     }
