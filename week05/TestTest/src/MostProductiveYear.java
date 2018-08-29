@@ -31,8 +31,13 @@ public class MostProductiveYear {
         }
         yearMap.put(years.get(i), counter);
       }
-
-      System.out.println(yearMap);
+      int valueOfTheBestYear = 0;
+      for (String key : yearMap.keySet()) {
+        if (valueOfTheBestYear < yearMap.get(key)) {
+          valueOfTheBestYear = yearMap.get(key);
+        }
+      }
+      System.out.println(valueOfTheBestYear);
     } catch (IOException ex) {
       System.out.println("Unable to open file, sorry master!");
     }
