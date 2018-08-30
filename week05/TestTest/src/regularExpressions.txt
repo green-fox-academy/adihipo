@@ -1,0 +1,24 @@
+Regular Expression	& Description
+​​[abc]	​​Set definition, can match the letter a or b or c.
+​\\d	​Any digit, short for [0-9]
+​\\D	​A non-digit
+​\\s	​A whitespace character (tab, space, \n)
+\\w	A word character, short for [a-zA-Z_0-9]
+\\W	A non-word character
+.	Matches any character
+​[^abc]	​This pattern matches any character except a or b or c.
+​[a-d1-7]	​Ranges: matches a letter between a and d and figures from 1 to 7, but not d1.
+
+Pre-defined quantifiers
+*	Occurs zero or more times
++	Occurs one or more times
+?	Occurs no or one times
+{X}	Occurs X number of times
+{X,Y}	Occurs between X and Y times
+
+Example:
++36 1 123 4567
+06 (20) 202 0202
+06707465784
++36           31  987       1293
+ "((\\+3)|0)6\\s*\\(?\\d{1,2}\\)?\\s*\\d{3}\\s*\\d{4}"
