@@ -12,7 +12,7 @@ public class Hero extends BaseHero implements Punchable {
 
   @Override
   public void punch(Punchable other) {
-    if (this.getMotivationLevel() > 0) {
+    if (this.getMotivationLevel() > 0 && ((this instanceof MarvelHero && other instanceof DCHero) || (this instanceof DCHero && other instanceof MarvelHero))){
       double damage = this.motivation / 1.5;
       other.bePunched(damage);
     }
@@ -42,8 +42,8 @@ public class Hero extends BaseHero implements Punchable {
       System.out.println(this.getName() + " is not motivated anymore");
   }
 
-  public int setMotivation(int motivation) {
-    return this.motivation = motivation;
+  public void setMotivation(int motivation) {
+    this.motivation = motivation;
   }
 
   public int getMotivation(int motivation) {
