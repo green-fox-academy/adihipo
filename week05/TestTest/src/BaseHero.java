@@ -10,6 +10,8 @@ public abstract class BaseHero {
 
   public abstract int getMotivationLevel();
 
+  public abstract void toStringHero();
+
   public String getName() {
     return this.name;
   }

@@ -22,7 +22,7 @@ public class Hero extends BaseHero implements Punchable {
   public int getMotivationLevel() {
     if (this.motivation > 40) {
       return 2;
-    } else if (this.motivation <= 40 && this.motivation >= 20) {
+    } else if (this.motivation >= 20) {
       return 1;
     } else
       return 0;

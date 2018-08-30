@@ -53,8 +53,9 @@ public class HeroBattle {
             new MarvelHero("Daredevil"),
             new DCHero("Batman", 60),
             new DCHero("Superman", 25),
-            new DCHero("Wonder woman")
+            new DCHero("Wonder Woman")
     );
+    log(heroes);
 
     battle(heroes);
 
@@ -72,7 +73,7 @@ public class HeroBattle {
 
   private static void log(List<BaseHero> heroes) {
     for (BaseHero hero : heroes) {
-      System.out.println(hero);
+      hero.toStringHero();
     }
   }
 
