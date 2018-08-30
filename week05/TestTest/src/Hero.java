@@ -1,11 +1,11 @@
 public class Hero extends BaseHero implements Punchable {
-  private int motivation;
+  private double motivation;
 
   Hero(String name) {
     super(name);
   }
 
-  Hero(String name, int motivation) {
+  Hero(String name, double motivation) {
     super(name);
     this.motivation = motivation;
   }
@@ -42,11 +42,11 @@ public class Hero extends BaseHero implements Punchable {
       System.out.println(this.getName() + " is not motivated anymore");
   }
 
-  public void setMotivation(int motivation) {
+  public void setMotivation(double motivation) {
     this.motivation = motivation;
   }
 
-  public int getMotivation(int motivation) {
+  public double getMotivation(double motivation) {
     return this.motivation = motivation;
   }
 }

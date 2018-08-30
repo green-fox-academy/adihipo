@@ -5,7 +5,7 @@ public class MarvelHero extends Hero {
     this.setMotivation(40);
   }
 
-  MarvelHero(String name, int motivation) {
+  MarvelHero(String name, double motivation) {
     super(name, motivation);
   }
 }

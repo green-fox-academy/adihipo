@@ -5,7 +5,7 @@ public class DCHero extends Hero {
     this.setMotivation(45);
   }
 
-  DCHero(String name, int motivation) {
+  DCHero(String name, double motivation) {
     super(name, motivation);
   }
 }
