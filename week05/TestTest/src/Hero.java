@@ -48,7 +48,7 @@ public class Hero extends BaseHero implements Punchable {
     this.motivation = motivation;
   }
 
-  public double getMotivation(double motivation) {
+  public double getMotivation() {
     return this.motivation = motivation;
   }
 }
