@@ -12,7 +12,7 @@ public class Hero extends BaseHero implements Punchable {
 
   @Override
   public void punch(Punchable other) {
-    if (this.getMotivationLevel() > 0 && ((this instanceof MarvelHero && other instanceof DCHero) || (this instanceof DCHero && other instanceof MarvelHero))){
+    if (this.getMotivationLevel() > 0 && ((this instanceof MarvelHero && other instanceof DCHero) || (this instanceof DCHero && other instanceof MarvelHero))) {
       double damage = this.motivation / 1.5;
       other.bePunched(damage);
     }

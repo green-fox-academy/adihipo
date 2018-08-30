@@ -55,9 +55,11 @@ public class HeroBattle {
             new DCHero("Superman", 25),
             new DCHero("Wonder Woman")
     );
+
     log(heroes);
 
     battle(heroes);
+    System.out.println();
 
     log(heroes);
 
