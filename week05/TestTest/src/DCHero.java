@@ -2,7 +2,7 @@ public class DCHero extends Hero {
 
   DCHero(String name){
     super(name);
-    this.motivation = 45;
+    this.setMotivation(45);
   }
 
 

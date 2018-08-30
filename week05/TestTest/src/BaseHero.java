@@ -11,6 +11,6 @@ public abstract class BaseHero {
   public abstract int getMotivationLevel();
 
   public String getName() {
-    return name;
+    return this.name;
   }
 }
