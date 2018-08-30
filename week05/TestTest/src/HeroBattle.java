@@ -48,12 +48,14 @@ public class HeroBattle {
      *  Do not modify the code below except for test purpose *
      *********************************************************/
     List<BaseHero> heroes = Arrays.asList(
-            new MarvelHero("Hulk", 55),
-            new MarvelHero("Iron man", 35),
+            new MarvelHero("Hulk", 72),
+            new MarvelHero("Iron man", 55),
             new MarvelHero("Daredevil"),
-            new DCHero("Batman", 60),
-            new DCHero("Superman", 25),
-            new DCHero("Wonder Woman")
+            new MarvelHero("Captain America", 30),
+            new MarvelHero("Spiderman"),
+            new DCHero("Batman", 55),
+            new DCHero("Superman", 70),
+            new DCHero("Wonder Woman", 65)
     );
 
     log(heroes);
@@ -80,10 +82,17 @@ public class HeroBattle {
   }
 
   private static boolean anyHeroCanFight(List<BaseHero> heroes) {
+    int marvelMotivation = 0;
+    int dcMotivation = 0;
     for (BaseHero hero : heroes) {
-      if (hero.getMotivationLevel() > 1) {
-        return true;
+      if (hero instanceof MarvelHero && hero.getMotivationLevel() > 0)
+        marvelMotivation++;
+      if (hero instanceof DCHero && hero.getMotivationLevel() > 0) {
+        dcMotivation++;
       }
+    }
+    if (dcMotivation > 0 && marvelMotivation > 0) {
+      return true;
     }
     return false;
   }

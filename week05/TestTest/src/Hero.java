@@ -30,7 +30,9 @@ public class Hero extends BaseHero implements Punchable {
 
   @Override
   public void bePunched(double damage) {
-    this.motivation -= damage / this.motivation;
+    if (this.motivation >= 0) {
+      this.motivation -= damage / this.motivation;
+    }
   }
 
   public void toStringHero() {
