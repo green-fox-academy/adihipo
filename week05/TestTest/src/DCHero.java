@@ -1,0 +1,2 @@
+public class DCHero {
+}
