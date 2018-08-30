@@ -1,5 +1,9 @@
 public class Hero extends BaseHero implements Punchable {
-  int motivation;
+  int motivation = 0;
+
+  Hero(String name) {
+    super(name);
+  }
 
   Hero(String name, int motivation) {
     super(name);
