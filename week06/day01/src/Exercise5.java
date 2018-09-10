@@ -8,7 +8,7 @@ public class Exercise5 {
     String upperCaseChars = string.chars()
             .filter(x -> Character.isUpperCase(x))
             .mapToObj(c -> Character.toString((char) c))
-            .collect(Collectors.joining());
+            .collect(Collectors.joining(", "));
 
     System.out.println(upperCaseChars);
   }
