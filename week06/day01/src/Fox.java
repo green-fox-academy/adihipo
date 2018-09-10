@@ -22,4 +22,13 @@ public class Fox {
   public String getColor() {
     return color;
   }
+
+  @Override
+  public String toString() {
+    return "Fox{" +
+            "name='" + name + '\'' +
+            ", type='" + type + '\'' +
+            ", color='" + color + '\'' +
+            '}';
+  }
 }
