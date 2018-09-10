@@ -17,5 +17,16 @@ public class Exercise2 {
 //            .average().getAsDouble();
 
     System.out.println(oddNumbersAvg);
+
+    double oddAvg = getOddElementsAvg(numbers);
+    System.out.println(oddAvg);
+  }
+
+  private static double getOddElementsAvg(ArrayList<Integer> numberList) {
+    return numberList.stream()
+            .filter(x -> x % 2 != 0)
+            .mapToInt(x -> x)
+            .average()
+            .getAsDouble();
   }
 }
