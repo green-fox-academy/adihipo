@@ -9,7 +9,8 @@ public class Exercise2 {
     double oddNumbersAvg = numbers.stream()
             .filter(x -> x % 2 != 0)
             .mapToInt(x -> x)
-            .average().getAsDouble();
+            .average()
+            .getAsDouble();
 
 //    int[] numbersArray = new int[]{1, 2, 3};
 //    double oddNumbersArrayAvg = Arrays.stream(numbersArray)
