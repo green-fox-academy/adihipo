@@ -1,0 +1,31 @@
+body {
+  background-color: blue;
+}
+
+table {
+  margin: auto;
+}
+
+table,
+td,
+th {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  width: 700px;
+  height: 70px;
+  color: grey;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 30px;
+}
+
+th {
+  background-color: black;
+}
+
+tr:nth-child(2n+1) {
+  background-color: rgb(231, 231, 231);
+}
+
+tr:nth-child(2n) {
+  background-color: white;
+}
