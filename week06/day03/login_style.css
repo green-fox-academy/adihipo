@@ -35,6 +35,17 @@ input {
   padding: 0 10px;
 }
 
+input[type=checkbox] {
+  width: 10px;
+  height: 10px;
+  box-align: left;
+}
+
+#showhide {
+  display: inline;
+  font-size: 10px;
+}
+
 #forgot {
   font-size: 10px;
   text-align: right;
