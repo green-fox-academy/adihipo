@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,21 +8,23 @@
   <link href="login_style.css" rel="stylesheet" type="text/css" />
   <title>Document</title>
 </head>
+
 <body>
   <form action="/gimme_them_info" method="POST">
     <p id="title">ACCOUNT LOGIN</p>
     <div>
-        <label for="name">USERNAME</label>
-        <input type="text" id="name" name="user_name">
+      <label for="name">USERNAME</label>
+      <input type="text" id="name" name="user_name" minlength="3" required autofocus>
     </div>
     <div>
-        <label for="password">PASSWORD</label>
-        <input type="text" id="password" name="user_password">
+      <label for="password">PASSWORD</label>
+      <input type="password" id="password" name="user_password" minlength="8" required>
     </div>
     <p id="forgot">Forgot Password?</p>
     <div class="button">
-        <button type="submit">Login</button>
+      <button type="submit">Login</button>
     </div>
   </form>
 </body>
+
 </html>
