@@ -35,15 +35,12 @@ input {
   padding: 0 10px;
 }
 
-input[type=checkbox] {
-  width: 10px;
-  height: 10px;
-  box-align: left;
-}
-
-#showhide {
-  display: inline;
-  font-size: 10px;
+img {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 305px;
+  left: 760px;
 }
 
 #forgot {

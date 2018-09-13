@@ -1,10 +1,14 @@
 'use strict'
 
-function myFunction() {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-      x.type = "text";
+function switchShowHide() {
+
+  var toShow = document.getElementById("password");
+  var eyeImage = document.getElementById("image");
+  if (toShow.type === "password") {
+      toShow.type = "text";
+      eyeImage.src = "eye2.png";
   } else {
-      x.type = "password";
+      toShow.type = "password";
+      eyeImage.src = "eye.png";
   }
 }
