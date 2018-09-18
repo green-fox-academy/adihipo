@@ -13,6 +13,7 @@
     <table>
         <thead>
         <tr>
+            <th>ACCOUNT ID</th>
             <th>NAME</th>
             <th>BALANCE IN ZEBRA</th>
             <th>ANIMAL TYPE</th>
@@ -20,6 +21,7 @@
         </thead>
         <tbody>
         <tr th:each=" bankAccount: ${listOfBankAccounts}" th:object="${bankAccount}">
+            <th th:text="*{id}"></th>
             <td th:text="*{name}"></td>
             <td th:text="*{balance}"/></td>
             <td th:text="*{animalType}"/></td>
