@@ -35,6 +35,10 @@ public class BankAccount {
     return df.format(balance) + " zebra";
   }
 
+  public double getBalanceAsDouble() {
+    return balance;
+  }
+
   public void setBalance(double balance) {
     this.balance = balance;
   }
