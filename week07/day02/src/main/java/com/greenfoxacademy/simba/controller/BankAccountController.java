@@ -5,6 +5,7 @@ import com.greenfoxacademy.simba.model.ListOfBankAccounts;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class BankAccountController {
@@ -42,6 +43,11 @@ public class BankAccountController {
     listOfBankAccounts.add(bankAccount7);
 
     model.addAttribute("listOfBankAccounts", listOfBankAccounts.getBankAccountList());
+    return "listofbankaccounts";
+  }
+
+  @PostMapping("/list/accounts")
+  public String giveDonate() {
     return "listofbankaccounts";
   }
 }
