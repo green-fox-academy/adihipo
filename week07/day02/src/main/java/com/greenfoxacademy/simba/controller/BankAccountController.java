@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class BankAccountController {
 
   @GetMapping("/")
+  public String welcome() {
+    return "welcome";
+  }
+
+  @GetMapping("/account")
   public String show(Model model) {
     BankAccount bankAccount1 = new BankAccount("Simba", 2000, "lion");
     model.addAttribute("name", bankAccount1.getName());
