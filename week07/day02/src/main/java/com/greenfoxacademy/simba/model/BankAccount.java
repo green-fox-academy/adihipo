@@ -9,12 +9,16 @@ public class BankAccount {
   private String animalType;
   private Long id;
   private static AtomicLong incrementedId = new AtomicLong(1);
+  private boolean isItKing;
+  private boolean isItGoodGuy;
 
-  public BankAccount(String name, int balance, String animalType) {
+  public BankAccount(String name, int balance, String animalType, boolean isItKing, boolean isItGoodGuy) {
     this.name = name;
     this.balance = balance;
     this.animalType = animalType;
     this.id = incrementedId.getAndIncrement();
+    this.isItKing = isItKing;
+    this.isItGoodGuy = isItGoodGuy;
   }
 
   public String getName() {
@@ -48,4 +52,21 @@ public class BankAccount {
   public void setId(Long id) {
     this.id = id;
   }
+
+  public boolean isItKing() {
+    return isItKing;
+  }
+
+  public void setItKing(boolean itKing) {
+    isItKing = itKing;
+  }
+
+  public boolean isItGoodGuy() {
+    return isItGoodGuy;
+  }
+
+  public void setItGoodGuy(boolean itGoodGuy) {
+    isItGoodGuy = itGoodGuy;
+  }
+
 }

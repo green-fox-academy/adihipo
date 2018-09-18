@@ -3,6 +3,66 @@
 <head>
     <title>Thymeleaf Exercise #</title>
     <link rel="stylesheet" th:href="@{/style.css}"/>
+    <style>
+        body {
+            background-color: rgb(102, 102, 240);
+        }
+
+        table,
+        td,
+        th {
+            width: 800px;
+            height: 80px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 30px;
+            font-weight: 100;
+            text-align: left;
+        }
+
+        td, th {
+            border: 2px solid rgb(172, 171, 171, 0.8);
+            padding: 0 20px;
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            border-style: hidden;
+        }
+
+        th {
+            background-color: rgb(26, 25, 25);
+            color: rgb(196, 194, 194);
+        }
+
+        td {
+            color: rgb(126, 124, 124);
+        }
+
+        tr:nth-child(2n+1) {
+            background-color: rgb(231, 231, 231);
+        }
+
+        tr:nth-child(2n) {
+            background-color: white;
+        }
+
+        table th:first-child {
+            border-radius: 5px 0 0 0;
+        }
+
+        table th:last-child {
+            border-radius: 0 5px 0 0;
+        }
+
+        table tr:last-child td:first-child {
+            border-radius: 0 0 0 5px;
+        }
+
+        table tr:last-child td:last-child {
+            border-radius: 0 0 5px 0;
+        }
+    </style>
     <meta charset="utf-8"/>
 </head>
 <body>
@@ -15,6 +75,8 @@
         <tr>
             <th>ACCOUNT ID</th>
             <th>NAME</th>
+            <th>KING?</th>
+            <th>GOOD GUY?</th>
             <th>BALANCE IN ZEBRA</th>
             <th>ANIMAL TYPE</th>
         </tr>
@@ -23,8 +85,13 @@
         <tr th:each=" bankAccount: ${listOfBankAccounts}" th:object="${bankAccount}">
             <th th:text="*{id}"></th>
             <td th:text="*{name}"></td>
-            <td th:text="*{balance}"/></td>
-            <td th:text="*{animalType}"/></td>
+            <td th:text="*{isItKing()}? 'IMMA KING! :)' : ':('"
+                th:style="*{isItKing()}? 'background-color: orange' : 'background-color: lightblue'"></td>
+            <td th:text="*{isItGoodGuy()}? 'Good guy' : 'Bad guy'"></td>
+            <td th:text="*{balance}"/>
+            </td>
+            <td th:text="*{animalType}"/>
+            </td>
         </tr>
         </tbody>
     </table>
