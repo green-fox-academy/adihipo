@@ -50,9 +50,9 @@ public class BankAccountController {
   @PostMapping("/list/accounts")
   public String giveDonate(@ModelAttribute(value = "character_name") String name, @ModelAttribute(value = "donate") double donate) {
     for (int i = 0; i < listOfBankAccounts.getBankAccountList().size(); i++) {
-      listOfBankAccounts.getBankAccountList().get(i).getName().equals(name);
-      listOfBankAccounts.getBankAccountList().get(i).setBalance(listOfBankAccounts.getBankAccountList().get(i).getBalanceAsDouble() + donate);
+      if (listOfBankAccounts.getBankAccountList().get(i).getName().equals(name))
+        listOfBankAccounts.getBankAccountList().get(i).setBalance(listOfBankAccounts.getBankAccountList().get(i).getBalanceAsDouble() + donate);
     }
-    return "redicrect: /list/accounts";
+    return "redirect:/list/accounts";
   }
 }
