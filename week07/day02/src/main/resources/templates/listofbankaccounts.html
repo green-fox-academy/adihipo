@@ -20,7 +20,7 @@
         }
 
         td, th {
-            border: 2px solid rgb(172, 171, 171, 0.8);
+            border: 2px solid rgb(172, 171, 171);
             padding: 0 20px;
         }
 
@@ -77,7 +77,7 @@
             <th>NAME</th>
             <th>KING?</th>
             <th>GOOD GUY?</th>
-            <th>BALANCE IN ZEBRA</th>
+            <th>BALANCE</th>
             <th>ANIMAL TYPE</th>
         </tr>
         </thead>
@@ -85,7 +85,7 @@
         <tr th:each=" bankAccount: ${listOfBankAccounts}" th:object="${bankAccount}">
             <th th:text="*{id}"></th>
             <td th:text="*{name}"></td>
-            <td th:text="*{isItKing()}? 'IMMA KING! :)' : ':('"
+            <td th:text="*{isItKing()}? 'IMMA KING!' : ':('"
                 th:style="*{isItKing()}? 'background-color: orange' : 'background-color: lightblue'"></td>
             <td th:text="*{isItGoodGuy()}? 'Good guy' : 'Bad guy'"></td>
             <td th:text="*{balance}"/>

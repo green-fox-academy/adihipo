@@ -1,18 +1,19 @@
 package com.greenfoxacademy.simba.model;
 
+import java.text.DecimalFormat;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class BankAccount {
 
   private String name;
-  private int balance;
+  private double balance;
   private String animalType;
   private Long id;
   private static AtomicLong incrementedId = new AtomicLong(1);
   private boolean isItKing;
   private boolean isItGoodGuy;
 
-  public BankAccount(String name, int balance, String animalType, boolean isItKing, boolean isItGoodGuy) {
+  public BankAccount(String name, double balance, String animalType, boolean isItKing, boolean isItGoodGuy) {
     this.name = name;
     this.balance = balance;
     this.animalType = animalType;
@@ -29,11 +30,12 @@ public class BankAccount {
     this.name = name;
   }
 
-  public long getBalance() {
-    return balance;
+  public String getBalance() {
+    DecimalFormat df = new DecimalFormat("#.00");
+    return df.format(balance) + " zebra";
   }
 
-  public void setBalance(int balance) {
+  public void setBalance(double balance) {
     this.balance = balance;
   }
 
