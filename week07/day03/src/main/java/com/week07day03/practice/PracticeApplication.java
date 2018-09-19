@@ -1,5 +1,6 @@
 package com.week07day03.practice;
 
+import com.week07day03.practice.Service.MyColor;
 import com.week07day03.practice.Service.Printer;
 import com.week07day03.practice.Service.SpellChecker;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +11,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PracticeApplication implements CommandLineRunner {
 
-  SpellChecker checker;
-  Printer printer;
+  private SpellChecker checker;
+  private Printer printer;
+  private MyColor mycolor;
 
   @Autowired
-  public PracticeApplication(SpellChecker checker, Printer printer) {
+  public PracticeApplication(SpellChecker checker, Printer printer, MyColor mycolor) {
     this.checker = checker;
     this.printer = printer;
+    this.mycolor = mycolor;
   }
 
   public static void main(String[] args) {
@@ -27,6 +30,7 @@ public class PracticeApplication implements CommandLineRunner {
   public void run(String... args) throws Exception {
     checker.checkSpelling();
     printer.log("hellooooooooo!");
+    mycolor.printColor();
   }
-  
+
 }
