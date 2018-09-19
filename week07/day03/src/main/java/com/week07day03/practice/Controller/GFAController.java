@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class GFAController {
-  
+
   @GetMapping("/gfa")
   public String showGFAhome() {
     return "gfahome";
