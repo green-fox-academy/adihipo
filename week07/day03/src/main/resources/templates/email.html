@@ -6,7 +6,7 @@
     <meta charset="utf-8"/>
 </head>
 <body>
-<p style="background-color: chartreuse">is@this.valid is a valid email address</p>
-<p style="background-color: crimson">not_valid_email.com is not a valid email address</p>
+<h1>EMAIL VALIDATION. YOUR EMAIL ADDRESS:</h1>
+<p th:style="${validateEmail}? 'background-color: green' : 'background-color: red '" th:text="${validateEmail}? ${emailAddress} + ' is a valid email address' : ${emailAddress} + ' is not a valid email address'">
 </body>
 </html>
