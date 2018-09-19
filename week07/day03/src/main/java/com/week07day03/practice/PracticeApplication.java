@@ -16,10 +16,10 @@ public class PracticeApplication implements CommandLineRunner {
   private MyColor mycolor;
 
   @Autowired
-  public PracticeApplication(SpellChecker checker, Printer printer, MyColor mycolor) {
+  public PracticeApplication(SpellChecker checker, Printer printer, MyColor redColor) {
     this.checker = checker;
     this.printer = printer;
-    this.mycolor = mycolor;
+    this.mycolor = redColor;
   }
 
   public static void main(String[] args) {
