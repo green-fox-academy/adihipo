@@ -1,12 +1,20 @@
 package com.week07day03.practice.Service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RedColor implements MyColor{
 
+  Printer printer;
+
+  @Autowired
+  public RedColor(Printer printer) {
+    this.printer = printer;
+  }
+
   @Override
   public void printColor() {
-    System.out.println("REEEEEED");
+    printer.log("REEEEEED");
   }
 }
