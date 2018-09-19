@@ -6,5 +6,10 @@
     <meta charset="utf-8"/>
 </head>
 <body>
+<h2>ALL STUDENTS IN CLASS:</h2>
+<br><br>
+<ol th:each="student : ${list}">
+    <p th:text="${student}"></p>
+</ol>
 </body>
 </html>
