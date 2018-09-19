@@ -9,7 +9,6 @@ import java.util.Random;
 public class UtilityService {
   ArrayList<String> colors;
   Random random;
-  String email;
 
   public UtilityService() {
     colors = new ArrayList<>();
@@ -19,14 +18,13 @@ public class UtilityService {
     colors.add("orange");
     colors.add("magenta");
     random = new Random();
-    email = "";
   }
 
   public String randomColor() {
     return colors.get(random.nextInt(colors.size()));
   }
 
-  public boolean validateEmail() {
+  public boolean validateEmail(String email) {
     if (email.contains("@") && email.contains(".")) {
       return true;
     } else {
@@ -34,27 +32,12 @@ public class UtilityService {
     }
   }
 
-  public ArrayList<String> getColors() {
-    return colors;
+  public String caesar(String text, int number) {
+    String result = "";
+    for (int i = 0; i < text.length(); i++) {
+      result += (char) ((int) text.charAt(i) + number);
+    }
+    return result;
   }
 
-  public void setColors(ArrayList<String> colors) {
-    this.colors = colors;
-  }
-
-  public Random getRandom() {
-    return random;
-  }
-
-  public void setRandom(Random random) {
-    this.random = random;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
 }

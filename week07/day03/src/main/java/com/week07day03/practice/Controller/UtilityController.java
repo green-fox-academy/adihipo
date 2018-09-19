@@ -30,9 +30,21 @@ public class UtilityController {
 
   @GetMapping("/useful/email")
   public String showEmailValidation(@RequestParam(value = "email") String email, Model model) {
-    utilityService.setEmail(email);
-    model.addAttribute("validateEmail", utilityService.validateEmail());
-    model.addAttribute("emailAddress", utilityService.getEmail());
+    model.addAttribute("validateEmail", utilityService.validateEmail(email));
+    model.addAttribute("emailAddress", email);
     return "email";
   }
+
+  @GetMapping("/useful/encode")
+  public String showEncodedMessage(@RequestParam(value = "encode") String encode, @RequestParam(value = "number") int number, Model model) {
+    model.addAttribute("caesarString", utilityService.caesar(encode, number));
+    return "caesarencode";
+  }
+
+  @GetMapping("/useful/decode")
+  public String showDecodedMessage(@RequestParam(value = "decode") String decode, @RequestParam(value = "number") int number, Model model) {
+    model.addAttribute("caesarString", utilityService.caesar(decode, -number));
+    return "caesardecode";
+  }
+
 }

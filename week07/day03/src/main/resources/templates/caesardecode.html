@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Exercise #</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<h1>CAESAR DECODING</h1>
+<p>INSTRUCTIONS: append your URL with ?decode=text&number=yournumber </p>
+<br>
+<p>YOUR TEXT:</p>
+<p th:text="${caesarString}"></p>
+</body>
+</html>
