@@ -27,4 +27,9 @@ public class GFAController {
     return "gfahomelist";
   }
 
+  @GetMapping("/gfa/add")
+  public String showGFAAddStudent() {
+    return "gfahomeadd";
+  }
+
 }
