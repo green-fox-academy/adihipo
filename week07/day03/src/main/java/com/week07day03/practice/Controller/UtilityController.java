@@ -26,4 +26,9 @@ public class UtilityController {
     model.addAttribute("backgroundColor", utilityService.randomColor());
     return "colored";
   }
+
+  @GetMapping("/useful/email")
+  public String showEmailValidation() {
+    return "email";
+  }
 }
