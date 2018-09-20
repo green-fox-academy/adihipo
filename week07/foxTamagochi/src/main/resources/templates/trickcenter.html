@@ -7,15 +7,41 @@
     <style>
         body {
             margin: 0 40%;
+            min-width: 150px;
         }
 
         h1 {
             text-align: center;
         }
+
+        select {
+            width: 95%;
+        }
+
+        button {
+            font-size: 10px;
+            border: 0px;
+            color: #CCC;
+            border-radius: 20%;
+            height: 40px;
+        }
+
+        .submit {
+            width: 95%;
+            background-color: rgb(120, 50, 250);
+            border-radius: 0;
+        }
+
+        .backandforth {
+            width: 48%;
+            background-color: rgb(34, 34, 34);
+        }
     </style>
 </head>
 <body>
 <h1>TRICK CENTER</h1>
+<br><br><br>
+<h4>Select tricks what to learn</h4>
 <form method="POST">
     <select name="trick">
         <option value="cobra fighting style">cobra fighting style</option>
@@ -24,9 +50,10 @@
         <option value="flamingo walking">flamingo walking</option>
         <option value="learn JAVA">learn JAVA</option>
     </select>
-    <button type="submit">LEARN</button>
+    <br>
+    <button class="submit" type="submit">LEARN</button>
 </form>
 <br><br>
-<a th:href="'/?name=' + ${fox.getName()}">Go back to your fox</a>
+<a th:href="'/?name=' + ${fox.getName()}"><button class="backandforth">GO BACK</button></a>
 </body>
 </html>
