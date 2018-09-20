@@ -1,23 +1,15 @@
 package com.greenfox.tamagochi.Service;
 
-import org.springframework.stereotype.Component;
-
-import java.util.Timer;
 import java.util.TimerTask;
 
-@Component
-public class TimerService extends TimerTask {
+public class TimingerTask extends TimerTask {
 
-  TimerTask timerTask;
-  Timer timer;
   FoxService foxService;
 
-  public TimerService() {
-    timerTask = new TimerService();
-    timer = new Timer();
+  public TimingerTask() {
     foxService = new FoxService();
-    timer.scheduleAtFixedRate(timerTask, 0, 10000);
   }
+
 
   @Override
   public void run() {
@@ -34,5 +26,4 @@ public class TimerService extends TimerTask {
       }
     }
   }
-
 }
