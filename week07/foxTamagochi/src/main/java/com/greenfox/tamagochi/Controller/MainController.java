@@ -25,7 +25,7 @@ public class MainController {
       return "redirect:/login";
     } else {
       if (foxes.isThereAFoxInTheListWithThisName(name)) {
-        model.addAttribute("nameOfFox", foxes.giveBackFoxFromListByName(name).getName());
+        model.addAttribute("fox", foxes.giveBackFoxFromListByName(name));
         return "index";
       } else {
         return "redirect:/login";

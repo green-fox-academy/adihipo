@@ -15,6 +15,8 @@ public class Fox {
 
   public Fox() {
     tricks = new ArrayList<>();
+    food = "pizza";
+    drink = "lemonade";
   }
 
   public String getName() {
