@@ -73,4 +73,14 @@ public class SettingsController {
     return "redirect:/?name=" + name;
   }
 
+  @GetMapping("/allfoxes")
+  public String showAllFoxes(Model model) {
+    if (foxService.getFoxes().isEmpty()) {
+      return "redirect:/login";
+    } else {
+      model.addAttribute("foxes", foxService);
+      return "allfoxes";
+    }
+  }
+
 }

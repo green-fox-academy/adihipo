@@ -15,6 +15,10 @@ public class FoxService {
     foxes = new ArrayList<>();
   }
 
+  public List<Fox> getFoxes() {
+    return foxes;
+  }
+
   public void createFoxByNameAndAddToList(String name) {
     Fox fox = new Fox();
     fox.setName(name);
