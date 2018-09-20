@@ -44,4 +44,9 @@ public class MainController {
     return "redirect:/?name=" + name;
   }
 
+  @GetMapping("/nutritionstore")
+  public String showNutritionStore() {
+    return "nutritionstore";
+  }
+
 }
