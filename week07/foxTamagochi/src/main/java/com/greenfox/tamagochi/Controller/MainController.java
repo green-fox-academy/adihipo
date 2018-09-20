@@ -50,6 +50,7 @@ public class MainController {
       return "redirect:/login";
     } else {
       if (foxService.isThereAFoxInTheListWithThisName(name)) {
+        model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
         return "nutritionstore";
       } else {
         return "redirect:/login";
