@@ -22,9 +22,9 @@
 <img src="fox.gif">
 <br><br>
 <h4 th:object="${fox}"
-    th:text="'This is Mr.' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} + '. He knows two tricks:'"></h4>
-<ul type="disc">
-    <li>No tricks yet. Go learn some!</li>
+    th:text="'This is Mr.' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} + '. He knows ' + *{tricks.size()} + ' trick(s):'"></h4>
+<ul type="disc" th:each="trick: ${fox.getTricks()}">
+    <li th:text="${fox.getTricks().isEmpty()}? 'No tricks yet. Go learn some!' : ${trick.getName()}"></li>
 </ul>
 </body>
 </html>

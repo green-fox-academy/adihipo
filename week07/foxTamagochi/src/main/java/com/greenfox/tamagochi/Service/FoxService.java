@@ -1,17 +1,17 @@
-package com.greenfox.tamagochi.Model;
+package com.greenfox.tamagochi.Service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import com.greenfox.tamagochi.Model.Fox;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
-public class Foxes {
+@Service
+public class FoxService {
 
   private List<Fox> foxes;
 
-  public Foxes() {
+  public FoxService() {
     foxes = new ArrayList<>();
   }
 
