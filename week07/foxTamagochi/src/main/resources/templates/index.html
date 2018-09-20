@@ -37,9 +37,9 @@
 <ul type="disc" th:unless="${fox.getTricks().isEmpty()}" th:each="trick: ${fox.getTricks()}">
     <li th:text="${trick.getName()}"></li>
 </ul>
-<button th:href="'/feed?name=' + ${fox.getName()}">FEED</button>
-<button th:href="'/drink?name=' + ${fox.getName()}">GIVE DRINK</button>
-<button th:href="'/brush?name=' + ${fox.getName()}">BRUSH</button>
+<a th:href="'/feed?name=' + ${fox.getName()}"><button>FEED</button></a>
+<a th:href="'/drink?name=' + ${fox.getName()}"><button>GIVE DRINK</button></a>
+<a th:href="'/brush?name=' + ${fox.getName()}"><button >BRUSH</button></a>
 <br>
 <a th:href="'/nutritionstore?name=' + ${fox.getName()}">Go to nutrition store</a>
 <br>
