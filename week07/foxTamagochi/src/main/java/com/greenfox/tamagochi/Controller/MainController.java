@@ -86,4 +86,46 @@ public class MainController {
     return "redirect:/?name=" + name;
   }
 
+  @GetMapping("/feed")
+  public String showFeed(@RequestParam(required = false, value = "name") String name, Model model) {
+    if (name == null) {
+      return "redirect:/login";
+    } else {
+      if (foxService.isThereAFoxInTheListWithThisName(name)) {
+        model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
+        return "feed";
+      } else {
+        return "redirect:/login";
+      }
+    }
+  }
+
+  @GetMapping("/drink")
+  public String showDrink(@RequestParam(required = false, value = "name") String name, Model model) {
+    if (name == null) {
+      return "redirect:/login";
+    } else {
+      if (foxService.isThereAFoxInTheListWithThisName(name)) {
+        model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
+        return "drink";
+      } else {
+        return "redirect:/login";
+      }
+    }
+  }
+
+  @GetMapping("/brush")
+  public String showBrush(@RequestParam(required = false, value = "name") String name, Model model) {
+    if (name == null) {
+      return "redirect:/login";
+    } else {
+      if (foxService.isThereAFoxInTheListWithThisName(name)) {
+        model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
+        return "brush";
+      } else {
+        return "redirect:/login";
+      }
+    }
+  }
+
 }
