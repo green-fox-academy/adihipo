@@ -19,11 +19,16 @@
 <h1>WELCOME TO PROGRAMMER FOX CLUB</h1>
 <br><br>
 <br><br>
-<h4>Please provide a name, so you can associate it to your pet:</h4>
+<h4>Please provide a name (and gender), so you can associate it to your pet:</h4>
 <form method="POST">
     <div>
         <label>Name</label>
         <input type="text" name="name" required>
+        <label>Gender</label>
+        <select name="gender">
+            <option value="male">female</option>
+            <option value="female">female</option>
+        </select>
         <button type="submit">GO</button>
     </div>
 </form>

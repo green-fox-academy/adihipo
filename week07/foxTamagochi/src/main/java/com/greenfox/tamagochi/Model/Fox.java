@@ -12,6 +12,7 @@ public class Fox {
   private String food;
   private String drink;
   private List<Trick> tricks;
+  private String gender;
 
   public Fox() {
     tricks = new ArrayList<>();
@@ -51,4 +52,11 @@ public class Fox {
     this.tricks = tricks;
   }
 
+  public String getGender() {
+    return gender;
+  }
+
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
 }

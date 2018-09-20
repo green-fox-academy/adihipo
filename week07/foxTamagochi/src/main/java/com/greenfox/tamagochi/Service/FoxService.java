@@ -48,4 +48,11 @@ public class FoxService {
     return foxes.get(index);
   }
 
+  public boolean isFoxBoyByName(String name) {
+    if (giveBackFoxFromListByName(name).getGender().equals("male")) {
+      return true;
+    }
+    return false;
+  }
+
 }

@@ -27,6 +27,7 @@ public class MainController {
     } else {
       if (foxService.isThereAFoxInTheListWithThisName(name)) {
         model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
+        model.addAttribute("isBoy", foxService.isFoxBoyByName(name));
         return "index";
       } else {
         return "redirect:/login";
@@ -40,8 +41,9 @@ public class MainController {
   }
 
   @PostMapping("/login")
-  public String postNameFox(@ModelAttribute(value = "name") String name) {
+  public String postNameFox(@ModelAttribute(value = "name") String name, @ModelAttribute(value = "gender") String gender) {
     foxService.createFoxByNameAndAddToList(name);
+    foxService.giveBackFoxFromListByName(name).setGender(gender);
     return "redirect:/?name=" + name;
   }
 
