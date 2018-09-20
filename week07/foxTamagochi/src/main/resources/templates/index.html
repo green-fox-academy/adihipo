@@ -6,7 +6,7 @@
     <meta charset="utf-8"/>
     <style>
         body {
-            margin: 0 35%;
+            margin: 0 40%;
         }
 
         h1 {
@@ -24,10 +24,11 @@
 <h4 th:object="${fox}"
     th:text="'This is Mr.' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} + '. He knows ' + *{tricks.size()} + ' trick(s):'"></h4>
 <ul type="disc" th:if="${fox.getTricks().isEmpty()}">
-<li th:text="'No tricks yet. Go learn some!'"></li>
+    <li th:text="'No tricks yet. Go learn some!'"></li>
 </ul>
 <ul type="disc" th:unless="${fox.getTricks().isEmpty()}" th:each="trick: ${fox.getTricks()}">
     <li th:text="${trick.getName()}"></li>
 </ul>
+<a th:href="'/nutritionstore?name=' + ${fox.getName()}">Go to nutrition store</a>
 </body>
 </html>

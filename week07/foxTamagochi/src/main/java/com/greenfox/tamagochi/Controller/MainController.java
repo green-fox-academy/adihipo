@@ -45,8 +45,23 @@ public class MainController {
   }
 
   @GetMapping("/nutritionstore")
-  public String showNutritionStore() {
-    return "nutritionstore";
+  public String showNutritionStore(@RequestParam(required = false, value = "name") String name, Model model) {
+    if (name == null) {
+      return "redirect:/login";
+    } else {
+      if (foxService.isThereAFoxInTheListWithThisName(name)) {
+        return "nutritionstore";
+      } else {
+        return "redirect:/login";
+      }
+    }
+  }
+
+  @PostMapping("/nutritionstore")
+  public String postNutritionsOfFox(@RequestParam(value = "name") String name, @ModelAttribute(value = "food") String food, @ModelAttribute(value = "drink") String drink) {
+    foxService.giveBackFoxFromListByName(name).setFood(food);
+    foxService.giveBackFoxFromListByName(name).setDrink(drink);
+    return "redirect:/?name=" + name;
   }
 
 }
