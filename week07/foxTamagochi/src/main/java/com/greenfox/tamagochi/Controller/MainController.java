@@ -20,12 +20,16 @@ public class MainController {
   }
 
   @GetMapping("/")
-  public String showMainPage(@RequestParam(value = "name") String name, Model model) {
-    if (name.equals(fox.getName())) {
-      model.addAttribute("nameOfFox", fox.getName());
-      return "index";
-    } else {
+  public String showMainPage(@RequestParam(required = false, value = "name") String name, Model model) {
+    if (name == null) {
       return "redirect:/login";
+    } else {
+      if (name.equals(fox.getName())) {
+        model.addAttribute("nameOfFox", fox.getName());
+        return "index";
+      } else {
+        return "redirect:/login";
+      }
     }
   }
 
