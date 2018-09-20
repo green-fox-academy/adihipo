@@ -69,7 +69,9 @@ public class SettingsController {
 
   @PostMapping("/trickcenter")
   public String postNutritionsOfFox(@RequestParam(value = "name") String name, @ModelAttribute(value = "trick") String trick) {
-    foxService.giveBackFoxFromListByName(name).getTricks().add(new Trick(trick));
+    if (!foxService.doesFoxKnowThisTrickByNames(name, trick)) {
+      foxService.addAFoxATrickByNames(name, trick);
+    }
     return "redirect:/?name=" + name;
   }
 

@@ -1,6 +1,7 @@
 package com.greenfox.tamagochi.Service;
 
 import com.greenfox.tamagochi.Model.Fox;
+import com.greenfox.tamagochi.Model.Trick;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -49,6 +50,19 @@ public class FoxService {
       return true;
     }
     return false;
+  }
+
+  public boolean doesFoxKnowThisTrickByNames(String foxName, String trickName) {
+    for (int i = 0; i < giveBackFoxFromListByName(foxName).getTricks().size(); i++) {
+      if (giveBackFoxFromListByName(foxName).getTricks().get(i).getName().equals(trickName)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public void addAFoxATrickByNames(String foxName, String trickName) {
+    giveBackFoxFromListByName(foxName).getTricks().add(new Trick(trickName));
   }
 
 }
