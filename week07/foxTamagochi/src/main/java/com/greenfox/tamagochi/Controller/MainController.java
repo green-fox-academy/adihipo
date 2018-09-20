@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
@@ -19,9 +20,13 @@ public class MainController {
   }
 
   @GetMapping("/")
-  public String showMainPage(Model model) {
-    model.addAttribute("nameOfFox", fox.getName());
-    return "index";
+  public String showMainPage(@RequestParam(value = "name") String name, Model model) {
+    if (name.equals(fox.getName())) {
+      model.addAttribute("nameOfFox", fox.getName());
+      return "index";
+    } else {
+      return "redirect:/login";
+    }
   }
 
   @GetMapping("/login")
