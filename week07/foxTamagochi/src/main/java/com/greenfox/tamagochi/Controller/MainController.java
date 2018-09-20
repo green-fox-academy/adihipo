@@ -1,6 +1,6 @@
 package com.greenfox.tamagochi.Controller;
 
-import com.greenfox.tamagochi.Model.Fox;
+import com.greenfox.tamagochi.Model.Foxes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {
 
-  private Fox fox;
+  private Foxes foxes;
 
   @Autowired
-  public MainController(Fox fox) {
-    this.fox = fox;
+  public MainController(Foxes foxes) {
+    this.foxes = foxes;
   }
 
   @GetMapping("/")
@@ -24,8 +24,8 @@ public class MainController {
     if (name == null) {
       return "redirect:/login";
     } else {
-      if (name.equals(fox.getName())) {
-        model.addAttribute("nameOfFox", fox.getName());
+      if (foxes.isThereAFoxInTheListWithThisName(name)) {
+        model.addAttribute("nameOfFox", foxes.giveBackFoxFromListByName(name).getName());
         return "index";
       } else {
         return "redirect:/login";
@@ -40,7 +40,7 @@ public class MainController {
 
   @PostMapping("/login")
   public String postNameFox(@ModelAttribute(value = "name") String name) {
-    fox.setName(name);
+    foxes.createFoxByNameAndAddToList(name);
     return "redirect:/?name=" + name;
   }
 
