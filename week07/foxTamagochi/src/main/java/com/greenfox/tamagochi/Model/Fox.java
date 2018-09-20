@@ -48,10 +48,6 @@ public class Fox {
     return tricks;
   }
 
-  public void setTricks(List<Trick> tricks) {
-    this.tricks = tricks;
-  }
-
   public String getGender() {
     return gender;
   }
