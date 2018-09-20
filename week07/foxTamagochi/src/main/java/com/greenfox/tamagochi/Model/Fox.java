@@ -32,16 +32,8 @@ public class Fox {
     return food;
   }
 
-  public void setFood(Food food) {
-    this.food = food;
-  }
-
   public Drink getDrink() {
     return drink;
-  }
-
-  public void setDrink(Drink drink) {
-    this.drink = drink;
   }
 
   public List<Trick> getTricks() {
