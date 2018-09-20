@@ -12,6 +12,19 @@
         h1 {
             text-align: center;
         }
+
+        button {
+            font-size: 10px;
+            border: 0px;
+            color: #CCC;
+            border-radius: 20%;
+            height: 40px;
+        }
+
+        .backandforth {
+            width: 48%;
+            background-color: rgb(34, 34, 34);
+        }
     </style>
 </head>
 <body>
@@ -20,6 +33,6 @@
 <br>
 <p th:text="'He is eating ' + ${fox.food}"></p>
 <br><br>
-<a th:href="'/?name=' + ${fox.getName()}">Go back to your fox</a>
+<a th:href="'/?name=' + ${fox.getName()}"><button class="backandforth">GO BACK</button></a>
 </body>
 </html>

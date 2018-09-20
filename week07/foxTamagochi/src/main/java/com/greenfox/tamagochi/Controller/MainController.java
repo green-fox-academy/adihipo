@@ -128,4 +128,18 @@ public class MainController {
     }
   }
 
+  @GetMapping("/trick")
+  public String showTrick(@RequestParam(required = false, value = "name") String name, Model model) {
+    if (name == null) {
+      return "redirect:/login";
+    } else {
+      if (foxService.isThereAFoxInTheListWithThisName(name)) {
+        model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
+        return "trick";
+      } else {
+        return "redirect:/login";
+      }
+    }
+  }
+
 }
