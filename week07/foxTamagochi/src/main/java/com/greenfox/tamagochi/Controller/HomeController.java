@@ -25,6 +25,8 @@ public class HomeController {
       if (foxService.isThereAFoxInTheListWithThisName(name)) {
         model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
         model.addAttribute("isBoy", foxService.isFoxBoyByName(name));
+        model.addAttribute("food", foxService.getFoxAmountOfFoodByNames(name));
+        model.addAttribute("drink", foxService.getFoxAmountOfDrinkByNames(name));
         return "index";
       } else {
         return "redirect:/login";

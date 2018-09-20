@@ -73,4 +73,12 @@ public class FoxService {
     giveBackFoxFromListByName(foxName).getDrink().setName(drinkName);
   }
 
+  public int getFoxAmountOfDrinkByNames(String name) {
+    return giveBackFoxFromListByName(name).getDrink().getAmount();
+  }
+
+  public int getFoxAmountOfFoodByNames(String name) {
+    return giveBackFoxFromListByName(name).getFood().getAmount();
+  }
+
 }
