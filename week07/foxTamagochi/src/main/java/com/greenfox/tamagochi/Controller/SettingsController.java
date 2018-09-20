@@ -1,6 +1,5 @@
 package com.greenfox.tamagochi.Controller;
 
-import com.greenfox.tamagochi.Model.Trick;
 import com.greenfox.tamagochi.Service.FoxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
