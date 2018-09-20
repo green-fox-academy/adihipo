@@ -10,7 +10,7 @@
             min-width: 150px;
         }
 
-        h1 {
+        h2 {
             text-align: center;
         }
 
@@ -29,10 +29,10 @@
     </style>
 </head>
 <body>
-<h1>YOUR PET FOX IS DRINKING IN THE DARK</h1>
+<h2>YOUR PET FOX IS DRINKING IN THE DARK</h2>
 <img src="drink.gif" height="300" width="250">
 <br>
-<p th:text="'He is drinking ' + ${fox.drink}"></p>
+<p th:text="'* Srrrllp, slurps ' + ${fox.drink} + ' *'"></p>
 <br><br>
 <a th:href="'/?name=' + ${fox.getName()}"><button class="backandforth">GO BACK</button></a>
 </body>
