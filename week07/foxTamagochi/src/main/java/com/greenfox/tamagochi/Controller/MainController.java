@@ -1,5 +1,6 @@
 package com.greenfox.tamagochi.Controller;
 
+import com.greenfox.tamagochi.Model.Trick;
 import com.greenfox.tamagochi.Service.FoxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -62,6 +63,26 @@ public class MainController {
   public String postNutritionsOfFox(@RequestParam(value = "name") String name, @ModelAttribute(value = "food") String food, @ModelAttribute(value = "drink") String drink) {
     foxService.giveBackFoxFromListByName(name).setFood(food);
     foxService.giveBackFoxFromListByName(name).setDrink(drink);
+    return "redirect:/?name=" + name;
+  }
+
+  @GetMapping("/trickcenter")
+  public String showTrickCenter(@RequestParam(required = false, value = "name") String name, Model model) {
+    if (name == null) {
+      return "redirect:/login";
+    } else {
+      if (foxService.isThereAFoxInTheListWithThisName(name)) {
+        model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
+        return "trickcenter";
+      } else {
+        return "redirect:/login";
+      }
+    }
+  }
+
+  @PostMapping("/trickcenter")
+  public String postNutritionsOfFox(@RequestParam(value = "name") String name, @ModelAttribute(value = "trick") String trick) {
+    foxService.giveBackFoxFromListByName(name).getTricks().add(new Trick(trick));
     return "redirect:/?name=" + name;
   }
 

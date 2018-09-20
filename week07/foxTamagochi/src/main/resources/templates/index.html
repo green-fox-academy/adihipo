@@ -16,9 +16,8 @@
 </head>
 <body>
 <h1>YOUR PET WAS WAITING FOR YOU</h1>
-<br><br>
 <img src="fox.gif">
-<br><br>
+<br>
 <h4 th:object="${fox}"
     th:text="'This is Mr.' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} + '. He knows ' + *{tricks.size()} + ' trick(s):'"></h4>
 <ul type="disc" th:if="${fox.getTricks().isEmpty()}">
@@ -28,5 +27,7 @@
     <li th:text="${trick.getName()}"></li>
 </ul>
 <a th:href="'/nutritionstore?name=' + ${fox.getName()}">Go to nutrition store</a>
+<br>
+<a th:href="'/trickcenter?name=' + ${fox.getName()}">Go to trick center</a>
 </body>
 </html>
