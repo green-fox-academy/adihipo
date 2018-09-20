@@ -9,15 +9,15 @@ import java.util.List;
 public class Fox {
 
   private String name;
-  private String food;
-  private String drink;
-  private List<Trick> tricks;
   private String gender;
+  private Food food;
+  private Drink drink;
+  private List<Trick> tricks;
 
   public Fox() {
     tricks = new ArrayList<>();
-    food = "pizza";
-    drink = "lemonade";
+    food = new Food();
+    drink = new Drink();
   }
 
   public String getName() {
@@ -28,19 +28,19 @@ public class Fox {
     this.name = name;
   }
 
-  public String getFood() {
+  public Food getFood() {
     return food;
   }
 
-  public void setFood(String food) {
+  public void setFood(Food food) {
     this.food = food;
   }
 
-  public String getDrink() {
+  public Drink getDrink() {
     return drink;
   }
 
-  public void setDrink(String drink) {
+  public void setDrink(Drink drink) {
     this.drink = drink;
   }
 

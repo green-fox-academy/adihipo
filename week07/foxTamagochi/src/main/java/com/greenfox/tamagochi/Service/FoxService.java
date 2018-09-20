@@ -65,4 +65,12 @@ public class FoxService {
     giveBackFoxFromListByName(foxName).getTricks().add(new Trick(trickName));
   }
 
+  public void setFoxFoodByNames(String foxName, String foodName) {
+    giveBackFoxFromListByName(foxName).getFood().setName(foodName);
+  }
+
+  public void setFoxDrinkByNames(String foxName, String drinkName) {
+    giveBackFoxFromListByName(foxName).getDrink().setName(drinkName);
+  }
+
 }

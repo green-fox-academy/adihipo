@@ -9,7 +9,7 @@ public class Food {
   private int amount = 100;
 
   public Food() {
-
+    this.name = "pizza";
   }
 
   public String getName() {

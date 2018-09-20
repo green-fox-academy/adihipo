@@ -32,7 +32,7 @@
 <h2>YOU ARE NOW FEEDING YOUR PET FOX</h2>
 <img src="eat.gif" height="200" width="250">
 <br>
-<p th:text="'* Om-nyom, munches ' + ${fox.food} + ' *'"></p>
+<p th:text="'* Om-nyom, munches ' + ${fox.getFood().getName()} + ' *'"></p>
 <br><br>
 <a th:href="'/?name=' + ${fox.getName()}"><button class="backandforth">GO BACK</button></a>
 </body>

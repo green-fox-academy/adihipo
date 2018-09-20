@@ -47,8 +47,8 @@ public class SettingsController {
 
   @PostMapping("/nutritionstore")
   public String postNutritionsOfFox(@RequestParam(value = "name") String name, @ModelAttribute(value = "food") String food, @ModelAttribute(value = "drink") String drink) {
-    foxService.giveBackFoxFromListByName(name).setFood(food);
-    foxService.giveBackFoxFromListByName(name).setDrink(drink);
+    foxService.setFoxFoodByNames(name, food);
+    foxService.setFoxDrinkByNames(name, drink);
     return "redirect:/?name=" + name;
   }
 

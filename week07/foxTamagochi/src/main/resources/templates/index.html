@@ -37,7 +37,7 @@
 <h2>YOUR PET WAS WAITING FOR YOU</h2>
 <img src="fox.gif" height="200" width="250">
 <h4 th:object="${fox}"
-    th:text=" ${isBoy}? 'This is Mr.' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} + '. He knows ' + *{tricks.size()} + ' trick(s):' : 'This is Mrs.' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} + '. She knows ' + *{tricks.size()} + ' trick(s):'"></h4>
+    th:text=" ${isBoy}? 'This is Mr.' + *{name} + '. Currently living on ' + *{getFood().getName()} + ' and ' + *{getDrink().getName()} + '. He knows ' + *{tricks.size()} + ' trick(s):' : 'This is Mrs.' + *{name} + '. Currently living on ' + *{getFood().getName()} + ' and ' + *{getDrink().getName()} + '. She knows ' + *{tricks.size()} + ' trick(s):'"></h4>
 <ul type="disc" th:if="${fox.getTricks().isEmpty()}">
     <li th:text="'No tricks yet. Go learn some!'"></li>
 </ul>

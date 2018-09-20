@@ -9,6 +9,7 @@ public class Drink {
   private int amount = 100;
 
   public Drink() {
+    this.name = "lemonade";
   }
 
   public String getName() {
