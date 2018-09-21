@@ -15,7 +15,7 @@ public class Timinger {
   public Timinger(FoxService foxService) {
     this.foxService = foxService;
     timer = new Timer();
-    timer.schedule(new TimingerTask(foxService), 0, 5000);
+    timer.schedule(new TimingerTask(foxService), 0, 3000);
   }
 
 }

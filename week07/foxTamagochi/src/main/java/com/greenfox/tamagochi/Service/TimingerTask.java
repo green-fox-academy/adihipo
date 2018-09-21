@@ -15,7 +15,6 @@ public class TimingerTask extends TimerTask {
     this.foxService = foxService;
   }
 
-
   @Override
   public void run() {
     foxService.lowerLevels();

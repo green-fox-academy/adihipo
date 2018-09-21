@@ -26,9 +26,12 @@ public class SettingsController {
 
   @PostMapping("/login")
   public String postNameFox(@ModelAttribute(value = "name") String name, @ModelAttribute(value = "gender") String gender) {
-    foxService.createFoxByNameAndAddToList(name);
-    foxService.giveBackFoxFromListByName(name).setGender(gender);
-    return "redirect:/?name=" + name;
+    if (!foxService.isThereAFoxInTheListWithThisName(name)) {
+      foxService.createFoxByNameAndAddToList(name);
+      foxService.giveBackFoxFromListByName(name).setGender(gender);
+      return "redirect:/?name=" + name;
+    }
+    return "redirect:/login";
   }
 
   @GetMapping("/nutritionstore")
