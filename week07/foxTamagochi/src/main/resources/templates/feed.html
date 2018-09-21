@@ -5,7 +5,14 @@
     <link rel="stylesheet" th:href="@{/style.css}"/>
     <meta charset="utf-8"/>
     <style>
-        body {
+        .stats {
+            float: left;
+            margin: 10% 10%;
+            background-color: beige;
+            border-radius: 20%;
+        }
+
+        .main {
             margin: 0 40%;
             min-width: 150px;
         }
@@ -29,11 +36,22 @@
     </style>
 </head>
 <body>
-<h2>YOU ARE NOW FEEDING YOUR PET FOX</h2>
-<img src="eat.gif" height="200" width="250">
-<br>
-<p th:text="'* Om-nyom, munches ' + ${fox.getFood().getName()} + ' *'"></p>
-<br><br>
-<a th:href="'/?name=' + ${fox.getName()}"><button class="backandforth">GO BACK</button></a>
+<div class="stats">
+    <h2 th:text="${fox.getName()}"></h2>
+    <ul>
+        <p th:text="'Food in belly ' + ${food}"></p>
+        <p th:text="'Hidration level ' + ${drink}"></p>
+    </ul>
+</div>
+<div class="main">
+    <h2>YOU ARE NOW FEEDING YOUR PET FOX</h2>
+    <img src="eat.gif" height="200" width="250">
+    <br>
+    <p th:text="'* Om-nyom, munches ' + ${fox.getFood().getName()} + ' *'"></p>
+    <br><br>
+    <a th:href="'/?name=' + ${fox.getName()}">
+        <button class="backandforth">GO BACK</button>
+    </a>
+</div>
 </body>
 </html>

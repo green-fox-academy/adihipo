@@ -38,6 +38,8 @@ public class SettingsController {
     } else {
       if (foxService.isThereAFoxInTheListWithThisName(name)) {
         model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
+        model.addAttribute("food", foxService.getFoxAmountOfFoodByNames(name));
+        model.addAttribute("drink", foxService.getFoxAmountOfDrinkByNames(name));
         return "nutritionstore";
       } else {
         return "redirect:/login";
@@ -59,6 +61,8 @@ public class SettingsController {
     } else {
       if (foxService.isThereAFoxInTheListWithThisName(name)) {
         model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
+        model.addAttribute("food", foxService.getFoxAmountOfFoodByNames(name));
+        model.addAttribute("drink", foxService.getFoxAmountOfDrinkByNames(name));
         return "trickcenter";
       } else {
         return "redirect:/login";

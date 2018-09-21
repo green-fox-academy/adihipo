@@ -24,6 +24,8 @@ public class FoxController {
     } else {
       if (foxService.isThereAFoxInTheListWithThisName(name)) {
         model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
+        model.addAttribute("food", foxService.getFoxAmountOfFoodByNames(name));
+        model.addAttribute("drink", foxService.getFoxAmountOfDrinkByNames(name));
         return "feed";
       } else {
         return "redirect:/login";
@@ -38,6 +40,8 @@ public class FoxController {
     } else {
       if (foxService.isThereAFoxInTheListWithThisName(name)) {
         model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
+        model.addAttribute("food", foxService.getFoxAmountOfFoodByNames(name));
+        model.addAttribute("drink", foxService.getFoxAmountOfDrinkByNames(name));
         return "drink";
       } else {
         return "redirect:/login";
@@ -52,6 +56,8 @@ public class FoxController {
     } else {
       if (foxService.isThereAFoxInTheListWithThisName(name)) {
         model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
+        model.addAttribute("food", foxService.getFoxAmountOfFoodByNames(name));
+        model.addAttribute("drink", foxService.getFoxAmountOfDrinkByNames(name));
         return "brush";
       } else {
         return "redirect:/login";
@@ -66,6 +72,8 @@ public class FoxController {
     } else {
       if (foxService.isThereAFoxInTheListWithThisName(name)) {
         model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
+        model.addAttribute("food", foxService.getFoxAmountOfFoodByNames(name));
+        model.addAttribute("drink", foxService.getFoxAmountOfDrinkByNames(name));
         return "trick";
       } else {
         return "redirect:/login";
