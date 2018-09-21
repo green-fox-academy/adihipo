@@ -10,10 +10,6 @@ public class TimingerTask extends TimerTask {
 
   private FoxService foxService;
 
-  public TimingerTask() {
-
-  }
-
   @Autowired
   public TimingerTask(FoxService foxService) {
     this.foxService = foxService;
@@ -22,8 +18,7 @@ public class TimingerTask extends TimerTask {
 
   @Override
   public void run() {
-    System.out.println("DONE");
-//    foxService.lowerLevels();
+    foxService.lowerLevels();
   }
 
 }
