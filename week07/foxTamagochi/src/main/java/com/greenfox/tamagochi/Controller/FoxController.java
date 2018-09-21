@@ -26,6 +26,7 @@ public class FoxController {
         model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
         model.addAttribute("food", foxService.getFoxAmountOfFoodByNames(name));
         model.addAttribute("drink", foxService.getFoxAmountOfDrinkByNames(name));
+        foxService.setFoxAmountOfFoodTo100ByNames(name);
         return "feed";
       } else {
         return "redirect:/login";
@@ -42,6 +43,7 @@ public class FoxController {
         model.addAttribute("fox", foxService.giveBackFoxFromListByName(name));
         model.addAttribute("food", foxService.getFoxAmountOfFoodByNames(name));
         model.addAttribute("drink", foxService.getFoxAmountOfDrinkByNames(name));
+        foxService.setFoxAmountOfDrinkTo100ByNames(name);
         return "drink";
       } else {
         return "redirect:/login";

@@ -81,6 +81,14 @@ public class FoxService {
     return giveBackFoxFromListByName(name).getFood().getAmount();
   }
 
+  public void setFoxAmountOfDrinkTo100ByNames(String name) {
+    giveBackFoxFromListByName(name).getDrink().setAmount(100);
+  }
+
+  public void setFoxAmountOfFoodTo100ByNames(String name) {
+    giveBackFoxFromListByName(name).getFood().setAmount(100);
+  }
+
   public void lowerLevels() {
     if (!foxes.isEmpty()) {
       for (int i = 0; i < foxes.size(); i++) {
