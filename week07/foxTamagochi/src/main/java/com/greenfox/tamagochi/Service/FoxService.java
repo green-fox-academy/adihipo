@@ -81,4 +81,17 @@ public class FoxService {
     return giveBackFoxFromListByName(name).getFood().getAmount();
   }
 
+  public void lowerLevels() {
+    if (getFoxes().size() != 0) {
+      for (int i = 0; i < getFoxes().size(); i++) {
+        if (getFoxes().get(i).getFood().getAmount() >= 0) {
+          getFoxes().get(i).getFood().setAmount(getFoxes().get(i).getFood().getAmount() - 1);
+        }
+        if (getFoxes().get(i).getDrink().getAmount() >= 0) {
+          getFoxes().get(i).getDrink().setAmount(getFoxes().get(i).getDrink().getAmount() - 1);
+        }
+      }
+    }
+  }
+
 }

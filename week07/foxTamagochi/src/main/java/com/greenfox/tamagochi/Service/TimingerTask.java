@@ -8,7 +8,7 @@ import java.util.TimerTask;
 @Service
 public class TimingerTask extends TimerTask {
 
-  FoxService foxService;
+  private FoxService foxService;
 
   public TimingerTask() {
 
@@ -22,19 +22,8 @@ public class TimingerTask extends TimerTask {
 
   @Override
   public void run() {
-    completeTask();
+    System.out.println("DONE");
+//    foxService.lowerLevels();
   }
 
-  public void completeTask() {
-    if (foxService.getFoxes().size() != 0) {
-      for (int i = 0; i < foxService.getFoxes().size(); i++) {
-        if (foxService.getFoxes().get(i).getFood().getAmount() >= 0) {
-          foxService.getFoxes().get(i).getFood().setAmount(foxService.getFoxes().get(i).getFood().getAmount() - 1);
-        }
-        if (foxService.getFoxes().get(i).getDrink().getAmount() >= 0) {
-          foxService.getFoxes().get(i).getDrink().setAmount(foxService.getFoxes().get(i).getDrink().getAmount() - 1);
-        }
-      }
-    }
-  }
 }
