@@ -29,7 +29,7 @@ public class SettingsController {
     if (!foxService.isThereAFoxInTheListWithThisName(name)) {
       foxService.createFoxByNameAndAddToList(name);
       foxService.giveBackFoxFromListByName(name).setGender(gender);
-      return "redirect:/?name=" + foxService.giveBackFoxFromListByName(name).getName();
+      return "redirect:/?name=" + name;
     }
     return "redirect:/login";
   }
@@ -54,7 +54,7 @@ public class SettingsController {
   public String postNutritionsOfFox(@RequestParam(value = "name") String name, @ModelAttribute(value = "food") String food, @ModelAttribute(value = "drink") String drink) {
     foxService.setFoxFoodByNames(name, food);
     foxService.setFoxDrinkByNames(name, drink);
-    return "redirect:/?name=" + foxService.giveBackFoxFromListByName(name).getName();
+    return "redirect:/?name=" + name;
   }
 
   @GetMapping("/trickcenter")
@@ -78,7 +78,7 @@ public class SettingsController {
     if (!foxService.doesFoxKnowThisTrickByNames(name, trick)) {
       foxService.addAFoxATrickByNames(name, trick);
     }
-    return "redirect:/?name=" + foxService.giveBackFoxFromListByName(name).getName();
+    return "redirect:/?name=" + name;
   }
 
   @GetMapping("/allfoxes")
