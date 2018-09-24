@@ -7,22 +7,23 @@
 </head>
 <body>
 <form method="POST">
-    <div>
+    <div class="main">
         <div>
-            <label>P1 name</label>
-            <input type="text" name="playerOneName" required>
-            <label>P2 name</label>
-            <input type="text" name="playerTwoName" required>
+            <h3>welcome to the chess app</h3>
         </div>
         <div>
-            <label>Who begins?</label>
-            <select name="withWhite">
-                <option value="P1">P1</option>
-                <option value="P2">P2</option>
-            </select>
-        </div>
-        <div>
-            <button class="play" type="submit">PLAY</button>
+            <div>
+                <img src="blackandwhite.jpg">
+            </div>
+            <div>
+                <label>white name</label>
+                <input type="text" name="whiteName" required>
+                <input type="text" name="blackName" required>
+                <label>black name</label>
+            </div>
+            <div>
+                <button class="play" type="submit">PLAY</button>
+            </div>
         </div>
     </div>
 </form>
