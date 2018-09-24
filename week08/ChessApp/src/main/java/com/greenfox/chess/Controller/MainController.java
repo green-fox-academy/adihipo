@@ -17,4 +17,9 @@ public class MainController {
     return "redirect:/newgame";
   }
 
+  @GetMapping("/newgame")
+  public String showNewGame() {
+    return "newgame";
+  }
+
 }
