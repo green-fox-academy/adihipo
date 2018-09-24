@@ -92,10 +92,10 @@ public class FoxService {
   public void lowerLevels() {
     if (!foxes.isEmpty()) {
       for (int i = 0; i < foxes.size(); i++) {
-        if (foxes.get(i).getFood().getAmount() >= 0) {
+        if (foxes.get(i).getFood().getAmount() > 0) {
           foxes.get(i).getFood().setAmount(foxes.get(i).getFood().getAmount() - 1);
         }
-        if (foxes.get(i).getDrink().getAmount() >= 0) {
+        if (foxes.get(i).getDrink().getAmount() > 0) {
           foxes.get(i).getDrink().setAmount(foxes.get(i).getDrink().getAmount() - 1);
         }
       }
