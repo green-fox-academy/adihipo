@@ -6,16 +6,16 @@ import org.springframework.stereotype.Service;
 import java.util.Timer;
 
 @Service
-public class Timinger {
+public class FoxTimer {
 
   Timer timer;
   FoxService foxService;
 
   @Autowired
-  public Timinger(FoxService foxService) {
+  public FoxTimer(FoxService foxService) {
     this.foxService = foxService;
     timer = new Timer();
-    timer.schedule(new TimingerTask(foxService), 0, 3000);
+    timer.schedule(new FoxTimerTask(foxService), 0, 3000);
   }
 
 }
