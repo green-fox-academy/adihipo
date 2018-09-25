@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Exercise #</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+    <style>
+        body {
+            margin: 0 40%;
+            min-width: 150px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        button {
+            font-size: 10px;
+            border: 0px;
+            color: #CCC;
+            border-radius: 45%;
+            height: 40px;
+        }
+
+        select {
+            width: 100%;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        .go {
+            width: 100%;
+            background-color: rgb(100, 200, 100);
+            color: black;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<h2>WELCOME TO PROGRAMMER FOX CLUB</h2>
+<br><br><br>
+<h4>Please provide a name (and gender), so you can associate it to your pet:</h4>
+<form method="POST">
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" required>
+        <br><br>
+        <label>Gender</label>
+        <select name="gender">
+            <option value="male">male</option>
+            <option value="female">female</option>
+        </select>
+        <br><br><br><br>
+        <button class="go" type="submit">GO</button>
+    </div>
+</form>
+</body>
+</html>

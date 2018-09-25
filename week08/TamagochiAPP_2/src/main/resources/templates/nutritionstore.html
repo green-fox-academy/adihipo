@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Exercise #</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+    <style>
+        .stats {
+            float: left;
+            margin: 10% 10%;
+            background-color: beige;
+            border-radius: 20%;
+        }
+
+        .main {
+            margin: 0 40%;
+            min-width: 150px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        select {
+            width: 46.5%;
+        }
+
+        button {
+            font-size: 10px;
+            border: 0px;
+            color: #CCC;
+            border-radius: 20%;
+            height: 40px;
+        }
+
+        .submit {
+            width: 95%;
+            background-color: rgb(120, 50, 250);
+            border-radius: 0;
+        }
+
+        .backandforth {
+            width: 48%;
+            background-color: rgb(34, 34, 34);
+        }
+    </style>
+</head>
+<body>
+<div class="stats" th:object="${fox}">
+    <h2 th:text="*{name}"></h2>
+    <ul>
+        <p th:text="'Belly   ' + *{hunger}"></p>
+        <p th:text="'Hydration   ' + *{thirst}"></p>
+        <p th:text="'Entertained   ' + *{entertained}"></p>
+    </ul>
+</div>
+<div class="main">
+    <h2>NUTRITION STORE</h2>
+    <br><br><br>
+    <h4>Select products for your pet fox</h4>
+    <form method="POST">
+        <select name="food">
+            <option value="pizza">pizza</option>
+            <option value="gyros">gyros</option>
+            <option value="falafel">falafel</option>
+            <option value="tőtöttkáposzta">tőtöttkáposzta</option>
+        </select>
+        <select name="drink">
+            <option value="lemonade">lemonade</option>
+            <option value="coca cola">coca cola</option>
+            <option value="fanta">fanta</option>
+            <option value="jagermeister">jagermeister</option>
+            <option value="water">water</option>
+        </select>
+        <br>
+        <button class="submit" type="submit">CHANGE</button>
+    </form>
+    <br><br>
+    <a th:href="'/' + *{id}">
+        <button class="backandforth">GO BACK</button>
+    </a>
+</div>
+</body>
+</html>
