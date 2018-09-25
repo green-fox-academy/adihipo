@@ -29,6 +29,6 @@ public class ConnectionmysqlApplication implements CommandLineRunner {
     todoRepository.save(new Todo("Drink tea", true, false));
     todoRepository.save(new Todo("Create something", true, true));
     todoRepository.save(new Todo("Getting advices from András", true, true));
-
   }
+
 }
