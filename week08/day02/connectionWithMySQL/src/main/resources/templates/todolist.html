@@ -18,6 +18,7 @@
         <th>URGENT</th>
         <th>DONE</th>
         <th>DELETE?</th>
+        <th>EDIT</th>
     </tr>
     </thead>
     <tbody>
@@ -27,6 +28,7 @@
         <td th:text="*{isUrgent()}"></td>
         <td th:text="*{isDone()}"></td>
         <td><a th:href="'/' + *{id} + '/delete'">delete</a></td>
+        <td><a th:href="'/' + *{id} + '/edit'">edit</a></td>
     </tr>
     </tbody>
 </table>

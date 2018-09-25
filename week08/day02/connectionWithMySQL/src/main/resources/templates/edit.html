@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Todolist</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<h3>EDIT TODO:</h3>
+<form method="POST">
+    <label>What to do?</label>
+    <input type="text" name="title">
+    <label>Urgent?</label>
+    <input type="radio" name="urgent">
+    <label>Done?</label>
+    <input type="radio" name="done">
+    <button type="submit">UPDATE</button><a href="/">Cancel</a>
+</form>
+</body>
+</html>

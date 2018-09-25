@@ -15,7 +15,7 @@ public class Todo {
   private boolean urgent;
   private boolean done;
 
-  public Todo(){
+  public Todo() {
   }
 
   public Todo(String title) {
@@ -25,6 +25,13 @@ public class Todo {
   }
 
   public Todo(String title, boolean urgent, boolean done) {
+    this.title = title;
+    this.urgent = urgent;
+    this.done = done;
+  }
+
+  public Todo(Long id, String title, boolean urgent, boolean done) {
+    this.id = id;
     this.title = title;
     this.urgent = urgent;
     this.done = done;
