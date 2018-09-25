@@ -7,9 +7,23 @@
 </head>
 <body>
 <h3>TODOS FOR TODAY:</h3>
-<ul type="disc" th:each="todo : ${todoList}" th:object="${todo}">
-    <li th:text="*{title}"></li>
-</ul>
-
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>URGENT</th>
+        <th>DONE</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="todo : ${todoList}" th:object="${todo}">
+        <td th:text="*{id}"></td>
+        <td th:text="*{title}"></td>
+        <td th:text="*{isUrgent()}"></td>
+        <td th:text="*{isDone()}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
