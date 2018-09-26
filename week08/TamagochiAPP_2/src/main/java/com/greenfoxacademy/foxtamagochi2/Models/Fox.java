@@ -16,8 +16,9 @@ public class Fox {
   private int hunger;
   private String drink;
   private int thirst;
+
   @OneToMany(cascade = CascadeType.ALL)
-  private List<String> tricks;
+  private List<Trick> tricks;
   private int entertained;
 
   public Fox(String name, boolean isBoy) {
@@ -52,7 +53,6 @@ public class Fox {
   public void setName(String name) {
     this.name = name;
   }
-
 
   public boolean isBoy() {
     return isBoy;
@@ -94,11 +94,11 @@ public class Fox {
     this.thirst = thirst;
   }
 
-  public List<String> getTricks() {
+  public List<Trick> getTricks() {
     return tricks;
   }
 
-  public void setTricks(List<String> tricks) {
+  public void setTricks(List<Trick> tricks) {
     this.tricks = tricks;
   }
 
@@ -109,5 +109,4 @@ public class Fox {
   public void setEntertained(int entertained) {
     this.entertained = entertained;
   }
-
 }
