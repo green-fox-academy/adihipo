@@ -3,19 +3,24 @@
 <head>
     <title>Todolist</title>
     <link rel="stylesheet" th:href="@{/style.css}"/>
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <meta charset="utf-8"/>
 </head>
-<body>
-<h3>EDIT TODO:</h3>
-<form method="POST" th:object="${todo}">
-    <label>What to do?</label>
-    <input type="text" th:field="*{title}">
-    <label>Urgent?</label>
-    <input type="checkbox" th:field="*{urgent}">
-    <label>Done?</label>
-    <input type="checkbox" th:field="*{done}">
-    <button type="submit">UPDATE</button>
-    <a href="/">Cancel</a>
-</form>
+<body class="container">
+<h3 class="text-center">EDIT TODO:</h3>
+<div>
+    <form class="form-group" method="POST" th:object="${todo}">
+        <label class="label">What to do?</label>
+        <input class="form-control" type="text" th:field="*{title}">
+        <label class="label">Urgent?</label>
+        <input class="checkbox" type="checkbox" th:field="*{urgent}">
+        <label class="label">Done?</label>
+        <input class="checkbox" type="checkbox" th:field="*{done}">
+        <button class="btn" type="submit">UPDATE</button>
+        <a class="btn btn-link" href="/">Cancel</a>
+    </form>
+</div>
+<script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -46,7 +46,7 @@ public class TodoController {
 
   @GetMapping("/{id}/edit")
   public String showEditForm(@PathVariable(value = "id") Long id, Model model) {
-    model.addAttribute(todoRepository.findById(id).orElse(null));
+    model.addAttribute("todo", todoRepository.findById(id).orElse(null));
     return "edit";
   }
 

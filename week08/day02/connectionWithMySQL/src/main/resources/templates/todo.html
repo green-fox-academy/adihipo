@@ -3,13 +3,18 @@
 <head>
     <title>Todolist</title>
     <link rel="stylesheet" th:href="@{/style.css}"/>
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <meta charset="utf-8"/>
 </head>
-<body>
-<h3>ADD NEW TODO:</h3>
-<form method="POST">
-    <input type="text" name="title">
-    <button type="submit">ADD</button>
-</form>
+<body class="container">
+<h3 class="text-center">ADD NEW TODO:</h3>
+<div>
+    <form method="POST" class="form-group">
+        <input class="form-control" type="text" name="title">
+        <button class="btn" type="submit">ADD</button>
+    </form>
+</div>
+<script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
 </html>

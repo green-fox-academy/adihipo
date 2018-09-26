@@ -3,14 +3,17 @@
 <head>
     <title>Todolist</title>
     <link rel="stylesheet" th:href="@{/style.css}"/>
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <meta charset="utf-8"/>
 </head>
-<body>
-<h3>TODOS FOR TODAY:</h3>
-<a th:href="'/todo'">Add new todo</a>
-<a th:href="'/?isActive=true'">Show active todo</a>
-<a th:href="'/?isActive=false'">Show all todo</a>
-<table>
+<body class="container">
+<h3 class="text-center">TODOS FOR TODAY:</h3>
+<div class="text-center">
+    <a class="btn btn-link" th:href="'/todo'">Add new todo</a>
+    <a class="btn btn-link" th:href="'/?isActive=true'">Show active todo</a>
+    <a class="btn btn-link" th:href="'/?isActive=false'">Show all todo</a>
+</div>
+<table class="table table-responsive table-hover" >
     <thead>
     <tr>
         <th>ID</th>
@@ -25,12 +28,20 @@
     <tr th:each="todo : ${todoList}" th:object="${todo}">
         <td th:text="*{id}"></td>
         <td th:text="*{title}"></td>
-        <td th:text="*{isUrgent()}"></td>
-        <td th:text="*{isDone()}"></td>
-        <td><a th:href="'/' + *{id} + '/delete'">delete</a></td>
-        <td><a th:href="'/' + *{id} + '/edit'">edit</a></td>
+        <div th:switch="*{isUrgent()}">
+            <td th:case="true"><span class="glyphicon glyphicon-ok"></span></td>
+            <td th:case="false"><span class="glyphicon glyphicon-remove"></span></td>
+        </div>
+        <div th:switch="*{isDone()}">
+            <td th:case="true"><span class="glyphicon glyphicon-ok"></span></td>
+            <td th:case="false"><span class="glyphicon glyphicon-remove"></span></td>
+        </div>
+        <td><a th:href="'/' + *{id} + '/delete'"><button class="btn-danger btn">delete</button></a></td>
+        <td><a th:href="'/' + *{id} + '/edit'"><button class="btn-info btn">edit</button></a></td>
     </tr>
     </tbody>
 </table>
+<script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
 </html>
