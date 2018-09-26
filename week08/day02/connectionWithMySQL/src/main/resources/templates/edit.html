@@ -7,14 +7,15 @@
 </head>
 <body>
 <h3>EDIT TODO:</h3>
-<form method="POST">
+<form method="POST" th:object="${todo}">
     <label>What to do?</label>
-    <input type="text" name="title">
+    <input type="text" th:field="*{title}">
     <label>Urgent?</label>
-    <input type="radio" name="urgent">
+    <input type="checkbox" th:field="*{urgent}">
     <label>Done?</label>
-    <input type="radio" name="done">
-    <button type="submit">UPDATE</button><a href="/">Cancel</a>
+    <input type="checkbox" th:field="*{done}">
+    <button type="submit">UPDATE</button>
+    <a href="/">Cancel</a>
 </form>
 </body>
 </html>
