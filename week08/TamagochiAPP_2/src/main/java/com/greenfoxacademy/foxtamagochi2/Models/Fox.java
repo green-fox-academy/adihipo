@@ -11,19 +11,17 @@ public class Fox {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
   private String name;
-  private boolean isBoy;
+  private String gender;
   private String food;
   private int hunger;
   private String drink;
   private int thirst;
 
-  @OneToMany(cascade = CascadeType.ALL)
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   private List<Trick> tricks;
   private int entertained;
 
-  public Fox(String name, boolean isBoy) {
-    this.name = name;
-    this.isBoy = isBoy;
+  public Fox() {
     food = "pizza";
     hunger = 100;
     drink = "lemonade";
@@ -32,8 +30,10 @@ public class Fox {
     entertained = 100;
   }
 
-  public Fox(Long id, String food, String drink) {
+  public Fox(Long id, String name, String gender, String food, String drink) {
     this.id = id;
+    this.name = name;
+    this.gender = gender;
     this.food = food;
     this.drink = drink;
   }
@@ -52,14 +52,6 @@ public class Fox {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  public boolean isBoy() {
-    return isBoy;
-  }
-
-  public void setBoy(boolean boy) {
-    isBoy = boy;
   }
 
   public String getFood() {
@@ -108,5 +100,14 @@ public class Fox {
 
   public void setEntertained(int entertained) {
     this.entertained = entertained;
+  }
+
+
+  public String getGender() {
+    return gender;
+  }
+
+  public void setGender(String gender) {
+    this.gender = gender;
   }
 }

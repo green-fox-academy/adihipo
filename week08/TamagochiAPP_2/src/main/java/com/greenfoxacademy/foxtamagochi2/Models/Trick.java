@@ -10,9 +10,9 @@ public class Trick {
   private Long id;
   private String name;
 
-  @ManyToOne
-  private Fox fox;
+  public Trick() {
 
+  }
 
   public Trick(String name) {
     this.name = name;

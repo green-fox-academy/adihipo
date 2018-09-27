@@ -48,9 +48,9 @@
     <h2>YOU ARE NOW FEEDING YOUR PET FOX</h2>
     <img src="eat.gif" height="200" width="250">
     <br>
-    <p th:text="'* Om-nom, munches ' + ${fox.getFood().getName()} + ' *'"></p>
+    <p th:text="'* Om-nom, munches ' + ${fox.getFood()} + ' *'"></p>
     <br><br>
-    <a th:href="'/' + *{id}">
+    <a th:href="'/' + ${fox.id}">
         <button class="backandforth">GO BACK</button>
     </a>
 </div>

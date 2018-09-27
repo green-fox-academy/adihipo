@@ -53,29 +53,29 @@
     <h2>YOUR PET WAS WAITING FOR YOU</h2>
     <img src="fox.gif" height="200" width="250">
     <h4 th:object="${fox}"
-        th:text=" *{isBoy()}? 'This is Mr.' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} + '. He knows ' + *{tricks.size()} + ' trick(s):' : 'This is Mrs.' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} + '. She knows ' + *{tricks.size()} + ' trick(s):'"></h4>
+        th:text=" *{gender == 'male'}? 'This is Mr.' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} + '. He knows ' + *{tricks.size()} + ' trick(s):' : 'This is Mrs.' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} + '. She knows ' + *{tricks.size()} + ' trick(s):'"></h4>
     <ul type="disc" th:if="${fox.getTricks().isEmpty()}">
         <li th:text="'No tricks yet. Go learn some!'"></li>
     </ul>
     <ul type="disc" th:unless="${fox.getTricks().isEmpty()}" th:each="trick: ${fox.getTricks()}">
-        <li th:text="${trick}"></li>
+        <li th:text="${trick.name}"></li>
     </ul>
-    <a th:href="*{id} + '/feed'">
+    <a th:href="${fox.id} + '/feed'">
         <button class="dobutton">FEED</button>
     </a>
-    <a th:href="*{id} + '/drink'">
+    <a th:href="${fox.id} + '/drink'">
         <button class="dobutton">GIVE DRINK</button>
     </a>
-    <a th:href="*{id} + '/brush'">
+    <a th:href="${fox.id} + '/brush'">
         <button class="dobutton">BRUSH</button>
     </a>
-    <a th:href="*{id} + '/trick'">
+    <a th:href="${fox.id} + '/trick'">
         <button class="dobutton">DO A TRICK</button>
     </a>
-    <a th:href="*{id} + '/nutritionstore'">
+    <a th:href="${fox.id} + '/nutritionstore'">
         <button class="backandforth">NUTRITION STORE</button>
     </a>
-    <a th:href="*{id} + '/trickcenter'">
+    <a th:href="${fox.id} + '/trickcenter'">
         <button class="backandforth">TRICK CENTER</button>
     </a>
     <a href="/allfoxes">

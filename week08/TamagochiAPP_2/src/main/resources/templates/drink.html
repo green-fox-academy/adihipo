@@ -48,9 +48,9 @@
     <h2>YOUR PET FOX IS DRINKING IN THE DARK</h2>
     <img src="drink.gif" height="300" width="250">
     <br>
-    <p th:text="'* Srrrllp, slurps ' + ${fox.getDrink().getName()} + ' *'"></p>
+    <p th:text="'* Srrrllp, slurps ' + ${fox.getDrink()} + ' *'"></p>
     <br><br>
-    <a th:href="'/' + *{id}">
+    <a th:href="'/' + ${fox.id}">
         <button class="backandforth">GO BACK</button>
     </a>
 </div>

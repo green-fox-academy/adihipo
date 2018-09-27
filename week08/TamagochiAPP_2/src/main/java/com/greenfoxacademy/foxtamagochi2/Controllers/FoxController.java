@@ -23,7 +23,7 @@ public class FoxController {
       return "redirect:/login";
     } else {
 //      foxService.setFoxAmountOfFoodTo100ByNames(name);
-      model.addAttribute("fox", foxRepository.findById(id).get());
+      model.addAttribute("fox", foxRepository.findById(id).orElse(null));
       return "feed";
     }
   }
@@ -34,7 +34,7 @@ public class FoxController {
       return "redirect:/login";
     } else {
 //      foxService.setFoxAmountOfDrinkTo100ByNames(name);
-      model.addAttribute("fox", foxRepository.findById(id).get());
+      model.addAttribute("fox", foxRepository.findById(id).orElse(null));
       return "drink";
     }
   }
@@ -45,7 +45,7 @@ public class FoxController {
       return "redirect:/login";
     } else {
 //      fill needy to 100
-      model.addAttribute("fox", foxRepository.findById(id).get());
+      model.addAttribute("fox", foxRepository.findById(id).orElse(null));
       return "brush";
     }
   }
@@ -55,7 +55,7 @@ public class FoxController {
     if (id == null) {
       return "redirect:/login";
     } else {
-      model.addAttribute("fox", foxRepository.findById(id).get());
+      model.addAttribute("fox", foxRepository.findById(id).orElse(null));
       return "trick";
     }
   }

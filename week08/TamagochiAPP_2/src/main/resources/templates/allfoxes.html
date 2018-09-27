@@ -32,7 +32,7 @@
 <h2>HERE ARE ALL OF YOUR FOXES SO FAR. CHOOSE ONE</h2>
 <br>
 <ul type="disc" th:each="fox: ${foxes}">
-    <a th:href="'/?name=' + ${fox.getName()}">
+    <a th:href="'/' + ${fox.id}">
         <li th:text="${fox.getName()}"></li>
     </a>
 </ul>

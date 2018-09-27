@@ -58,14 +58,14 @@
     <h2>NUTRITION STORE</h2>
     <br><br><br>
     <h4>Select products for your pet fox</h4>
-    <form method="POST">
-        <select name="food">
+    <form method="POST" th:object="${fox}">
+        <select th:field="*{food}">
             <option value="pizza">pizza</option>
             <option value="gyros">gyros</option>
             <option value="falafel">falafel</option>
             <option value="tőtöttkáposzta">tőtöttkáposzta</option>
         </select>
-        <select name="drink">
+        <select th:field="*{drink}">
             <option value="lemonade">lemonade</option>
             <option value="coca cola">coca cola</option>
             <option value="fanta">fanta</option>
@@ -76,7 +76,7 @@
         <button class="submit" type="submit">CHANGE</button>
     </form>
     <br><br>
-    <a th:href="'/' + *{id}">
+    <a th:href="'/' + ${fox.id}">
         <button class="backandforth">GO BACK</button>
     </a>
 </div>
