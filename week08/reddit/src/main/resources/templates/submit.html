@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Thymeleaf Exercise #</title>
+    <title>Reddit clone</title>
     <link rel="stylesheet" th:href="@{/style.css}"/>
     <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <meta charset="utf-8"/>
 </head>
 <body class="container">
 <h2 class="text-center">SUBMIT A NEW POST</h2>
-<form class="form-horizontal" method="post" th:object="${post}">
-    <input type="text" th:field="*{text}">
-    <input type="text" th:field="*{link}">
-    <button type="submit">SUBMIT</button>
+<form method="post" th:object="${post}">
+    text<input class="form-control" type="text" th:field="*{text}">
+    <br>
+    link<input class="form-control" type="text" th:field="*{link}">
+    <br><br><br>
+    <button class="btn btn-info" type="submit">SUBMIT</button>
 </form>
 <a class="btn btn-link" href="/">Go back</a>
 <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
