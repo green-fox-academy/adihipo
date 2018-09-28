@@ -9,5 +9,6 @@ public interface PostService {
 
   void getAllPosts(Model model);
   void saveNewPost(Post post);
+  void createNewEmptyPost(Model model);
 
 }

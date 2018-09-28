@@ -23,4 +23,9 @@ public class PostServiceImpl implements PostService {
   public void saveNewPost(Post post) {
     postRepository.save(post);
   }
+
+  public void createNewEmptyPost(Model model) {
+    model.addAttribute("post", new Post());
+  }
+  
 }

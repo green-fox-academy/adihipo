@@ -26,7 +26,8 @@ public class RedditController {
   }
 
   @GetMapping("/submit")
-  public String showSubmit() {
+  public String showSubmit(Model model) {
+    postService.createNewEmptyPost(model);
     return "submit";
   }
 
