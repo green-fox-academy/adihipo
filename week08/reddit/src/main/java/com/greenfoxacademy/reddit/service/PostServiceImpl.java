@@ -27,5 +27,21 @@ public class PostServiceImpl implements PostService {
   public void createNewEmptyPost(Model model) {
     model.addAttribute("post", new Post());
   }
-  
+
+  public void addlike(Long id) {
+    Post post = postRepository.findById(id).orElse(null);
+    if (!(post == null)) {
+      post.setLikes(post.getLikes() + 1);
+      postRepository.save(post);
+    }
+  }
+
+  public void dislike(Long id) {
+    Post post = postRepository.findById(id).orElse(null);
+    if (!(post == null)) {
+      post.setLikes(post.getLikes() - 1);
+      postRepository.save(post);
+    }
+  }
+
 }

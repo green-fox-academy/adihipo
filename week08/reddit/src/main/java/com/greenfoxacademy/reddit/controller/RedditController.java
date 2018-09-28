@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -34,7 +35,19 @@ public class RedditController {
   @PostMapping("/submit")
   public String postSubmit(@ModelAttribute(value = "post") Post post) {
     postService.saveNewPost(post);
-    return "redirect:";
+    return "redirect:/";
+  }
+
+  @GetMapping("/addlike/{id}")
+  public String addLike(@PathVariable(value = "id") Long id) {
+    postService.addlike(id);
+    return "redirect:/";
+  }
+
+  @GetMapping("/dislike/{id}")
+  public String dislike(@PathVariable(value = "id") Long id) {
+    postService.dislike(id);
+    return "redirect:/";
   }
 
 }
