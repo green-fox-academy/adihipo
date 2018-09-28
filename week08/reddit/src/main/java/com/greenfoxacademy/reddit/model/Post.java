@@ -21,6 +21,7 @@ public class Post {
   private int likes;
 
   public Post() {
+    likes = 0;
   }
 
 }

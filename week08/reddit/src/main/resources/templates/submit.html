@@ -2,10 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Thymeleaf Exercise #</title>
-    <link rel="stylesheet" th:href="@{/style.css}" />
-    <meta charset="utf-8" />
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
 </head>
 <body>
-
+<h2>SUBMIT A NEW POST</h2>
+<form method="post" th:object="${post}">
+    <input type="text" th:field="*{text}">
+    <input type="text" th:field="*{link}">
+    <button type="submit"></button>
+</form>
 </body>
 </html>

@@ -2,10 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Thymeleaf Exercise #</title>
-    <link rel="stylesheet" th:href="@{/style.css}" />
-    <meta charset="utf-8" />
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
 </head>
 <body>
-
+<h2>TRENDING POSTS</h2>
+<a href="/submit">Submit new post</a>
+<table>
+    <tbody>
+    <tr th:each="post : ${posts}" th:object="${post}">
+        <td th:text="*{likes}"></td>
+        <td> + </td>
+        <td> - </td>
+        <td th:text="*{text}" th:href="@{link}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
