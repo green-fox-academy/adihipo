@@ -8,7 +8,7 @@ import java.util.List;
 public class Fox {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String name;
   private String gender;
@@ -17,7 +17,7 @@ public class Fox {
   private String drink;
   private int thirst;
 
-  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   private List<Trick> tricks;
   private int entertained;
 

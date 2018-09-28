@@ -3,6 +3,7 @@ package com.greenfoxacademy.foxtamagochi2.Controllers;
 import com.greenfoxacademy.foxtamagochi2.Models.Fox;
 import com.greenfoxacademy.foxtamagochi2.Models.Trick;
 import com.greenfoxacademy.foxtamagochi2.Repositories.FoxRepository;
+import com.greenfoxacademy.foxtamagochi2.Repositories.TrickRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +13,12 @@ import org.springframework.web.bind.annotation.*;
 public class SettingsController {
 
   private FoxRepository foxRepository;
+  private TrickRepository trickRepository;
 
   @Autowired
-  public SettingsController(FoxRepository foxRepository) {
+  public SettingsController(FoxRepository foxRepository, TrickRepository trickRepository) {
     this.foxRepository = foxRepository;
+    this.trickRepository = trickRepository;
   }
 
   @GetMapping("/login")
@@ -63,7 +66,12 @@ public class SettingsController {
 
   @PostMapping("/{id}/trickcenter")
   public String postNutritionsOfFox(@PathVariable(value = "id") Long id, @ModelAttribute(value = "trick") String trick) {
-    foxRepository.findById(id).get().getTricks().add(new Trick(trick));
+    Trick tricknew = trickRepository.findByName(trick);
+    if (tricknew == null) {
+      foxRepository.findById(id).get().getTricks().add(new Trick(trick));
+    } else if (!foxRepository.findById(id).get().getTricks().contains(tricknew)) {
+      foxRepository.findById(id).get().getTricks().add(tricknew);
+    }
     foxRepository.save(foxRepository.findById(id).get());
     return "redirect:/" + id;
   }
