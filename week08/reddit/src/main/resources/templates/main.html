@@ -14,7 +14,7 @@
         <td th:text="*{likes}"></td>
         <td><a th:href="'/addlike/' + *{id}"> + </a></td>
         <td><a th:href="'/dislike/' + *{id}"> - </a></td>
-        <td th:text="*{text}" th:href="*{link}"></td>
+        <td><a th:href="'http://' + *{link}"><p th:text="*{text}"></p></a></td>
     </tr>
     </tbody>
 </table>
