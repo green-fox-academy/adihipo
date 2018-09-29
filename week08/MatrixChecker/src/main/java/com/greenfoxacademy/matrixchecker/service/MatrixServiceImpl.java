@@ -45,7 +45,7 @@ public class MatrixServiceImpl implements MatrixService {
   public boolean isMatrixIncreasing(String[] matrix) {
     String matrixAsPureString = createPureString(matrix);
     for (int i = 0; i < matrixAsPureString.length() - 1; i++) {
-      if (!((int) matrixAsPureString.charAt(i) <= (int) matrixAsPureString.charAt(i))) {
+      if (!((int) matrixAsPureString.charAt(i) <= (int) matrixAsPureString.charAt(i + 1))) {
         return false;
       }
     }
