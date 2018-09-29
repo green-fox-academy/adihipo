@@ -3,6 +3,8 @@ package com.greenfoxacademy.matrixchecker.controller;
 import com.greenfoxacademy.matrixchecker.service.MatrixService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class MainController {
@@ -14,5 +16,13 @@ public class MainController {
     this.matrixService = matrixService;
   }
 
+  @GetMapping("/")
+  public String mainPage() {
+    return "main";
+  }
 
+  @PostMapping("/matrix")
+  public String receiveValidateSaveToDB() {
+    return "redirect:/";
+  }
 }
