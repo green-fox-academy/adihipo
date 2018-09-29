@@ -4,7 +4,9 @@ import com.greenfoxacademy.matrixchecker.service.MatrixService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MainController {
@@ -22,7 +24,12 @@ public class MainController {
   }
 
   @PostMapping("/matrix")
-  public String receiveValidateSaveToDB() {
-    return "redirect:/";
+  @ResponseBody
+  public String receiveValidateSaveToDB(@ModelAttribute(value = "matrixAsString") String matrixAsString) {
+    matrixService.isMatrixEmpty(matrixAsString);
+    int[][] matrix = matrixService.createMatrixFromString(matrixAsString);
+    matrixService.isMatrixSquare(matrix);
+    matrixService.isMatrixIncreasing(matrix);
+    return matrixAsString;
   }
 }

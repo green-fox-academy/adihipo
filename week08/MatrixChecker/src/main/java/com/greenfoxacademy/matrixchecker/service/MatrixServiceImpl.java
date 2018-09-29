@@ -14,4 +14,23 @@ public class MatrixServiceImpl implements MatrixService {
     this.matrixRepository = matrixRepository;
   }
 
+  @Override
+  public boolean isMatrixEmpty(String matrixAsString) {
+    return false;
+  }
+
+  @Override
+  public int[][] createMatrixFromString(String matrixAsString) {
+    return new int[0][];
+  }
+
+  @Override
+  public boolean isMatrixSquare(int[][] matrix) {
+    return false;
+  }
+
+  @Override
+  public boolean isMatrixIncreasing(int[][] matrix) {
+    return false;
+  }
 }

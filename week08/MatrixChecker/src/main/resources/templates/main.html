@@ -7,14 +7,15 @@
 </head>
 <body>
 <h1>MATRIX CHECKER</h1>
-<br>
-<p>Check if your matrix is increasing!</p>
-<p>Add a matrix and sit back while the evaluation happens.</p>
-<br><br>
+<p>Check if your matrix is increasing! Add a matrix and sit back while the evaluation happens.</p>
 <form method="post" action="/matrix">
-    <label>Enter your matrix here:</label>
-    <input type="text">
-    <button type="submit">Submit</button>
+    <p>Enter your matrix here (it has to be square!):</p>
+    <div>
+        <textarea style="height: 200px; width: 300px" name="matrixAsString"></textarea>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
 </form>
 <h3>Result:</h3>
 </body>
