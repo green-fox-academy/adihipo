@@ -19,13 +19,14 @@ public class MainController {
   }
 
   @GetMapping("/")
-  public String mainPage() {
+  public String mainPage(Model model) {
+    model.addAttribute("validation", matrixService.getMessage());
     return "main";
   }
 
   @PostMapping("/matrix")
   public String receiveValidateSaveToDB(@ModelAttribute(value = "matrixAsString") String matrixAsString) {
-    if (!matrixService.isMatrixEmpty(matrixAsString)) {
+    if (!(matrixService.isMatrixEmpty(matrixAsString))) {
       String[] matrix = matrixService.createMatrixFromString(matrixAsString);
       if (matrixService.isMatrixSquare(matrix)) {
         if (matrixService.isMatrixIncreasing(matrix)) {

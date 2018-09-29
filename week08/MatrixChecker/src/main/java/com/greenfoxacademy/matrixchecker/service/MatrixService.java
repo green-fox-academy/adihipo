@@ -8,6 +8,8 @@ import java.util.List;
 @Service
 public interface MatrixService {
 
+  String getMessage();
+
   boolean isMatrixEmpty(String matrixAsString);
 
   boolean isMatrixSquare(String[] matrix);

@@ -11,6 +11,7 @@ import java.util.List;
 public class MatrixServiceImpl implements MatrixService {
 
   private MatrixRepository matrixRepository;
+  private String message;
 
   @Autowired
   public MatrixServiceImpl(MatrixRepository matrixRepository) {
@@ -19,7 +20,8 @@ public class MatrixServiceImpl implements MatrixService {
 
   @Override
   public boolean isMatrixEmpty(String matrixAsString) {
-    if (matrixAsString == null) {
+    if (matrixAsString.length() == 0) {
+      setMessage("Your matrix is like a desert. Deserted...");
       return true;
     } else {
       return false;
@@ -35,6 +37,7 @@ public class MatrixServiceImpl implements MatrixService {
   public boolean isMatrixSquare(String[] matrix) {
     for (int i = 0; i < matrix.length; i++) {
       if (!(matrix[i].length() == matrix.length)) {
+        setMessage("It's not a square matrix I told you to give one!");
         return false;
       }
     }
@@ -46,9 +49,11 @@ public class MatrixServiceImpl implements MatrixService {
     String matrixAsPureString = createPureString(matrix);
     for (int i = 0; i < matrixAsPureString.length() - 1; i++) {
       if (!((int) matrixAsPureString.charAt(i) <= (int) matrixAsPureString.charAt(i + 1))) {
+        setMessage("Your matrix is not increasing, too bad...");
         return false;
       }
     }
+    setMessage("You got the idea, your matrix is good, increasing!");
     return true;
   }
 
@@ -68,5 +73,13 @@ public class MatrixServiceImpl implements MatrixService {
       builder.append(string);
     }
     return builder.toString();
+  }
+
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
   }
 }
