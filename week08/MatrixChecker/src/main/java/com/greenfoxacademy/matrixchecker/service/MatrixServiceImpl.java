@@ -28,19 +28,27 @@ public class MatrixServiceImpl implements MatrixService {
 
   @Override
   public String[] createMatrixFromString(String matrixAsString) {
-
-    String[] matrix = matrixAsString.split("\\r?\\n");
-
-    return matrix;
+    return matrixAsString.split("\\r?\\n");
   }
 
   @Override
-  public boolean isMatrixSquare(String matrixAsString) {
+  public boolean isMatrixSquare(String[] matrix) {
+    for (int i = 0; i < matrix.length; i++) {
+      if (!(matrix[i].length() == matrix.length)) {
+        return false;
+      }
+    }
     return true;
   }
 
   @Override
   public boolean isMatrixIncreasing(String[] matrix) {
+    String matrixAsPureString = createPureString(matrix);
+    for (int i = 0; i < matrixAsPureString.length() - 1; i++) {
+      if (!((int) matrixAsPureString.charAt(i) <= (int) matrixAsPureString.charAt(i))) {
+        return false;
+      }
+    }
     return true;
   }
 
@@ -52,5 +60,13 @@ public class MatrixServiceImpl implements MatrixService {
   @Override
   public List<Matrix> getAllValidMatricesFromDB() {
     return matrixRepository.findAll();
+  }
+
+  public String createPureString(String[] matrix) {
+    StringBuilder builder = new StringBuilder();
+    for (String string : matrix) {
+      builder.append(string);
+    }
+    return builder.toString();
   }
 }

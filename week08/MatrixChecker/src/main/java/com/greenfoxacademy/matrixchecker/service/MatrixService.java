@@ -10,7 +10,7 @@ public interface MatrixService {
 
   boolean isMatrixEmpty(String matrixAsString);
 
-  boolean isMatrixSquare(String matrixAsString);
+  boolean isMatrixSquare(String[] matrix);
 
   String[] createMatrixFromString(String matrixAsString);
 
