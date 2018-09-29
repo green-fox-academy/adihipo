@@ -24,12 +24,13 @@ public class MainController {
   }
 
   @PostMapping("/matrix")
-  @ResponseBody
   public String receiveValidateSaveToDB(@ModelAttribute(value = "matrixAsString") String matrixAsString) {
-    matrixService.isMatrixEmpty(matrixAsString);
-    int[][] matrix = matrixService.createMatrixFromString(matrixAsString);
-    matrixService.isMatrixSquare(matrix);
-    matrixService.isMatrixIncreasing(matrix);
-    return matrixAsString;
+    if (!matrixService.isMatrixEmpty(matrixAsString) && matrixService.isMatrixSquare(matrixAsString)) {
+      String[] matrix = matrixService.createMatrixFromString(matrixAsString);
+      if (matrixService.isMatrixIncreasing(matrix)) {
+       matrixService.saveMatrix(matrix);
+      }
+    }
+    return "redirect:/";
   }
 }

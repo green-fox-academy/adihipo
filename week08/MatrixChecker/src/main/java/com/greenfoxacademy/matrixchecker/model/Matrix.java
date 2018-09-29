@@ -14,9 +14,13 @@ public class Matrix {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String date;
-  private int[][] matrix;
+  private String[] matrix;
 
   public Matrix() {
+  }
+
+  public Matrix(String[] matrix) {
+    this.matrix = matrix;
     date = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
   }
 
@@ -36,11 +40,11 @@ public class Matrix {
     this.date = date;
   }
 
-  public int[][] getMatrix() {
+  public String[] getMatrix() {
     return matrix;
   }
 
-  public void setMatrix(int[][] matrix) {
+  public void setMatrix(String[] matrix) {
     this.matrix = matrix;
   }
 
