@@ -21,7 +21,7 @@ public class Matrix {
 
   public Matrix(String[] matrix) {
     this.matrix = matrix;
-    date = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+    date = new SimpleDateFormat("yyyy.MM.dd/HH:mm").format(Calendar.getInstance().getTime());
   }
 
   public Long getId() {
