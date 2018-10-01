@@ -1,9 +1,7 @@
 package com.greenfoxacademy.exercices.controller;
 
-import com.greenfoxacademy.exercices.service.AppendService;
-import com.greenfoxacademy.exercices.service.DoublingService;
-import com.greenfoxacademy.exercices.service.ErrorMessageService;
-import com.greenfoxacademy.exercices.service.GreeterService;
+import com.greenfoxacademy.exercices.model.Until;
+import com.greenfoxacademy.exercices.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,13 +14,15 @@ public class MainRestController {
   private DoublingService doublingService;
   private GreeterService greeterService;
   private AppendService appendService;
+  private ActionService actionService;
 
   @Autowired
-  public MainRestController(ErrorMessageService errorMessageService, DoublingService doublingService, GreeterService greeterService, AppendService appendService) {
+  public MainRestController(ErrorMessageService errorMessageService, DoublingService doublingService, GreeterService greeterService, AppendService appendService, ActionService actionService) {
     this.errorMessageService = errorMessageService;
     this.doublingService = doublingService;
     this.greeterService = greeterService;
     this.appendService = appendService;
+    this.actionService = actionService;
   }
 
 
@@ -40,10 +40,7 @@ public class MainRestController {
 
   @GetMapping("/greeter")
   public Object greeter(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "title", required = false) String title) {
-    if (name == null && title == null) {
-      errorMessageService.setMessage("Please provide a name and a title!");
-      return errorMessageService.getErrorMessage();
-    } else if (name == null) {
+    if (name == null) {
       errorMessageService.setMessage("Please provide a name!");
       return errorMessageService.getErrorMessage();
     } else if (title == null) {
@@ -65,4 +62,17 @@ public class MainRestController {
     }
   }
 
+  @PostMapping("/dountil/{action}")
+  public Object action(@PathVariable(value = "action", required = false) String action, @RequestBody(required = false) Until until) {
+    if (action == null) {
+      errorMessageService.setMessage("Please provide an action!");
+      return errorMessageService.getErrorMessage();
+    } else if (until == null) {
+      errorMessageService.setMessage("Please provide a number!");
+      return errorMessageService.getErrorMessage();
+    } else {
+      actionService.doOneActionAccordingToAction(action, until);
+      return actionService.getResult();
+    }
+  }
 }
