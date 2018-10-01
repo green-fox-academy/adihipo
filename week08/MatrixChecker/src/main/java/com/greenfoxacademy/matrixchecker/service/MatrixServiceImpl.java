@@ -46,11 +46,12 @@ public class MatrixServiceImpl implements MatrixService {
 
   @Override
   public boolean isMatrixIncreasing(String[] matrix) {
-    String matrixAsPureString = createPureString(matrix);
-    for (int i = 0; i < matrixAsPureString.length() - 1; i++) {
-      if (!((int) matrixAsPureString.charAt(i) <= (int) matrixAsPureString.charAt(i + 1))) {
-        setMessage("Your matrix is not increasing, too bad...");
-        return false;
+    for (int j = 0; j < matrix.length; j++) {
+      for (int i = 0; i < matrix[j].length() - 1; i++) {
+        if (!((int) matrix[j].charAt(i) <= (int) matrix[j].charAt(i + 1)) || !((int) matrix[i].charAt(j) <= (int) matrix[i + 1].charAt(j))) {
+          setMessage("Your matrix is not increasing, too bad...");
+          return false;
+        }
       }
     }
     setMessage("You got the idea, your matrix is good, increasing!");
@@ -65,14 +66,6 @@ public class MatrixServiceImpl implements MatrixService {
   @Override
   public List<Matrix> getAllValidMatricesFromDB() {
     return matrixRepository.findAll();
-  }
-
-  public String createPureString(String[] matrix) {
-    StringBuilder builder = new StringBuilder();
-    for (String string : matrix) {
-      builder.append(string);
-    }
-    return builder.toString();
   }
 
   public String getMessage() {
