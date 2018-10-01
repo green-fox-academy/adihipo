@@ -84,6 +84,7 @@ public class MainRestController {
       errorMessageService.setMessage("Please provide what to do with the numbers!");
       return errorMessageService.getErrorMessage();
     } else {
+      //Nullpointer ex. needs fixing
       whatService.doOneThingAccordingToAction(whatArray);
       return whatService.getWhatResult();
     }
