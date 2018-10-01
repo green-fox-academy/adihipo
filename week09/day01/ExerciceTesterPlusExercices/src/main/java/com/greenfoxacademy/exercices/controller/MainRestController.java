@@ -1,6 +1,7 @@
 package com.greenfoxacademy.exercices.controller;
 
 import com.greenfoxacademy.exercices.model.Until;
+import com.greenfoxacademy.exercices.model.WhatArray;
 import com.greenfoxacademy.exercices.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,9 +16,10 @@ public class MainRestController {
   private GreeterService greeterService;
   private AppendService appendService;
   private ActionService actionService;
+  private WhatService whatService;
 
   @Autowired
-  public MainRestController(ErrorMessageService errorMessageService, DoublingService doublingService, GreeterService greeterService, AppendService appendService, ActionService actionService) {
+  public MainRestController(ErrorMessageService errorMessageService, DoublingService doublingService, GreeterService greeterService, AppendService appendService, ActionService actionService, WhatService whatService) {
     this.errorMessageService = errorMessageService;
     this.doublingService = doublingService;
     this.greeterService = greeterService;
@@ -67,7 +69,7 @@ public class MainRestController {
     if (action == null) {
       errorMessageService.setMessage("Please provide an action!");
       return errorMessageService.getErrorMessage();
-    } else if (until == null) {
+    } else if (until.getUntil() == null) {
       errorMessageService.setMessage("Please provide a number!");
       return errorMessageService.getErrorMessage();
     } else {
@@ -75,4 +77,16 @@ public class MainRestController {
       return actionService.getResult();
     }
   }
+
+  @PostMapping("/arrays")
+  public Object arraysAndWhats(@RequestBody(required = false) WhatArray whatArray) {
+    if (whatArray == null) {
+      errorMessageService.setMessage("Please provide what to do with the numbers!");
+      return errorMessageService.getErrorMessage();
+    } else {
+      whatService.doOneThingAccordingToAction(whatArray);
+      return whatService.getWhatResult();
+    }
+  }
+
 }
