@@ -18,7 +18,7 @@ public class RestMatrixController {
     this.matrixService = matrixService;
   }
 
-  @GetMapping("/matrices")
+  @GetMapping("/api/matrices")
   public List<Matrix> showValidMatrices() {
     return matrixService.getAllValidMatricesFromDB();
   }
