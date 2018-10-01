@@ -25,6 +25,7 @@ public class MainRestController {
     this.greeterService = greeterService;
     this.appendService = appendService;
     this.actionService = actionService;
+    this.whatService = whatService;
   }
 
 
