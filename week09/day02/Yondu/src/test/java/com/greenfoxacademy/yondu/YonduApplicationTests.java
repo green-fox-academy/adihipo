@@ -2,6 +2,7 @@ package com.greenfoxacademy.yondu;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.greenfoxacademy.yondu.controller.ArrowController;
+import com.greenfoxacademy.yondu.model.ErrorMessage;
 import com.greenfoxacademy.yondu.service.ArrowService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,6 +36,23 @@ public class YonduApplicationTests {
   @MockBean
   private ArrowService arrowService;
 
+  @Test
+  public void shouldReturnWithBADREQUESTAndErrorMessage_when_InputMissing() throws Exception {
 
+    String error = "Please provide distance and time!";
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    ErrorMessage errorMessage = new ErrorMessage(error);
+    String errorJson = objectMapper.writeValueAsString(errorMessage);
+
+    when(arrowService.getErrorMessage()).thenReturn(new ErrorMessage(error));
+
+    mockMvc.perform(post("/")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(errorJson))
+            .andExpect(status().is(400))
+            .andExpect(content().contentType(contentType))
+            .andExpect(jsonPath("$.error", is(error)));
+  }
 
 }
