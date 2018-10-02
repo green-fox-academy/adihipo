@@ -13,6 +13,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.mockito.ArgumentMatchers.any;
 
@@ -44,15 +45,11 @@ public class YonduApplicationTests {
 
     String error = "Please provide distance and time!";
 
-    ObjectMapper objectMapper = new ObjectMapper();
-    ErrorMessage errorMessage = new ErrorMessage(error);
-    String errorJson = objectMapper.writeValueAsString(errorMessage);
-
     when(arrowService.getErrorMessage()).thenReturn(new ErrorMessage(error));
 
     mockMvc.perform(post("/")
             .contentType(MediaType.APPLICATION_JSON)
-            .content(errorJson))
+            .content("{}"))
             .andExpect(status().is(400))
             .andExpect(content().contentType(contentType))
             .andExpect(jsonPath("$.error", is(error)));
@@ -63,10 +60,11 @@ public class YonduApplicationTests {
 
     Double distance = 100.0;
     Double time = 10.0;
+    Double speedPost = null;
     Double speed = distance / time;
 
     ObjectMapper objectMapper = new ObjectMapper();
-    Arrow arrow = new Arrow(distance, time, speed);
+    Arrow arrow = new Arrow(distance, time, speedPost);
     String arrowJson = objectMapper.writeValueAsString(arrow);
 
     when(arrowService.getArrowData(any())).thenReturn(new Arrow(distance, time, speed));
