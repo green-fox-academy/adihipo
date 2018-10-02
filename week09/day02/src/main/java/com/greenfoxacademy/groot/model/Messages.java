@@ -17,7 +17,6 @@ public class Messages {
     this.translated = translated;
   }
 
-
   public String getReceived() {
     return received;
   }
