@@ -1,6 +1,5 @@
 package com.greenfoxacademy.groot;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.greenfoxacademy.groot.controller.GuardianController;
 import com.greenfoxacademy.groot.model.ErrorMessage;
 import com.greenfoxacademy.groot.model.Messages;
@@ -42,15 +41,9 @@ public class GrootApplicationTests {
     String received = "Hello";
     String translated = "I am Groot";
 
-    ObjectMapper objectMapper = new ObjectMapper();
-    Messages messages = new Messages(received, translated);
-    String messagesJson = objectMapper.writeValueAsString(messages);
-
     when(guardianService.getGrootMessage(received)).thenReturn(new Messages(received, translated));
 
-    mockMvc.perform(get("/groot?message=Hello")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(messagesJson))
+    mockMvc.perform(get("/groot?message=Hello"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(contentType))
             .andExpect(jsonPath("$.received", is(received)))
@@ -62,15 +55,9 @@ public class GrootApplicationTests {
 
     String error = "I am Groot";
 
-    ObjectMapper objectMapper = new ObjectMapper();
-    ErrorMessage errorMessage = new ErrorMessage(error);
-    String errorJson = objectMapper.writeValueAsString(errorMessage);
-
     when(guardianService.getErrorMessage()).thenReturn(new ErrorMessage(error));
 
-    mockMvc.perform(get("/groot")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(errorJson))
+    mockMvc.perform(get("/groot"))
             .andExpect(status().is(400))
             .andExpect(content().contentType(contentType))
             .andExpect(jsonPath("$.error", is(error)));
