@@ -9,8 +9,13 @@ public class Arrow {
   private Double time;
   private Double speed;
 
-  public Arrow(){
+  public Arrow() {
 
+  }
+
+  public Arrow(Double distance, Double time) {
+    this.distance = distance;
+    this.time = time;
   }
 
   public Arrow(Double distance, Double time, Double speed) {

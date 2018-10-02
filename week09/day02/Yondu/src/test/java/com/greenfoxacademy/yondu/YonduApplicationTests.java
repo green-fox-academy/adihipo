@@ -60,11 +60,10 @@ public class YonduApplicationTests {
 
     Double distance = 100.0;
     Double time = 10.0;
-    Double speedPost = null;
     Double speed = distance / time;
 
     ObjectMapper objectMapper = new ObjectMapper();
-    Arrow arrow = new Arrow(distance, time, speedPost);
+    Arrow arrow = new Arrow(distance, time);
     String arrowJson = objectMapper.writeValueAsString(arrow);
 
     when(arrowService.getArrowData(any())).thenReturn(new Arrow(distance, time, speed));
