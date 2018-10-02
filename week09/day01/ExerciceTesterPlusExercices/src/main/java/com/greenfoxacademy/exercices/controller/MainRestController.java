@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class MainRestController {
 
+  //Without database, better to make new objects. This way there will be just one, that way more.
+
   private ErrorMessageService errorMessageService;
   private DoublingService doublingService;
   private GreeterService greeterService;
@@ -85,7 +87,6 @@ public class MainRestController {
       errorMessageService.setMessage("Please provide what to do with the numbers!");
       return errorMessageService.getErrorMessage();
     } else {
-      //Nullpointer ex. needs fixing
       whatService.doOneThingAccordingToAction(whatArray);
       return whatService.getWhatResult();
     }
