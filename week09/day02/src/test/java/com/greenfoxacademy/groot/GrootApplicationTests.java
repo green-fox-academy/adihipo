@@ -66,7 +66,7 @@ public class GrootApplicationTests {
     ErrorMessage errorMessage = new ErrorMessage(error);
     String errorJson = objectMapper.writeValueAsString(errorMessage);
 
-    when(guardianService.getErrorMessage()).thenReturn(new ErrorMessage("I am Groot"));
+    when(guardianService.getErrorMessage()).thenReturn(new ErrorMessage(error));
 
     mockMvc.perform(get("/groot")
             .contentType(MediaType.APPLICATION_JSON)
