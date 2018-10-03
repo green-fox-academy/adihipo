@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import java.util.List;
 
 @Service
 public class MainServiceImp implements MainService {
@@ -27,7 +26,7 @@ public class MainServiceImp implements MainService {
   }
 
   @Override
-  public void createEmptyUser(Model model) {
+  public void createEmptyUserToModel(Model model) {
     model.addAttribute("user", new User());
   }
 
@@ -52,4 +51,10 @@ public class MainServiceImp implements MainService {
   public void saveNameToUser(User user) {
     userRepository.save(user);
   }
+
+  @Override
+  public void giveUserToModelById(Long id, Model model) {
+    model.addAttribute("user", userRepository.findById(id).orElse(null));
+  }
+
 }

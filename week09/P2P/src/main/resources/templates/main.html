@@ -2,10 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Thymeleaf Exercise #</title>
-    <link rel="stylesheet" th:href="@{/style.css}" />
-    <meta charset="utf-8" />
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
 </head>
-<body>
+<body th:object="${user}">
 <h1>Peer to Peer Chat Program</h1>
+<br>
+<p>Logged in as:</p>
+<h2 th:text="*{name}"></h2>
+<br>
+<form method="post">
+    <label>You can change your username here:</label>
+    <input type="text" th:field="*{name}">
+    <button type="submit">ENTER</button>
+</form>
+<br>
+<h2><a href="/register">Or login to other account</a></h2>
 </body>
 </html>

@@ -9,7 +9,7 @@ public interface MainService {
 
   boolean isUnregisteredUser(Long id);
 
-  void createEmptyUser(Model model);
+  void createEmptyUserToModel(Model model);
 
   boolean isUserNameNull(User user);
 
@@ -18,4 +18,7 @@ public interface MainService {
   Long getIdByName(String name);
 
   void saveNameToUser(User user);
+
+  void giveUserToModelById(Long id, Model model);
+
 }

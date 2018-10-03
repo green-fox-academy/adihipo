@@ -26,16 +26,23 @@ public class MainController {
   }
 
   @GetMapping("/{id}")
-  public String showMain(@PathVariable(value = "id") Long id) {
+  public String showMain(@PathVariable(value = "id") Long id, Model model) {
     if (mainService.isUnregisteredUser(id))
       return "redirect:/register";
 
+    mainService.giveUserToModelById(id, model);
     return "main";
+  }
+
+  @PostMapping("/{id}")
+  public String changeUsername(@PathVariable(value = "id") Long id, @ModelAttribute(value = "user") User user) {
+    mainService.saveNameToUser(user);
+    return "redirect:/" + id;
   }
 
   @GetMapping("/register")
   public String showRegister(Model model) {
-    mainService.createEmptyUser(model);
+    mainService.createEmptyUserToModel(model);
     return "register";
   }
 
@@ -49,6 +56,11 @@ public class MainController {
 
     mainService.saveNameToUser(user);
     return "redirect:/" + user.getId();
+  }
+
+  @GetMapping("/chat")
+  public String showChat() {
+    return "chat";
   }
 
 }
