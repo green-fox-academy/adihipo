@@ -25,6 +25,14 @@ public class MainServiceImp implements MainService {
   }
 
   @Override
+  public boolean isUserNameNull(User user) {
+    if (user.getName().isEmpty()) {
+      return true;
+    }
+    return false;
+  }
+
+  @Override
   public void saveNameToUser(User user) {
     userRepository.save(user);
   }

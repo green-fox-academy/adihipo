@@ -8,5 +8,6 @@ import org.springframework.ui.Model;
 public interface MainService {
 
   void createEmptyUser(Model model);
+  boolean isUserNameNull(User user);
   void saveNameToUser(User user);
 }

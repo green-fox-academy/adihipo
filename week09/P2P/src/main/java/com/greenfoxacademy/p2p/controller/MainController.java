@@ -32,6 +32,9 @@ public class MainController {
 
   @PostMapping("/register")
   public String postUser(@ModelAttribute(value = "user") User user) {
+    if (mainService.isUserNameNull(user))
+      return "redirect:/register";
+
     mainService.saveNameToUser(user);
     return "redirect:/";
   }
