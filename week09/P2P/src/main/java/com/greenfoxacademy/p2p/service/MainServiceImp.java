@@ -1,9 +1,11 @@
 package com.greenfoxacademy.p2p.service;
 
+import com.greenfoxacademy.p2p.model.User;
 import com.greenfoxacademy.p2p.repository.TextRepository;
 import com.greenfoxacademy.p2p.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 @Service
 public class MainServiceImp implements MainService {
@@ -17,4 +19,13 @@ public class MainServiceImp implements MainService {
     this.textRepository = textRepository;
   }
 
+  @Override
+  public void createEmptyUser(Model model) {
+    model.addAttribute("user", new User());
+  }
+
+  @Override
+  public void saveNameToUser(User user) {
+    userRepository.save(user);
+  }
 }

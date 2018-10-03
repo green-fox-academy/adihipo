@@ -1,9 +1,13 @@
 package com.greenfoxacademy.p2p.controller;
 
+import com.greenfoxacademy.p2p.model.User;
 import com.greenfoxacademy.p2p.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class MainController {
@@ -19,4 +23,17 @@ public class MainController {
   public String showMain() {
     return "main";
   }
+
+  @GetMapping("/register")
+  public String showRegister(Model model) {
+    mainService.createEmptyUser(model);
+    return "register";
+  }
+
+  @PostMapping("/register")
+  public String postUser(@ModelAttribute(value = "user") User user) {
+    mainService.saveNameToUser(user);
+    return "redirect:/";
+  }
+
 }
