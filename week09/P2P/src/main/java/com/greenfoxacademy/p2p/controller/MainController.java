@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -20,7 +21,15 @@ public class MainController {
   }
 
   @GetMapping("/")
-  public String showMain() {
+  public String redirectToRegister() {
+    return "redirect:/register";
+  }
+
+  @GetMapping("/{id}")
+  public String showMain(@PathVariable(value = "id") Long id) {
+    if (mainService.isUnregisteredUser(id)) {
+      return "redirect:/register";
+    }
     return "main";
   }
 
@@ -36,7 +45,7 @@ public class MainController {
       return "redirect:/register";
 
     mainService.saveNameToUser(user);
-    return "redirect:/";
+    return "redirect:/" + user.getId();
   }
 
 }

@@ -20,15 +20,21 @@ public class MainServiceImp implements MainService {
   }
 
   @Override
+  public boolean isUnregisteredUser(Long id) {
+    if (userRepository.findById(id).orElse(null) == null)
+      return true;
+    return false;
+  }
+
+  @Override
   public void createEmptyUser(Model model) {
     model.addAttribute("user", new User());
   }
 
   @Override
   public boolean isUserNameNull(User user) {
-    if (user.getName().isEmpty()) {
+    if (user.getName().isEmpty())
       return true;
-    }
     return false;
   }
 
