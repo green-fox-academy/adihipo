@@ -1,5 +1,6 @@
 package com.greenfoxacademy.p2p.service;
 
+import com.greenfoxacademy.p2p.model.ErrorMessage;
 import com.greenfoxacademy.p2p.model.Text;
 import com.greenfoxacademy.p2p.model.User;
 import com.greenfoxacademy.p2p.repository.TextRepository;
@@ -14,11 +15,13 @@ public class MainServiceImp implements MainService {
 
   private UserRepository userRepository;
   private TextRepository textRepository;
+  private ErrorMessage errorMessage;
 
   @Autowired
-  public MainServiceImp(UserRepository userRepository, TextRepository textRepository) {
+  public MainServiceImp(UserRepository userRepository, TextRepository textRepository, ErrorMessage errorMessage) {
     this.userRepository = userRepository;
     this.textRepository = textRepository;
+    this.errorMessage = errorMessage;
   }
 
   @Override
@@ -67,6 +70,21 @@ public class MainServiceImp implements MainService {
   public void createTextAttachedToUserThenSave(Long id, String text) {
     User user = userRepository.findById(id).orElse(null);
     textRepository.save(new Text(user, text));
+  }
+
+  @Override
+  public void setErrorMessageToString(String string) {
+    errorMessage.setError(string);
+  }
+
+  @Override
+  public void setErrorMessageToEmpty() {
+    errorMessage.setError("");
+  }
+
+  @Override
+  public void giveErrorMessageToModel(Model model) {
+    model.addAttribute("error", errorMessage);
   }
 
 }

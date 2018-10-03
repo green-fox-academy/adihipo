@@ -27,37 +27,49 @@ public class MainController {
 
   @GetMapping("/{id}")
   public String showMain(@PathVariable(value = "id") Long id, Model model) {
-    if (mainService.isUnregisteredUser(id))
+    if (mainService.isUnregisteredUser(id)) {
+      mainService.setErrorMessageToString("Not registered user. Please create account!");
       return "redirect:/register";
+    }
 
     mainService.giveUserToModelById(id, model);
+    mainService.giveErrorMessageToModel(model);
     return "main";
   }
 
   @PostMapping("/{id}")
   public String changeUsername(@PathVariable(value = "id") Long id, @ModelAttribute(value = "user") User user) {
-    if (mainService.isUserAlreadyExist(user.getName()))
+    if (mainService.isUserAlreadyExist(user.getName())) {
+      mainService.setErrorMessageToString("Username already exists. Please try another one!");
       return "redirect:/" + id;
+    }
 
     mainService.saveNameToUser(user);
+    mainService.setErrorMessageToEmpty();
     return "redirect:/" + id;
   }
 
   @GetMapping("/register")
   public String showRegister(Model model) {
     mainService.createEmptyUserToModel(model);
+    mainService.giveErrorMessageToModel(model);
     return "register";
   }
 
   @PostMapping("/register")
   public String postUser(@ModelAttribute(value = "user") User user) {
-    if (mainService.isUserNameNull(user))
+    if (mainService.isUserNameNull(user)) {
+      mainService.setErrorMessageToString("Username field empty. Please provide name!");
       return "redirect:/register";
+    }
 
-    if (mainService.isUserAlreadyExist(user.getName()))
+    if (mainService.isUserAlreadyExist(user.getName())){
+      mainService.setErrorMessageToEmpty();
       return "redirect:/" + mainService.getIdByName(user.getName());
+    }
 
     mainService.saveNameToUser(user);
+    mainService.setErrorMessageToEmpty();
     return "redirect:/" + user.getId();
   }
 
@@ -68,11 +80,14 @@ public class MainController {
 
   @GetMapping("/chat/{id}")
   public String showChat(Model model, @PathVariable(value = "id") Long id) {
-    if (mainService.isUnregisteredUser(id))
+    if (mainService.isUnregisteredUser(id)) {
+      mainService.setErrorMessageToString("Not registered user. Please create account!");
       return "redirect:/register";
+    }
 
     mainService.giveUserToModelById(id, model);
     mainService.giveTextsToModel(model);
+    mainService.setErrorMessageToEmpty();
     return "chat";
   }
 

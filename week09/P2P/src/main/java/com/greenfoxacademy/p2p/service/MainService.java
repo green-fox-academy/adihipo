@@ -25,4 +25,10 @@ public interface MainService {
 
   void createTextAttachedToUserThenSave(Long id, String text);
 
+  void setErrorMessageToString(String string);
+
+  void setErrorMessageToEmpty();
+
+  void giveErrorMessageToModel(Model model);
+
 }
