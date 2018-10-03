@@ -1,8 +1,11 @@
 package com.greenfoxacademy.p2p.service;
 
+import com.greenfoxacademy.p2p.model.Text;
 import com.greenfoxacademy.p2p.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+
+import java.util.List;
 
 @Service
 public interface MainService {
@@ -30,5 +33,7 @@ public interface MainService {
   void setErrorMessageToEmpty();
 
   void giveErrorMessageToModel(Model model);
+
+  List<Text> getMessages();
 
 }

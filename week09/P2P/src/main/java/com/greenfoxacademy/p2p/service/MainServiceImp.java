@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import java.util.List;
+
 
 @Service
 public class MainServiceImp implements MainService {
@@ -85,6 +87,11 @@ public class MainServiceImp implements MainService {
   @Override
   public void giveErrorMessageToModel(Model model) {
     model.addAttribute("error", errorMessage);
+  }
+
+  @Override
+  public List<Text> getMessages() {
+    return textRepository.findAll();
   }
 
 }
