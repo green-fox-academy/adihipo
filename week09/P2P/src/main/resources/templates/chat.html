@@ -9,6 +9,7 @@
 <h1>Peer to Peer Chat Program</h1>
 <br>
 <ul type="disc" th:each="message : ${messages}">
+    <p th:text="${message.user.name}"></p>
     <li th:text="${message.text}"></li>
 </ul>
 <p>Logged in as:</p>

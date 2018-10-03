@@ -76,4 +76,10 @@ public class MainController {
     return "chat";
   }
 
+  @PostMapping("/chat/{id}")
+  public String postTextFromChat(@PathVariable(value = "id") Long id, @ModelAttribute(value = "text") String text) {
+    mainService.createTextAttachedToUserThenSave(id, text);
+    return "redirect:/chat/" + id;
+  }
+
 }

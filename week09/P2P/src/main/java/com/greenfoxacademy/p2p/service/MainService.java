@@ -23,4 +23,6 @@ public interface MainService {
 
   void giveTextsToModel(Model model);
 
+  void createTextAttachedToUserThenSave(Long id, String text);
+
 }

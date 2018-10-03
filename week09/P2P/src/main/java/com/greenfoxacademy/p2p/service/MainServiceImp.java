@@ -1,5 +1,6 @@
 package com.greenfoxacademy.p2p.service;
 
+import com.greenfoxacademy.p2p.model.Text;
 import com.greenfoxacademy.p2p.model.User;
 import com.greenfoxacademy.p2p.repository.TextRepository;
 import com.greenfoxacademy.p2p.repository.UserRepository;
@@ -60,6 +61,12 @@ public class MainServiceImp implements MainService {
   @Override
   public void giveTextsToModel(Model model) {
     model.addAttribute("messages", textRepository.findAll());
+  }
+
+  @Override
+  public void createTextAttachedToUserThenSave(Long id, String text) {
+    User user = userRepository.findById(id).orElse(null);
+    textRepository.save(new Text(user, text));
   }
 
 }
