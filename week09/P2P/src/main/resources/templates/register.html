@@ -6,10 +6,12 @@
     <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <meta charset="utf-8"/>
 </head>
-<body class="container" >
+<body class="container">
 <h3 class="text-center">Peer to Peer Chat Program</h3>
+<br>
 <p class="text-center">Login OR create new account</p>
-<form method="post" th:object="${user}">
+<br><br><br><br>
+<form class="text-center form-horizontal" method="post" th:object="${user}">
     <label>Username</label>
     <input type="text" th:field="*{name}">
     <button class="btn btn-info" type="submit">ENTER</button>

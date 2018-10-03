@@ -6,21 +6,26 @@
     <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <meta charset="utf-8"/>
 </head>
-<body class="container" >
+<body class="container">
 <h3 class="text-center">Peer to Peer Chat Program</h3>
-<ul type="disc" th:each="message : ${messages}">
-    <li class="text-info" th:text="${message.user.name}"></li>
-    <p th:text="${message.text}"></p>
-</ul>
-<p class="text-center">Logged in as:</p>
-<p class="text-center" th:text="${user.name}"></p>
-<form method="post">
-    <label>Submit message here:</label>
+<div class="text-center">
+    <a class="btn btn-link" href="/register">Or login to other account</a>
+    <a class="btn btn-link" th:href="'/' + ${user.id}">Or change username</a>
+</div>
+<div class="text-center text-success">
+    Logged in as: <p th:text="*{user.name}"></p>
+</div>
+<br><br>
+<form class="text-center form-horizontal" method="post">
+    <label>Input message here:</label>
     <input type="text" name="text">
     <button class="btn btn-info" type="submit">SUBMIT</button>
 </form>
-<p><a href="/register">Or login to other account</a></p>
-<p><a th:href="'/' + ${user.id}">Or change username</a></p>
+<br>
+<ul class="list-inline text-center" th:each="message : ${messages}">
+    <li class="text-info" th:text="${message.user.name}"></li>
+    <li th:text="${message.text}"></li>
+</ul>
 <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>

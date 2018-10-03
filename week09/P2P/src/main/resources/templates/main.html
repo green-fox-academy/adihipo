@@ -8,15 +8,24 @@
 </head>
 <body class="container" th:object="${user}">
 <h3 class="text-center">Peer to Peer Chat Program</h3>
-<p class="text-center">Logged in as:</p>
-<p class="text-center" th:text="*{name}"></p>
-<form method="post">
+<div class="text-center">
+    <a class="btn btn-link" href="/register">Or login to other account</a>
+</div>
+<div class="text-center text-success">
+    Logged in as: <p th:text="*{name}"></p>
+</div>
+<br>
+<div class="text-center">
+    <a th:href="'/chat/' + *{id}">
+        <button class="btn btn-success" style="height:100px;width:100px">Go to chat</button>
+    </a>
+</div>
+<br><br><br><br>
+<form class="text-center form-horizontal" method="post">
     <label>You can change your username here:</label>
     <input type="text" th:field="*{name}">
     <button class="btn btn-info" type="submit">ENTER</button>
 </form>
-<p class="text-center"><a class="btn btn-link" th:href="'/chat/' + *{id}">Go to chat</a></p>
-<p class="text-center"><a class="btn btn-link" href="/register">Or login to other account</a></p>
 <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
