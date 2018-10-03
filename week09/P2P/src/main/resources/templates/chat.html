@@ -5,19 +5,21 @@
     <link rel="stylesheet" th:href="@{/style.css}"/>
     <meta charset="utf-8"/>
 </head>
-<body th:object="${user}">
+<body>
 <h1>Peer to Peer Chat Program</h1>
 <br>
+<ul type="disc" th:each="message : ${messages}">
+    <li th:text="${message.text}"></li>
+</ul>
 <p>Logged in as:</p>
-<h2 th:text="*{name}"></h2>
-<br>
+<h2 th:text="${user.name}"></h2>
 <form method="post">
-    <label>You can change your username here:</label>
-    <input type="text" th:field="*{name}">
-    <button type="submit">ENTER</button>
+    <label>Submit message here:</label>
+    <input type="text" name="text">
+    <button type="submit">SUBMIT</button>
 </form>
 <br>
-<h2><a th:href="'/chat/' + *{id}">Go to chat</a></h2>
 <h2><a href="/register">Or login to other account</a></h2>
+<h2><a th:href="'/' + ${user.id}">Or change username</a></h2>
 </body>
 </html>

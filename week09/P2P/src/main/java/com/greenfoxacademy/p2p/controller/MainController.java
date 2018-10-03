@@ -21,7 +21,7 @@ public class MainController {
   }
 
   @GetMapping("/")
-  public String redirectToRegister() {
+  public String redirectToRegisterFromMain() {
     return "redirect:/register";
   }
 
@@ -62,7 +62,17 @@ public class MainController {
   }
 
   @GetMapping("/chat")
-  public String showChat() {
+  public String redirectToRegisterFromChat() {
+    return "redirect:/register";
+  }
+
+  @GetMapping("/chat/{id}")
+  public String showChat(Model model, @PathVariable(value = "id") Long id) {
+    if (mainService.isUnregisteredUser(id))
+      return "redirect:/register";
+
+    mainService.giveUserToModelById(id, model);
+    mainService.giveTextsToModel(model);
     return "chat";
   }
 

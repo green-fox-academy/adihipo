@@ -21,4 +21,6 @@ public interface MainService {
 
   void giveUserToModelById(Long id, Model model);
 
+  void giveTextsToModel(Model model);
+
 }

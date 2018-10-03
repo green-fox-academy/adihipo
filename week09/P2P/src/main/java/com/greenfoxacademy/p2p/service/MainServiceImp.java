@@ -57,4 +57,9 @@ public class MainServiceImp implements MainService {
     model.addAttribute("user", userRepository.findById(id).orElse(null));
   }
 
+  @Override
+  public void giveTextsToModel(Model model) {
+    model.addAttribute("messages", textRepository.findAll());
+  }
+
 }
