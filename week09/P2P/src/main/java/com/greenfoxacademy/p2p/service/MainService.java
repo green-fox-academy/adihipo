@@ -8,7 +8,14 @@ import org.springframework.ui.Model;
 public interface MainService {
 
   boolean isUnregisteredUser(Long id);
+
   void createEmptyUser(Model model);
+
   boolean isUserNameNull(User user);
+
+  boolean isUserAlreadyExist(String name);
+
+  Long getIdByName(String name);
+
   void saveNameToUser(User user);
 }

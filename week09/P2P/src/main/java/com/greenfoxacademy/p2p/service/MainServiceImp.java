@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import java.util.List;
+
 @Service
 public class MainServiceImp implements MainService {
 
@@ -21,9 +23,7 @@ public class MainServiceImp implements MainService {
 
   @Override
   public boolean isUnregisteredUser(Long id) {
-    if (userRepository.findById(id).orElse(null) == null)
-      return true;
-    return false;
+    return (userRepository.findById(id).orElse(null) == null);
   }
 
   @Override
@@ -33,9 +33,19 @@ public class MainServiceImp implements MainService {
 
   @Override
   public boolean isUserNameNull(User user) {
-    if (user.getName().isEmpty())
-      return true;
-    return false;
+    return (user.getName().isEmpty());
+  }
+
+  @Override
+  public boolean isUserAlreadyExist(String name) {
+    User user = userRepository.findByName(name);
+    return (user != null);
+  }
+
+  @Override
+  public Long getIdByName(String name) {
+    User user = userRepository.findByName(name);
+    return user.getId();
   }
 
   @Override

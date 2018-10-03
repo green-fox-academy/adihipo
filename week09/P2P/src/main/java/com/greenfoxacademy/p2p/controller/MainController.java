@@ -27,9 +27,9 @@ public class MainController {
 
   @GetMapping("/{id}")
   public String showMain(@PathVariable(value = "id") Long id) {
-    if (mainService.isUnregisteredUser(id)) {
+    if (mainService.isUnregisteredUser(id))
       return "redirect:/register";
-    }
+
     return "main";
   }
 
@@ -43,6 +43,9 @@ public class MainController {
   public String postUser(@ModelAttribute(value = "user") User user) {
     if (mainService.isUserNameNull(user))
       return "redirect:/register";
+
+    if (mainService.isUserAlreadyExist(user.getName()))
+      return "redirect:/" + mainService.getIdByName(user.getName());
 
     mainService.saveNameToUser(user);
     return "redirect:/" + user.getId();
