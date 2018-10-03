@@ -3,15 +3,18 @@
 <head>
     <title>Thymeleaf Exercise #</title>
     <link rel="stylesheet" th:href="@{/style.css}"/>
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <meta charset="utf-8"/>
 </head>
-<body>
-<h1>Peer to Peer Chat Program</h1>
-<h3>Login OR create new account</h3>
+<body class="container" >
+<h3 class="text-center">Peer to Peer Chat Program</h3>
+<p class="text-center">Login OR create new account</p>
 <form method="post" th:object="${user}">
     <label>Username</label>
     <input type="text" th:field="*{name}">
-    <button type="submit">ENTER</button>
+    <button class="btn btn-info" type="submit">ENTER</button>
 </form>
+<script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
 </html>
