@@ -36,6 +36,9 @@ public class MainController {
 
   @PostMapping("/{id}")
   public String changeUsername(@PathVariable(value = "id") Long id, @ModelAttribute(value = "user") User user) {
+    if (mainService.isUserAlreadyExist(user.getName()))
+      return "redirect:/" + id;
+
     mainService.saveNameToUser(user);
     return "redirect:/" + id;
   }
