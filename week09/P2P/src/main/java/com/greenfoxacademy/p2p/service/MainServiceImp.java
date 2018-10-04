@@ -116,21 +116,11 @@ public class MainServiceImp implements MainService {
   @Override
   public Text createNewTextByGivenInfoThenReturn(Text text) {
     Text newText;
-    User user;
-    if (text.getUser().getId() != null) {
-      user = userRepository.findById(text.getUser().getId()).orElse(null);
-      if (user != null) {
-        newText = new Text(user, text.getText());
-      } else {
-        newText = new Text(text.getUser(), text.getText());
-      }
+    if (isUserAlreadyExist(text.getUser().getName())) {
+      User user = userRepository.findByName(text.getUser().getName());
+      newText = new Text(user, text.getText());
     } else {
-      user = userRepository.findByName(text.getUser().getName());
-      if (user != null) {
-        newText = new Text(user, text.getText());
-      } else {
-        newText = new Text(text.getUser(), text.getText());
-      }
+      newText = new Text(text.getUser(), text.getText());
     }
     textRepository.save(newText);
     return newText;
