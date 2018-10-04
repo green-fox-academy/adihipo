@@ -94,4 +94,10 @@ public class MainServiceImp implements MainService {
     return textRepository.findAll();
   }
 
+  @Override
+  public List<Text> getMessagesByUserName(String userName) {
+    User user = userRepository.findByName(userName);
+    return textRepository.findByUser(user);
+  }
+
 }

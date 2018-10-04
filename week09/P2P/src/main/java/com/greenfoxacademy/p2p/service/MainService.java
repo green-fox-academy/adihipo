@@ -36,4 +36,6 @@ public interface MainService {
 
   List<Text> getMessages();
 
+  List<Text> getMessagesByUserName(String userName);
+
 }
