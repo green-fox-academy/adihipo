@@ -100,4 +100,15 @@ public class MainServiceImp implements MainService {
     return textRepository.findByUser(user);
   }
 
+  @Override
+  public boolean isTextIdExist(Long textId) {
+    Text text = textRepository.findById(textId).orElse(null);
+    return (text != null);
+  }
+
+  @Override
+  public Text getMessageById(Long textId) {
+    return textRepository.findById(textId).orElse(null);
+  }
+
 }

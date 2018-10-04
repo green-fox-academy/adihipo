@@ -38,4 +38,8 @@ public interface MainService {
 
   List<Text> getMessagesByUserName(String userName);
 
+  boolean isTextIdExist(Long textId);
+
+  Text getMessageById(Long textId);
+
 }
