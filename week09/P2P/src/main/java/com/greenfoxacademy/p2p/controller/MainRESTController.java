@@ -27,9 +27,19 @@ public class MainRESTController {
     return mainService.getMessages();
   }
 
+  @GetMapping("/api/messages/username")
+  public List<Text> showMessagesNoUserNameProvidedRest() {
+    return null;
+  }
+
   @GetMapping("/api/messages/username/{username}")
-  public List<Text> showMessagesOfUserRest(@PathVariable(value = "username") String userName) {
+  public List<Text> showMessagesOfUserRest(@PathVariable(value = "username", required = false) String userName) {
     return mainService.getMessagesByUserName(userName);
+  }
+
+  @GetMapping("/api/messages/id")
+  public List<Text> showMessagesNoIdProvidedRest() {
+    return null;
   }
 
   @GetMapping("/api/messages/id/{id}")
