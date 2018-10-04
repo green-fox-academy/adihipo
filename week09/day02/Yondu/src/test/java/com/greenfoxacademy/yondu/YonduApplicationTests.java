@@ -56,7 +56,7 @@ public class YonduApplicationTests {
   }
 
   @Test
-  public void shouldReturnWithOKAndIAMGROOT_when_givingInput() throws Exception {
+  public void shouldReturnWithOKAndData_when_givingInput() throws Exception {
 
     Double distance = 100.0;
     Double time = 10.0;
