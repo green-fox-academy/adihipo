@@ -8,7 +8,9 @@ import com.greenfoxacademy.p2p.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 
@@ -109,6 +111,29 @@ public class MainServiceImp implements MainService {
   @Override
   public Text getMessageById(Long textId) {
     return textRepository.findById(textId).orElse(null);
+  }
+
+  @Override
+  public Text createNewTextByGivenInfoThenReturn(Text text) {
+    Text newText;
+    User user;
+    if (text.getUser().getId() != null) {
+      user = userRepository.findById(text.getUser().getId()).orElse(null);
+      if (user != null) {
+        newText = new Text(user, text.getText());
+      } else {
+        newText = new Text(text.getUser(), text.getText());
+      }
+    } else {
+      user = userRepository.findByName(text.getUser().getName());
+      if (user != null) {
+        newText = new Text(user, text.getText());
+      } else {
+        newText = new Text(text.getUser(), text.getText());
+      }
+    }
+    textRepository.save(newText);
+    return newText;
   }
 
 }

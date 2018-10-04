@@ -42,4 +42,6 @@ public interface MainService {
 
   Text getMessageById(Long textId);
 
+  Text createNewTextByGivenInfoThenReturn(Text text);
+
 }

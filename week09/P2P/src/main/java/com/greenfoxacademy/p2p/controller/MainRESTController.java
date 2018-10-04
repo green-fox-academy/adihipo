@@ -5,10 +5,7 @@ import com.greenfoxacademy.p2p.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,7 +25,7 @@ public class MainRESTController {
   }
 
   @GetMapping("/api/messages/username")
-  public List<Text> showMessagesNoUserNameProvidedRest() {
+  public Text showMessagesNoUserNameProvidedRest() {
     return null;
   }
 
@@ -38,7 +35,7 @@ public class MainRESTController {
   }
 
   @GetMapping("/api/messages/id")
-  public List<Text> showMessagesNoIdProvidedRest() {
+  public Text showMessagesNoIdProvidedRest() {
     return null;
   }
 
@@ -49,6 +46,11 @@ public class MainRESTController {
     } else {
       return ResponseEntity.ok(mainService.getMessageById(textId));
     }
+  }
+
+  @PostMapping("/api/sendmessage")
+  public Text sendMessage(@RequestBody Text text) {
+    return mainService.createNewTextByGivenInfoThenReturn(text);
   }
 
 }
