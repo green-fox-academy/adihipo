@@ -42,7 +42,7 @@ public class MainRESTController {
   @GetMapping("/api/messages/id/{id}")
   public ResponseEntity<?> showMessagesByIdRest(@PathVariable(value = "id") Long textId) {
     if (!mainService.isTextIdExist(textId)) {
-      return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).body("There is no text by this id.");
+      return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).build();
     } else {
       return ResponseEntity.ok(mainService.getMessageById(textId));
     }
