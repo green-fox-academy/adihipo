@@ -4,6 +4,8 @@ import com.greenfoxacademy.authentication.models.Goal;
 import com.greenfoxacademy.authentication.services.BucketListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -19,11 +21,15 @@ public class BucketListRESTController {
   }
 
   @GetMapping("/api/list")
-  public List<Goal> showList(){
+  public List<Goal> showList() {
     return bucketListService.getAllGoalsAsList();
   }
 
-  
+  @PostMapping("/api/save")
+  public Goal saveNewGoal(@RequestBody Goal goal) {
+    bucketListService.saveNewGoal(goal);
+    return goal;
+  }
 
 
 }

@@ -10,4 +10,6 @@ public interface BucketListService {
 
   List<Goal> getAllGoalsAsList();
 
+  void saveNewGoal(Goal goal);
+
 }

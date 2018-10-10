@@ -22,4 +22,9 @@ public class BucketListServiceImp implements BucketListService {
     return goalRepository.findAll();
   }
 
+  @Override
+  public void saveNewGoal(Goal goal) {
+    goalRepository.save(goal);
+  }
+
 }
