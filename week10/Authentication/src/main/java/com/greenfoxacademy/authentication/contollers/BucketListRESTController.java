@@ -14,7 +14,7 @@ public class BucketListRESTController {
     this.bucketListService = bucketListService;
   }
 
-  
+
 
 
 }
