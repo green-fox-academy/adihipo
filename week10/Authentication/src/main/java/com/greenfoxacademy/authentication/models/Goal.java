@@ -19,6 +19,12 @@ public class Goal {
 
   }
 
+  public Goal(String text, Integer dreamLevel, Boolean done) {
+    this.text = text;
+    this.dreamLevel = dreamLevel;
+    this.done = done;
+  }
+
   public Long getId() {
     return id;
   }
