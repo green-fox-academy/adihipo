@@ -45,9 +45,16 @@ public class AuthenticationApplicationTests {
   private BucketListService bucketListService;
 
   @Test
-  public void notExistingPageShouldReturnWith401() throws Exception {
+  public void notExistingPage_shouldReturnWith401() throws Exception {
 
     mockMvc.perform(get("/attractions"))
+            .andExpect(status().is(401));
+  }
+
+  @Test
+  public void givenNoUser_shouldReturnWith401() throws Exception {
+
+    mockMvc.perform(get("/api/list"))
             .andExpect(status().is(401));
   }
 
