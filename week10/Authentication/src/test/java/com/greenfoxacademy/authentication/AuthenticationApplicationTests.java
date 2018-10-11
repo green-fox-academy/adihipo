@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,41 +17,24 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
-//@ContextConfiguration
 @WebMvcTest(BucketListRESTController.class)
-//@WebAppConfiguration
 public class AuthenticationApplicationTests {
-
-//  String contentType = MediaType.APPLICATION_JSON + ";charset=UTF-8";
-//
-//  @Autowired
-//  private WebApplicationContext context;
-
-//  @Autowired
-//  private Filter springSecurityFilterChain;
-
+  
   @Autowired
   private MockMvc mockMvc;
 
   @MockBean
   private BucketListService bucketListService;
-//
-//  @Before
-//  public void setup() {
-//    mockMvc = MockMvcBuilders
-//            .webAppContextSetup(context)
-//            .addFilters(springSecurityFilterChain)
-//            .build();
-//  }
-
 
   @Test
   public void notExistingPageShouldReturnWith401() throws Exception {
@@ -59,18 +43,14 @@ public class AuthenticationApplicationTests {
             .andExpect(status().is(401));
   }
 
-//  @Test
-//  public void loginShouldReturnWithOK_when_validUser() throws Exception {
-//
-//    ObjectMapper objectMapper = new ObjectMapper();
-//    AccountCredentials accountCredentials = new AccountCredentials("admin", "password");
-//    String user = objectMapper.writeValueAsString(accountCredentials);
-//
-//    mockMvc.perform(post("/login")
-//            .content(user))
-//            .andExpect(status().isOk());
-//  }
 
-  //@WithMockUser(value = "test", password = "pass")
+  @Test
+  @WithMockUser(username = "admin", password = "{noop}password", roles = "ADMIN")
+  public void givenAdminUser_whenGetList_thenOk() throws Exception {
+    mockMvc.perform(MockMvcRequestBuilders.get("/api/list")
+            .accept(MediaType.ALL))
+            .andExpect(status().isOk())
+            .andExpect(content().string(containsString("")));
+  }
 
 }
