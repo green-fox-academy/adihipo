@@ -53,7 +53,7 @@ public class AuthenticationApplicationTests {
 
 
   @Test
-  @WithMockUser(username = "admin", password = "{noop}password", roles = "ADMIN")
+  @WithMockUser(username = "admin")
   public void givenAdminUser_whenShowList_thenOkAndData() throws Exception {
 
     String text = "Finish authentication";
@@ -79,7 +79,7 @@ public class AuthenticationApplicationTests {
   }
 
   @Test
-  @WithMockUser(username = "admin", password = "{noop}password", roles = "ADMIN")
+  @WithMockUser(username = "admin")
   public void givenAdminUser_whenSaveNewGoal_thenOkAndData() throws Exception {
 
     String text = "Finish authentication";
