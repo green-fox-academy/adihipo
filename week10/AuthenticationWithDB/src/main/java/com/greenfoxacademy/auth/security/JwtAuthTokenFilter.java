@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,6 +17,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
+import org.springframework.web.util.WebUtils;
 
 public class JwtAuthTokenFilter extends OncePerRequestFilter {
 
@@ -35,7 +37,7 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
     try {
 
       String jwt = getJwt(request);
-      if (jwt!=null && tokenProvider.validateJwtToken(jwt)) {
+      if (jwt != null && tokenProvider.validateJwtToken(jwt)) {
         String username = tokenProvider.getUserNameFromJwtToken(jwt);
 
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
@@ -53,11 +55,15 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
   }
 
   private String getJwt(HttpServletRequest request) {
-    String authHeader = request.getHeader("Authorization");
+//    String authHeader = request.getHeader("Authorization");
+    Cookie cookie = WebUtils.getCookie(request, "Authorization");
+    String authHeader = cookie.getValue();
+    if(authHeader != null)
+      return authHeader;
 
-    if (authHeader != null && authHeader.startsWith("Bearer ")) {
-      return authHeader.replace("Bearer ","");
-    }
+//    if (authHeader != null && authHeader.startsWith("Bearer ")) {
+//      return authHeader.replace("Bearer ", "");
+//    }
 
     return null;
   }

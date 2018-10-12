@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Exercise #</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<form method="post" th:object="${loginForm}">
+    USERNAME<input type="text" th:field="*{username}">
+    PASSWORD<input type="text" th:field="*{password}">
+    <button type="submit">GOOO</button>
+</form>
+</body>
+</html>
