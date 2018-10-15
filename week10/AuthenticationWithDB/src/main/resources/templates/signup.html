@@ -6,9 +6,17 @@
     <meta charset="utf-8"/>
 </head>
 <body>
-<form method="post" th:object="${loginForm}">
+<p th:text="${errorMessage}"></p>
+<form method="post" th:object="${signUpForm}">
+    NAME<input type="text" th:field="*{name}">
     USERNAME<input type="text" th:field="*{username}">
+    EMAIL<input type="email" th:field="*{email}">
     PASSWORD<input type="password" th:field="*{password}">
+    <select th:field="*{role}">
+        <option th:value="user">USER</option>
+        <option th:value="pm">PM</option>
+        <option th:value="admin">ADMIN</option>
+    </select>
     <button type="submit">GOOO</button>
 </form>
 </body>
