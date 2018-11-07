@@ -1,11 +1,34 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <title>Apprentices</title>
-    <link rel="stylesheet" th:href="@{/style.css}" />
-    <meta charset="utf-8" />
+    <script>
+        window.onload = function() {
+
+            const chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "GFA apprentices - 2018"
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 240,
+                    yValueFormatString: "##0",
+                    indexLabel: "{label} {y}",
+                    dataPoints: [
+                        {y: 28, label: "Java"},
+                        {y: 4, label: "Javascript"},
+                        {y: 6, label: "Devops"},
+                        {y: 10, label: "Fullstack"},
+                        {y: 3, label: "Others"}
+                    ]
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
 </head>
 <body>
-
+<div id="chartContainer" style="height: 400px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
-</html>
