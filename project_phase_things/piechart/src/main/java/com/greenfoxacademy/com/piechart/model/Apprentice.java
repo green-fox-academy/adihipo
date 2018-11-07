@@ -12,11 +12,9 @@ public class Apprentice {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String name;
-  private String cohort;
+  private String technology;
 
-  public Apprentice(String name, String cohort) {
-    this.name = name;
-    this.cohort = cohort;
+  public Apprentice() {
   }
 
   public Long getId() {
@@ -35,11 +33,11 @@ public class Apprentice {
     this.name = name;
   }
 
-  public String getCohort() {
-    return cohort;
+  public String getTechnology() {
+    return technology;
   }
 
-  public void setCohort(String cohort) {
-    this.cohort = cohort;
+  public void setTechnology(String technology) {
+    this.technology = technology;
   }
 }
