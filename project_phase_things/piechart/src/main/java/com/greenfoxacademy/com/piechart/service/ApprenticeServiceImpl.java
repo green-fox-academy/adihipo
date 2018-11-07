@@ -1,4 +1,8 @@
 package com.greenfoxacademy.com.piechart.service;
 
-public class ApprenticeServiceImpl {
+import org.springframework.stereotype.Service;
+
+@Service
+public class ApprenticeServiceImpl implements ApprenticeService {
+
 }
