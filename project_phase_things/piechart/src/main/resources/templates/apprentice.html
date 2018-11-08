@@ -10,28 +10,18 @@
                 ['Technology', 'Number of apprentices']
             ];
             /*<![CDATA[*/
-            // var technologies = ['java', 'js', 'devops'];
             var technologies = /*[[${technologies}]]*/ 'technologies';
             /*]]>*/
 
             /*<![CDATA[*/
-            // var technologies = ['java', 'js', 'devops'];
             var numbers = /*[[${numbers}]]*/ 'numbers';
             /*]]>*/
-
 
             for (var i = 0; i < technologies.length; i++) {
                 googleArray.push([technologies[i], numbers[i]]);
             }
 
             var data = google.visualization.arrayToDataTable(googleArray);
-
-            // var data = google.visualization.arrayToDataTable([
-            //     ['Technology', 'Number of apprentices'],
-            //     [technologies[0], 28],
-            //     [technologies[1], 28],
-            //     [technologies[2], 28]
-            // ]);
 
             var options = {
                 title: 'GFA apprentices'
