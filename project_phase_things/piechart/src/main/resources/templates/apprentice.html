@@ -1,34 +1,53 @@
-<!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <script>
-        window.onload = function() {
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" th:inline="javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
 
-            const chart = new CanvasJS.Chart("chartContainer", {
-                animationEnabled: true,
-                title: {
-                    text: "GFA apprentices - 2018"
-                },
-                data: [{
-                    type: "pie",
-                    startAngle: 240,
-                    yValueFormatString: "##0",
-                    indexLabel: "{label} {y}",
-                    dataPoints: [
-                        {y: 28, label: "Java"},
-                        {y: 4, label: "Javascript"},
-                        {y: 6, label: "Devops"},
-                        {y: 10, label: "Fullstack"},
-                        {y: 3, label: "Others"}
-                    ]
-                }]
-            });
-            chart.render();
+        function drawChart() {
+            var googleArray = [
+                ['Technology', 'Number of apprentices']
+            ];
+            /*<![CDATA[*/
+            // var technologies = ['java', 'js', 'devops'];
+            var technologies = /*[[${technologies}]]*/ 'technologies';
+            /*]]>*/
 
+            /*<![CDATA[*/
+            // var technologies = ['java', 'js', 'devops'];
+            var numbers = /*[[${numbers}]]*/ 'numbers';
+            /*]]>*/
+
+
+            for (var i = 0; i < technologies.length; i++) {
+                googleArray.push([technologies[i], numbers[i]]);
+            }
+
+            var data = google.visualization.arrayToDataTable(googleArray);
+
+            // var data = google.visualization.arrayToDataTable([
+            //     ['Technology', 'Number of apprentices'],
+            //     [technologies[0], 28],
+            //     [technologies[1], 28],
+            //     [technologies[2], 28]
+            // ]);
+
+            var options = {
+                title: 'GFA apprentices'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
         }
     </script>
 </head>
 <body>
-<div id="chartContainer" style="height: 400px; width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<div id="piechart" style="width: 900px; height: 500px;"></div>
 </body>
+</html>
+
+
+
+
