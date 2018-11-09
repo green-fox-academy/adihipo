@@ -24,8 +24,8 @@ public class ApprenticeController {
 
   @GetMapping("/")
   public String showPieChart(Model model){
-    List<String> technologies = Arrays.asList("Java", "Javascript", "Devops");
-    List<Integer> numbers = Arrays.asList(28, 12,7);
+    List<String> technologies = Arrays.asList("Java", "Javascript", "Fullstack", "Devops", "Test Automation", "Embedded");
+    List<Integer> numbers = Arrays.asList(20, 12, 7, 1, 6, 7);
     model.addAttribute("technologies", technologies);
     model.addAttribute("numbers", numbers);
     return "apprentice";

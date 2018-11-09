@@ -24,7 +24,9 @@
             var data = google.visualization.arrayToDataTable(googleArray);
 
             var options = {
-                title: 'GFA apprentices'
+                title: 'Green Fox Academy Apprentices',
+                pieSliceText: 'label',
+                legend: 'none'
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -34,7 +36,7 @@
     </script>
 </head>
 <body>
-<div id="piechart" style="width: 900px; height: 500px;"></div>
+<div id="piechart" style="width: 1200px; height: 800px; margin: 0 auto"></div>
 </body>
 </html>
 
