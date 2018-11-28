@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface RestService {
 
+  List<Apprentice> getAllApprentices();
   List<Apprentice> getAllFilteredApprentices();
 }

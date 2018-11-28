@@ -24,7 +24,12 @@ public class RestServiceImpl implements RestService {
   }
 
   @Override
-  public List<Apprentice> getAllFilteredApprentices() {
+  public List<Apprentice> getAllApprentices() {
     return apprenticeRepository.findAll();
+  }
+
+  @Override
+  public List<Apprentice> getAllFilteredApprentices() {
+    return apprenticeRepository.findAllFiltered();
   }
 }

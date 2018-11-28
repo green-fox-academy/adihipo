@@ -19,8 +19,14 @@ public class TestRestController {
   }
 
 
-  @GetMapping("/api/showapprentices")
-  public List<Apprentice> showApprentices() {
+  @GetMapping("/api/all")
+  public List<Apprentice> showAllApprentices() {
+    return restService.getAllApprentices();
+  }
+
+  @GetMapping("/api/filter")
+  public List<Apprentice> showFilteredApprentices() {
     return restService.getAllFilteredApprentices();
   }
+
 }
