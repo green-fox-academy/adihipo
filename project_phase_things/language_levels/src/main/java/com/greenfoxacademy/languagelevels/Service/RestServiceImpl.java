@@ -1,10 +1,13 @@
 package com.greenfoxacademy.languagelevels.Service;
 
+import com.greenfoxacademy.languagelevels.Model.Apprentice;
 import com.greenfoxacademy.languagelevels.Model.ApprenticeRepository;
 import com.greenfoxacademy.languagelevels.Model.LanguageRepository;
 import com.greenfoxacademy.languagelevels.Model.LevelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class RestServiceImpl implements RestService {
@@ -20,5 +23,8 @@ public class RestServiceImpl implements RestService {
     this.levelRepository = levelRepository;
   }
 
-
+  @Override
+  public List<Apprentice> getAllFilteredApprentices() {
+    return apprenticeRepository.findAll();
+  }
 }
