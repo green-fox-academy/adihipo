@@ -1,4 +1,5 @@
 package com.greenfoxacademy.languagelevels.Service;
 
-public interface Service {
+public interface RestService {
+
 }

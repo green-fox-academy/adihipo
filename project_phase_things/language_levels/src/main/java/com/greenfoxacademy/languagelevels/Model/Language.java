@@ -1,9 +1,6 @@
 package com.greenfoxacademy.languagelevels.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Language {
@@ -12,6 +9,7 @@ public class Language {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
   private String name;
+  @ManyToOne
   private Level level;
 
   public Language() {
