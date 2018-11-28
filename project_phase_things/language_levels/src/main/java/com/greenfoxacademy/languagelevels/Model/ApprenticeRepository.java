@@ -13,12 +13,12 @@ public interface ApprenticeRepository extends CrudRepository<Apprentice, Long> {
   List<Apprentice> findAll();
 
   @Query("SELECT apprentice FROM Apprentice apprentice WHERE " +
-   "EXISTS(SELECT apprentice FROM apprentice.languages languages join languages.level level WHERE "+
+          "EXISTS(SELECT apprentice FROM apprentice.languages languages join languages.level level WHERE "+
           "languages.name LIKE 'English' AND level.value > 1)")
   List<Apprentice> findAllFiltered();
 
   @Query("SELECT apprentice FROM Apprentice apprentice WHERE " +
-          "EXISTS(SELECT apprentice FROM apprentice.languages languages WHERE "+
-          "languages.name IN :#{#searched} OR :#{#searched} IS NULL)")
+          "EXISTS(SELECT apprentice FROM apprentice.languages languages join languages.level level WHERE "+
+          "languages.name IN :#{#searched} OR :#{#searched} IS NULL) GROUP BY apprentice.id")
   List<Apprentice> findAllFilteredWEB(@Param("searched") String[] searched);
 }

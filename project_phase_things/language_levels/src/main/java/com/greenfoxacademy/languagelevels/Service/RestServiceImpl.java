@@ -4,6 +4,8 @@ import com.greenfoxacademy.languagelevels.Model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -42,17 +44,25 @@ public class RestServiceImpl implements RestService {
 
   @Override
   public List<Apprentice> getAllFilteredApprenticesWEB(SearchTerms searchTerms) {
-    String[] languages = getLanguagesFromSearchTerms(searchTerms);
+    String[] languages = getLanguagesWithLevelValuesFromSearchTermsToFiltering(searchTerms);
     return apprenticeRepository.findAllFilteredWEB(languages);
   }
 
-  private String[] getLanguagesFromSearchTerms(SearchTerms searchTerms) {
+  private String[] getLanguagesWithLevelValuesFromSearchTermsToFiltering(SearchTerms searchTerms) {
     if (searchTerms.getLanguages() != null) {
-      String[] languages = new String[searchTerms.getLanguages().length];
-      for (int i = 0; i < searchTerms.getLanguages().length; i++) {
-        languages[i] = searchTerms.getLanguages()[i].substring(0, searchTerms.getLanguages()[i].length() - 1);
+      List<String> languagesWithLevels = Arrays.asList(searchTerms.getLanguages());
+      List<String> stringsToFilter = new ArrayList<>();
+      int max = levelRepository.findAll().size();
+      for (int i = 0; i < languagesWithLevels.size(); i++) {
+        int currentLanguageLevelValue = languagesWithLevels.get(i).charAt(languagesWithLevels.size() - 1);
+        String currentLanguageName = languagesWithLevels.get(i).substring(0, languagesWithLevels.get(i).length() - 2);
+        for (int j = currentLanguageLevelValue; j <= max; j++) {
+          stringsToFilter.add(currentLanguageName + j);
+        }
       }
-      return languages;
+      String[] arr = new String[stringsToFilter.size()];
+      arr = stringsToFilter.toArray(arr);
+      return arr;
     }
     return null;
   }
