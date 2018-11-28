@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Filter</title>
+    <title>List of apprentices</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
-
+<div>
+    <form action="/filtering" method="get">
+        <div class="filter-options">
+            <div>
+                <a class="btn btn-primary" role="button" data-toggle="collapse" href="#languages"
+                   aria-expanded="false" aria-controls="languages">
+                    Spoken Languages
+                </a>
+                <div class="collapse" id="languages"
+                     th:classappend="${searchTerms.languages != null} ? show : hide">
+                    <div th:each="language, stat : ${languages}">
+                        <div class="custom-control custom-checkbox">
+                            <input class="custom-control-input" type="checkbox" name="languages"
+                                   th:id="${language.id}" th:value="${language.name} + ${language.level.value}"
+                                   th:checked="${searchTerms.languages != null &&
+                                   #arrays.contains(searchTerms.languages, language)}"
+                                   onclick="this.form.submit();">
+                            <label class="custom-control-label" th:for="${language.id}" th:text="${language.name} + ' ' + ${language.level.name}">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="apprentice-container">
+        <div th:each="apprentice : ${apprentices}">
+            <div th:replace="fragments :: apprenticeTile(
+        apprentice=${apprentice})">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
 </html>

@@ -42,6 +42,18 @@ public class RestServiceImpl implements RestService {
 
   @Override
   public List<Apprentice> getAllFilteredApprenticesWEB(SearchTerms searchTerms) {
-    return apprenticeRepository.findAllFilteredWEB(searchTerms);
+    String[] languages = getLanguagesFromSearchTerms(searchTerms);
+    return apprenticeRepository.findAllFilteredWEB(languages);
+  }
+
+  private String[] getLanguagesFromSearchTerms(SearchTerms searchTerms) {
+    if (searchTerms.getLanguages() != null) {
+      String[] languages = new String[searchTerms.getLanguages().length];
+      for (int i = 0; i < searchTerms.getLanguages().length; i++) {
+        languages[i] = searchTerms.getLanguages()[i].substring(0, searchTerms.getLanguages()[i].length() - 1);
+      }
+      return languages;
+    }
+    return null;
   }
 }
