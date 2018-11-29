@@ -54,8 +54,8 @@ public class RestServiceImpl implements RestService {
       List<String> stringsToFilter = new ArrayList<>();
       int max = levelRepository.findAll().size();
       for (int i = 0; i < languagesWithLevels.size(); i++) {
-        int currentLanguageLevelValue = languagesWithLevels.get(i).charAt(languagesWithLevels.size() - 1);
-        String currentLanguageName = languagesWithLevels.get(i).substring(0, languagesWithLevels.get(i).length() - 2);
+        int currentLanguageLevelValue = (int) languagesWithLevels.get(i).charAt(languagesWithLevels.get(i).length() - 1) - (int) '1' + 1;
+        String currentLanguageName = languagesWithLevels.get(i).substring(0, languagesWithLevels.get(i).length() - 1);
         for (int j = currentLanguageLevelValue; j <= max; j++) {
           stringsToFilter.add(currentLanguageName + j);
         }

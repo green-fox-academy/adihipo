@@ -25,11 +25,11 @@
                         </a>
                         <div class="custom-control custom-checkbox" th:each="level, stat : ${levels}">
                             <input class="custom-control-input" type="checkbox" name="languages"
-                                   th:id="${level.id}" th:value="${language.name} + ${level.value}"
+                                   th:id="${language.name} + ${level.name}" th:value="${language.name} + ${level.value}"
                                    th:checked="${searchTerms.languages != null &&
                                    #arrays.contains(searchTerms.languages, language)}"
                                    onclick="this.form.submit();">
-                            <label class="custom-control-label" th:for="${level.id}" th:text="${language.name} + ' ' + ${level.name}">
+                            <label class="custom-control-label" th:for="${language.name} + ${level.name}" th:text="${language.name} + ' ' + ${level.name}">
                             </label>
                         </div>
                     </div>
