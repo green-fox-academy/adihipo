@@ -20,13 +20,16 @@
                 <div class="collapse" id="languages"
                      th:classappend="${searchTerms.languages != null} ? show : hide">
                     <div th:each="language, stat : ${languages}">
-                        <div class="custom-control custom-checkbox">
+                        <a class="btn" role="button" data-toggle="collapse" href="#languages"
+                           aria-expanded="false" aria-controls="languages" th:text="${language.name}">
+                        </a>
+                        <div class="custom-control custom-checkbox" th:each="level, stat : ${levels}">
                             <input class="custom-control-input" type="checkbox" name="languages"
-                                   th:id="${language.id}" th:value="${language.name} + ${language.level.value}"
+                                   th:id="${level.id}" th:value="${language.name} + ${level.value}"
                                    th:checked="${searchTerms.languages != null &&
                                    #arrays.contains(searchTerms.languages, language)}"
                                    onclick="this.form.submit();">
-                            <label class="custom-control-label" th:for="${language.id}" th:text="${language.name} + ' ' + ${language.level.name}">
+                            <label class="custom-control-label" th:for="${level.id}" th:text="${language.name} + ' ' + ${level.name}">
                             </label>
                         </div>
                     </div>
