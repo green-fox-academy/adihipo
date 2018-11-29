@@ -10,7 +10,7 @@
 
     <div class="apprentice-data-container">
         <span class="language spoken-language" th:each="language : ${apprentice.languages}"
-              th:text="${language.name}"></span>
+              th:text="${language.name} + ' ' + ${language.level.name}"></span>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
