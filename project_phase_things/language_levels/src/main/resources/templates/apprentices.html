@@ -20,17 +20,22 @@
                 <div class="collapse" id="languages"
                      th:classappend="${searchTerms.languages != null} ? show : hide">
                     <div th:each="language, stat : ${languages}">
-                        <a class="btn" role="button" data-toggle="collapse" href="#languages"
-                           aria-expanded="false" aria-controls="languages" th:text="${language.name}">
+                        <a class="btn" role="button" data-toggle="collapse" href="#levels"
+                           aria-expanded="false" aria-controls="levels" th:text="${language.name}">
                         </a>
-                        <div class="custom-control custom-checkbox" th:each="level, stat : ${levels}">
-                            <input class="custom-control-input" type="checkbox" name="languages"
-                                   th:id="${language.name} + ${level.name}" th:value="${language.name} + ${level.value}"
-                                   th:checked="${searchTerms.languages != null &&
-                                   #arrays.contains(searchTerms.languages, language)}"
-                                   onclick="this.form.submit();">
-                            <label class="custom-control-label" th:for="${language.name} + ${level.name}" th:text="${language.name} + ' ' + ${level.name}">
-                            </label>
+                        <div class="collapse" id="levels"
+                             th:classappend="${searchTerms.languages != null} ? show : hide">
+                            <div class="custom-control custom-radio" th:each="level, stat : ${levels}">
+                                <input class="custom-control-input" type="radio" name="languages"
+                                       th:id="${language.name} + ${level.name}"
+                                       th:value="${language.name} + ${level.value}"
+                                       th:checked="${searchTerms.languages != null &&
+                                   #arrays.contains(searchTerms.languages, (language.name+level.id))}"
+                                       onclick="this.form.submit();">
+                                <label class="custom-control-label" th:for="${language.name} + ${level.name}"
+                                       th:text="${language.name} + ' ' + ${level.name}">
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
